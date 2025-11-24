@@ -1,0 +1,7 @@
+{
+	"name": "recipe-watch",
+	"integrations": {
+		"capacitor": {}
+	},
+	"type": "react-vite"
+}
