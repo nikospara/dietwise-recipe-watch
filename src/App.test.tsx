@@ -1,4 +1,7 @@
-import React from 'react';
+// @vitest-environment jsdom
+
+// import { expect, test } from 'vitest';
+//import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 

@@ -2,7 +2,11 @@
 // allows you to do things like:
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
-import '@testing-library/jest-dom/extend-expect';
+//
+// DietWise: See https://ionicframework.com/docs/react/testing/unit-testing/setup
+import { setupIonicReact } from '@ionic/react';
+
+setupIonicReact();
 
 // Mock matchmedia
 window.matchMedia = window.matchMedia || function() {
