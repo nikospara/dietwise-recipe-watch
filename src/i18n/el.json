@@ -1,0 +1,19 @@
+{
+	"general": {
+		"CANCEL": "ΑΚΥΡΩΣΗ",
+		"OK": "OK"
+	},
+	"menu": {
+		"anonymous": "anonymous",
+		"home": "Αρχική",
+		"login": "Σύνδεση",
+		"logout": "Αποσύνδεση"
+	},
+	"home": {
+		"title": "Recipe Watch Αρχική"
+	},
+	"settings": {
+		"title": "Ρυθμίσεις",
+		"language": "Γλώσσα"
+	}
+}

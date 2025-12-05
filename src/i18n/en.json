@@ -1,0 +1,19 @@
+{
+	"general": {
+		"CANCEL": "CANCEL",
+		"OK": "OK"
+	},
+	"menu": {
+		"anonymous": "anonymous",
+		"home": "Home",
+		"login": "Login",
+		"logout": "Logout"
+	},
+	"home": {
+		"title": "Recipe Watch Home"
+	},
+	"settings": {
+		"title": "Settings",
+		"language": "Language"
+	}
+}

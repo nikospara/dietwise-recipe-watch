@@ -4,7 +4,7 @@ import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
-import recommendedConfig from 'eslint-plugin-prettier/recommended';
+import prettierRecommendedConfig from 'eslint-plugin-prettier/recommended';
 
 export default defineConfig(
 	{ ignores: ['dist', 'cypress.config.ts'] },
@@ -24,7 +24,22 @@ export default defineConfig(
 			'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
 			'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
 			'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+			// Allow unused variables if they are prefixed with _
+			'@typescript-eslint/no-unused-vars': [
+				'error',
+				{
+					argsIgnorePattern: '^_',
+					varsIgnorePattern: '^_',
+					caughtErrorsIgnorePattern: '^_',
+				},
+			],
 		},
 	},
-	recommendedConfig,
+	prettierRecommendedConfig,
+	// Override Prettier error → warning
+	{
+		rules: {
+			'prettier/prettier': 'warn',
+		},
+	},
 );

@@ -2,7 +2,6 @@ import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/r
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import Menu from 'components/Menu';
-import Page from 'pages/Page';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -34,6 +33,13 @@ import '@ionic/react/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 
+// importing the top-level page components; let's keep them sorted allphabetically
+import AuthCallbackPage from 'auth/AuthCallbackPage';
+import EndSessionPage from 'auth/EndSessionPage';
+import HomePage from 'home/HomePage';
+import Page from 'pages/Page';
+import SettingsPage from 'settings/SettingsPage';
+
 setupIonicReact();
 
 const App: React.FC = () => {
@@ -44,11 +50,15 @@ const App: React.FC = () => {
 					<Menu />
 					<IonRouterOutlet id="main">
 						<Route path="/" exact={true}>
-							<Redirect to="/folder/Inbox" />
+							<Redirect to="/Home" />
 						</Route>
+						<Route path="/authcallback" exact component={AuthCallbackPage} />
+						<Route path="/endsession" exact component={EndSessionPage} />
+						<Route path="/Home" exact component={HomePage} />
 						<Route path="/folder/:name" exact={true}>
 							<Page />
 						</Route>
+						<Route path="/Settings" exact component={SettingsPage} />
 					</IonRouterOutlet>
 				</IonSplitPane>
 			</IonReactRouter>
