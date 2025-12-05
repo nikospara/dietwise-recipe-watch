@@ -4,7 +4,6 @@ import {
 	IonContent,
 	IonHeader,
 	IonItem,
-	IonLabel,
 	IonList,
 	IonMenuButton,
 	IonPage,
@@ -54,8 +53,8 @@ const SettingsPage: React.FC = () => {
 
 				<IonList>
 					<IonItem>
-						<IonLabel>{t('settings.language')}</IonLabel>
 						<IonSelect
+							label={t('settings.language')}
 							cancelText={t('general.CANCEL')}
 							okText={t('general.OK')}
 							onIonChange={onChangeLanguageCallback}
