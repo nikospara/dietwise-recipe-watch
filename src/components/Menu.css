@@ -114,4 +114,5 @@ ion-icon[icon='logo'] {
 	height: 64px;
 	flex-shrink: 0;
 	margin-right: 8px;
+	margin-top: -5px;
 }

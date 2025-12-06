@@ -17,7 +17,7 @@ import { useAuth } from 'auth/useAuth';
 import './Menu.css';
 
 addIcons({
-	logo: 'src/assets/images/DietWise_icon_LightGreen.svg',
+	logo: 'src/assets/images/DietWise_icon_Orange.svg',
 });
 
 interface AppMenuItemProps {
