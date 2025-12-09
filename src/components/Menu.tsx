@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle } from '@ionic/react';
 import { useLocation } from 'react-router-dom';
 import { addIcons } from 'ionicons';
@@ -13,7 +14,9 @@ import {
 } from 'ionicons/icons';
 import type { Location } from 'history';
 import { useTranslation } from 'react-i18next';
-import { useAuth } from 'auth/useAuth';
+import { useAtomValue } from 'jotai';
+import { userAtom } from 'auth/atoms';
+import { authService } from 'auth/authService';
 import './Menu.css';
 
 addIcons({
@@ -51,7 +54,9 @@ const AppMenuItem: React.FC<AppMenuItemProps> = ({ titleKey, url, iosIcon, mdIco
 
 const Menu: React.FC = () => {
 	const location = useLocation();
-	const { user, signIn, signOut } = useAuth();
+	const user = useAtomValue(userAtom);
+	const signIn = useCallback(() => authService.signIn(), []);
+	const signOut = useCallback(() => authService.signOut(), []);
 	const { t } = useTranslation();
 
 	return (
