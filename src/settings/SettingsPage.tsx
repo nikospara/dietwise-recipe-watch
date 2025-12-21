@@ -12,7 +12,7 @@ import {
 	IonTitle,
 	IonToolbar,
 } from '@ionic/react';
-import { SelectChangeEventDetail } from '@ionic/core';
+import type { SelectChangeEventDetail } from '@ionic/core';
 import { useTranslation } from 'react-i18next';
 import { useAtom } from 'jotai';
 import { languageAtom } from 'settings/atoms';

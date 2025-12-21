@@ -1,10 +1,12 @@
 import type { Atom } from 'jotai';
 import { atomWithObservable } from 'jotai/utils';
-import { catchError, filter, from, map, switchMap } from 'rxjs';
+import { catchError, filter, from, map, switchMap, BehaviorSubject } from 'rxjs';
 import { AuthActions } from 'ionic-appauth';
+import type { TokenResponse } from '@openid/appauth';
 import { authService } from 'auth/authService';
 import type { User } from './model';
 
+// Just for debugging, maybe remove for production
 authService.events$.subscribe({
 	next(action) {
 		console.log('AUTH EVENT', action);
@@ -14,26 +16,25 @@ authService.events$.subscribe({
 	},
 });
 
-export const accessTokenAtom = atomWithObservable(() =>
-	authService.events$.pipe(
+const tokenEventsSubject = new BehaviorSubject<TokenResponse | undefined>(undefined);
+authService.events$
+	.pipe(
 		filter(
-			(action) =>
-				action.action === AuthActions.LoadTokenFromStorageSuccess ||
-				action.action === AuthActions.RefreshSuccess,
+			(event) =>
+				event.action === AuthActions.LoadTokenFromStorageSuccess ||
+				event.action === AuthActions.RefreshSuccess ||
+				event.action === AuthActions.SignInSuccess,
 		),
-		map((action) => action.tokenResponse?.accessToken),
-	),
+		map((event) => event.tokenResponse),
+	)
+	.subscribe(tokenEventsSubject);
+
+export const accessTokenAtom = atomWithObservable(() =>
+	tokenEventsSubject.pipe(map((tokenResponse) => tokenResponse?.accessToken)),
 );
 
 export const refreshTokenAtom = atomWithObservable(() =>
-	authService.events$.pipe(
-		filter(
-			(action) =>
-				action.action === AuthActions.LoadTokenFromStorageSuccess ||
-				action.action === AuthActions.RefreshSuccess,
-		),
-		map((action) => action.tokenResponse?.refreshToken),
-	),
+	tokenEventsSubject.pipe(map((tokenResponse) => tokenResponse?.refreshToken)),
 );
 
 authService.events$

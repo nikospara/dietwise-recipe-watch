@@ -37,7 +37,7 @@ import './theme/variables.css';
 import AuthCallbackPage from 'auth/AuthCallbackPage';
 import EndSessionPage from 'auth/EndSessionPage';
 import HomePage from 'home/HomePage';
-import Page from 'pages/Page';
+import PersonalizationPage from 'personalization/PersonalizationPage';
 import SettingsPage from 'settings/SettingsPage';
 
 setupIonicReact();
@@ -55,9 +55,7 @@ const App: React.FC = () => {
 						<Route path="/authcallback" exact component={AuthCallbackPage} />
 						<Route path="/endsession" exact component={EndSessionPage} />
 						<Route path="/Home" exact component={HomePage} />
-						<Route path="/folder/:name" exact={true}>
-							<Page />
-						</Route>
+						<Route path="/Personalization" exact component={PersonalizationPage} />
 						<Route path="/Settings" exact component={SettingsPage} />
 					</IonRouterOutlet>
 				</IonSplitPane>

@@ -5,6 +5,8 @@ import { addIcons } from 'ionicons';
 import {
 	homeOutline,
 	homeSharp,
+	idCardOutline,
+	idCardSharp,
 	logInOutline,
 	logInSharp,
 	logOutOutline,
@@ -84,6 +86,15 @@ const Menu: React.FC = () => {
 						mdIcon={homeSharp}
 						location={location}
 					/>
+					{user && (
+						<AppMenuItem
+							titleKey="personalization"
+							url="/Personalization"
+							iosIcon={idCardOutline}
+							mdIcon={idCardSharp}
+							location={location}
+						/>
+					)}
 					<AppMenuItem
 						titleKey="settings"
 						url="/Settings"

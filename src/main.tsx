@@ -5,12 +5,12 @@ import { loadSettings } from 'settings/storage';
 import { configureI18n } from './i18n';
 import { Provider as JotaiProvider, createStore } from 'jotai';
 import { settingsAtom } from 'settings/atoms';
-import { authService, configureServerHost } from 'auth/authService';
+import { authService, configureServerHost as configureAuthServerHost } from 'auth/authService';
 
 async function bootstrap() {
 	// configure the application before launching the UI
 	const initialSettings = await loadSettings();
-	configureServerHost(initialSettings.serverHost);
+	configureAuthServerHost(initialSettings.authServerHost);
 	const [_t, _l] = await Promise.all([
 		configureI18n(initialSettings.language), // returns t, if we ever want to use it here
 		authService.init().catch((reason) => {

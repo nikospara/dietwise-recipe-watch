@@ -15,3 +15,10 @@ export const languageAtom = atom(
 		await i18next.changeLanguage(language);
 	},
 );
+
+export const apiServerHostAtom = atom(
+	(get) => get(settingsAtom).apiServerHost,
+	async (get, set, apiServerHost: string) => {
+		await set(settingsAtom, { ...get(settingsAtom), apiServerHost });
+	},
+);

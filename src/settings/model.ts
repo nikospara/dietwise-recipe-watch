@@ -1,9 +1,11 @@
 export interface Settings {
 	language: string;
-	serverHost: string;
+	authServerHost: string;
+	apiServerHost: string;
 }
 
 export const DEFAULT_SETTINGS: Settings = Object.freeze({
 	language: 'en',
-	serverHost: 'http://localhost:8280/realms/dietwise', // TODO Revisit
+	authServerHost: 'http://localhost:8280/realms/dietwise',
+	apiServerHost: 'http://localhost:8180/api/v1',
 });
