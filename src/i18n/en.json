@@ -6,6 +6,7 @@
 	"menu": {
 		"anonymous": "anonymous",
 		"home": "Home",
+		"settings": "Settings",
 		"login": "Login",
 		"logout": "Logout"
 	},
@@ -13,7 +14,7 @@
 		"title": "Recipe Watch Home"
 	},
 	"settings": {
-		"title": "Settings",
+		"title": "Recipe Watch Settings",
 		"language": "Language"
 	},
 	"personalization": {

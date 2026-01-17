@@ -1,7 +1,7 @@
 import { SecureStoragePlugin } from 'capacitor-secure-storage-plugin';
 import { Settings, DEFAULT_SETTINGS } from './model';
 
-const SETTINGS_KEY = 'claimsbuster.settings';
+const SETTINGS_KEY = 'recipewatch.settings';
 
 export async function loadSettings(): Promise<Settings> {
 	let result = DEFAULT_SETTINGS;

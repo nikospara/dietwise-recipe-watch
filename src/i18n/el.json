@@ -6,6 +6,7 @@
 	"menu": {
 		"anonymous": "anonymous",
 		"home": "Αρχική",
+		"settings": "Ρυθμίσεις",
 		"login": "Σύνδεση",
 		"logout": "Αποσύνδεση"
 	},
@@ -13,7 +14,7 @@
 		"title": "Recipe Watch Αρχική"
 	},
 	"settings": {
-		"title": "Ρυθμίσεις",
+		"title": "Recipe Watch Ρυθμίσεις",
 		"language": "Γλώσσα"
 	},
 	"personalization": {

@@ -5,6 +5,7 @@ import { accessTokenAtom } from 'auth/atoms';
 import { apiServerHostAtom } from 'settings/atoms';
 import { t } from 'i18next';
 
+// TODO Use atomWithRefresh: https://jotai.org/docs/utilities/resettable#atomwithrefresh
 export const personalInfoAtom: WritableAtom<Promise<PersonalInfo>, [PersonalInfo], Promise<void>> = atom(
 	async (get, { signal }) => {
 		const accessToken = await get(accessTokenAtom);

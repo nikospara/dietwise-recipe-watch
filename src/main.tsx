@@ -1,4 +1,4 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import { loadSettings } from 'settings/storage';
@@ -30,9 +30,9 @@ async function bootstrap() {
 	const root = createRoot(container!);
 	root.render(
 		<JotaiProvider store={jotaiStore}>
-			<React.StrictMode>
+			<StrictMode>
 				<App />
-			</React.StrictMode>
+			</StrictMode>
 		</JotaiProvider>,
 	);
 }
