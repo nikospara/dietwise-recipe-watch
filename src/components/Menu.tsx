@@ -23,6 +23,8 @@ import './Menu.css';
 
 addIcons({
 	logo: 'src/assets/images/DietWise_icon_Orange.svg',
+	chefoutline: 'src/assets/images/chef-hat.svg',
+	chefsharp: 'src/assets/images/chef-hat-fill.svg',
 });
 
 interface AppMenuItemProps {
@@ -86,6 +88,15 @@ const Menu: React.FC = () => {
 						mdIcon={homeSharp}
 						location={location}
 					/>
+					{user && (
+						<AppMenuItem
+							titleKey="recipe"
+							url="/Recipe"
+							iosIcon="chefoutline"
+							mdIcon="chefsharp"
+							location={location}
+						/>
+					)}
 					{user && (
 						<AppMenuItem
 							titleKey="personalization"

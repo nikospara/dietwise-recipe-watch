@@ -55,6 +55,7 @@ const App: React.FC = () => {
 						<Route path="/authcallback" exact component={AuthCallbackPage} />
 						<Route path="/endsession" exact component={EndSessionPage} />
 						<Route path="/Home" exact component={HomePage} />
+						<Route path="/Recipe" exact component={HomePage} />
 						<Route path="/Personalization" exact component={PersonalizationPage} />
 						<Route path="/Settings" exact component={SettingsPage} />
 					</IonRouterOutlet>

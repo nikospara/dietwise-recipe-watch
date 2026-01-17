@@ -6,12 +6,16 @@
 	"menu": {
 		"anonymous": "anonymous",
 		"home": "Home",
+		"recipe": "Recipe",
 		"settings": "Settings",
 		"login": "Login",
 		"logout": "Logout"
 	},
 	"home": {
 		"title": "Recipe Watch Home"
+	},
+	"recipe": {
+		"title": "Recipe Watch Recipe"
 	},
 	"settings": {
 		"title": "Recipe Watch Settings",

@@ -6,12 +6,16 @@
 	"menu": {
 		"anonymous": "anonymous",
 		"home": "Αρχική",
+		"recipe": "Συνταγή",
 		"settings": "Ρυθμίσεις",
 		"login": "Σύνδεση",
 		"logout": "Αποσύνδεση"
 	},
 	"home": {
 		"title": "Recipe Watch Αρχική"
+	},
+	"recipe": {
+		"title": "Recipe Watch Συνταγή"
 	},
 	"settings": {
 		"title": "Recipe Watch Ρυθμίσεις",
