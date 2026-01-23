@@ -1,7 +1,8 @@
 {
 	"general": {
 		"CANCEL": "ΑΚΥΡΩΣΗ",
-		"OK": "OK"
+		"OK": "OK",
+		"clear": "Καθαρισμός"
 	},
 	"menu": {
 		"anonymous": "anonymous",
@@ -15,7 +16,11 @@
 		"title": "Recipe Watch Αρχική"
 	},
 	"recipe": {
-		"title": "Recipe Watch Συνταγή"
+		"title": "Recipe Watch Συνταγή",
+		"enterUrl": "Πατήστε εδώ για να εισαγάγετε τη διεύθυνση της συνταγής που θέλετε να εκτιμήσετε",
+		"enterUrlModalTitle": "Εισαγάγετε τη διεύθυνση",
+		"ASSESS": "ΕΚΤΙΜΗΣΕ",
+		"urlPlaceholder": "Εισαγάγετε τη διεύθυνση εδώ"
 	},
 	"settings": {
 		"title": "Recipe Watch Ρυθμίσεις",

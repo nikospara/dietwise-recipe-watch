@@ -33,11 +33,14 @@ import '@ionic/react/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 
+import './App.css';
+
 // importing the top-level page components; let's keep them sorted allphabetically
 import AuthCallbackPage from 'auth/AuthCallbackPage';
 import EndSessionPage from 'auth/EndSessionPage';
 import HomePage from 'home/HomePage';
 import PersonalizationPage from 'personalization/PersonalizationPage';
+import RecipePage from 'recipe/RecipePage';
 import SettingsPage from 'settings/SettingsPage';
 
 setupIonicReact();
@@ -46,7 +49,7 @@ const App: React.FC = () => {
 	return (
 		<IonApp>
 			<IonReactRouter>
-				<IonSplitPane contentId="main">
+				<IonSplitPane contentId="main" when="(min-width: 3000px)">
 					<Menu />
 					<IonRouterOutlet id="main">
 						<Route path="/" exact={true}>
@@ -55,7 +58,7 @@ const App: React.FC = () => {
 						<Route path="/authcallback" exact component={AuthCallbackPage} />
 						<Route path="/endsession" exact component={EndSessionPage} />
 						<Route path="/Home" exact component={HomePage} />
-						<Route path="/Recipe" exact component={HomePage} />
+						<Route path="/Recipe" exact component={RecipePage} />
 						<Route path="/Personalization" exact component={PersonalizationPage} />
 						<Route path="/Settings" exact component={SettingsPage} />
 					</IonRouterOutlet>

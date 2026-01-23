@@ -1,0 +1,15 @@
+.flex-grow-1 {
+	flex-grow: 1;
+}
+
+.min-width-64px {
+	min-width: 64px;
+}
+
+.align-items-center {
+	align-items: center;
+}
+
+.flex {
+	display: flex;
+}

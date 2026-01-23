@@ -1,7 +1,8 @@
 {
 	"general": {
 		"CANCEL": "CANCEL",
-		"OK": "OK"
+		"OK": "OK",
+		"clear": "Clear"
 	},
 	"menu": {
 		"anonymous": "anonymous",
@@ -15,7 +16,11 @@
 		"title": "Recipe Watch Home"
 	},
 	"recipe": {
-		"title": "Recipe Watch Recipe"
+		"title": "Recipe Watch Recipe",
+		"enterUrl": "Tap to enter the address of the page containing the recipe you want to assess",
+		"enterUrlModalTitle": "Enter address",
+		"ASSESS": "ASSESS",
+		"urlPlaceholder": "Enter the address here"
 	},
 	"settings": {
 		"title": "Recipe Watch Settings",
