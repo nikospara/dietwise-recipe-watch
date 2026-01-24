@@ -27,6 +27,7 @@ import type { CancellationFunction } from 'recipe/assessRecipe';
 import i18next from 'i18next';
 import UrlContainer from 'recipe/UrlContainer';
 import UrlModal from 'recipe/UrlModal';
+import SplitPane from 'recipe/SplitPane';
 import './RecipePage.css';
 
 const RecipePage: React.FC = () => {
@@ -67,6 +68,29 @@ const RecipePage: React.FC = () => {
 	const hasOutcome = mainState.status === 'SUCCESS' || mainState.status === 'FAILURE';
 	const assessing = mainState.status === 'PENDING';
 
+	const topPaneContent = mainState.recipes?.length ? (
+		<div className="recipe-pane">
+			{mainState.recipes.map((recipe, index) => (
+				<section key={`${recipe.name ?? 'recipe'}-${index}`} className="recipe-pane__item">
+					{recipe.name ? <h2 className="recipe-pane__title">{recipe.name}</h2> : null}
+					{recipe.text ? <pre className="recipe-pane__text">{recipe.text}</pre> : null}
+				</section>
+			))}
+		</div>
+	) : null;
+
+	const bottomPaneContent = mainState.suggestions?.length ? (
+		<div className="recipe-pane">
+			<ul className="recipe-pane__list">
+				{mainState.suggestions.map((suggestion, index) => (
+					<li key={index} className="recipe-pane__list-item">
+						{suggestion.text}
+					</li>
+				))}
+			</ul>
+		</div>
+	) : null;
+
 	return (
 		<IonPage>
 			<IonHeader>
@@ -78,7 +102,7 @@ const RecipePage: React.FC = () => {
 				</IonToolbar>
 			</IonHeader>
 
-			<IonContent fullscreen>
+			<IonContent fullscreen scrollY={false}>
 				{/* Reminder, the inner, collapse=condense header is for iOS: https://ionicframework.com/docs/api/header#condensed-header */}
 				<IonHeader collapse="condense">
 					<IonToolbar>
@@ -86,7 +110,14 @@ const RecipePage: React.FC = () => {
 					</IonToolbar>
 				</IonHeader>
 
-				<UrlContainer onClick={() => setUrlModalIsOpen(true)} url={mainState.url} status={mainState.status} />
+				<div className="recipe-page__content">
+					<UrlContainer
+						onClick={() => setUrlModalIsOpen(true)}
+						url={mainState.url}
+						status={mainState.status}
+					/>
+					<SplitPane className="recipe-page__split" top={topPaneContent} bottom={bottomPaneContent} />
+				</div>
 
 				<UrlModal
 					isOpen={isUrlModalOpen}
