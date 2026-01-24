@@ -46,6 +46,7 @@ const SplitPane: React.FC<SplitPaneProps> = ({
 	const [topRatio, setTopRatio] = useState<number | null>(null);
 	const [isDragging, setIsDragging] = useState(false);
 	const [isAnimating, setIsAnimating] = useState(false);
+	const animationTimeoutRef = useRef<number | null>(null);
 
 	const setTopRatioEvent = useEffectEvent((value: number | null) => {
 		setTopRatio(value);
@@ -55,9 +56,17 @@ const SplitPane: React.FC<SplitPaneProps> = ({
 		setIsAnimating(value);
 	});
 
+	const clearAnimationTimeout = () => {
+		if (animationTimeoutRef.current !== null) {
+			window.clearTimeout(animationTimeoutRef.current);
+			animationTimeoutRef.current = null;
+		}
+	};
+
 	const showTop = useMemo(() => hasRenderableContent(top), [top]);
 	const showBottom = useMemo(() => hasRenderableContent(bottom), [bottom]);
 
+	// Track the rendered height so we can clamp the split ratio and initialize animations.
 	useEffect(() => {
 		const element = containerRef.current;
 		if (!element) return;
@@ -78,8 +87,9 @@ const SplitPane: React.FC<SplitPaneProps> = ({
 		});
 		observer.observe(element);
 		return () => observer.disconnect();
-	}, []);
+	}, [showTop, showBottom]);
 
+	// Initialize the split when the bottom content first appears, with an animated reveal.
 	useEffect(() => {
 		if (!showBottom) {
 			setTopRatioEvent(null);
@@ -88,18 +98,27 @@ const SplitPane: React.FC<SplitPaneProps> = ({
 		}
 		if (containerHeight <= 0 || topRatio !== null) return;
 		const boundedDefault = clampRatio(defaultSplit, containerHeight, minTopHeight, minBottomHeight);
-		setTopRatioEvent(1);
 		setIsAnimatingEvent(true);
+		clearAnimationTimeout();
+		// `frame` and `requestAnimationFrame` ensure the initial collapsed layout is rendered before triggering the
+		// transition by setting topRatio, enabling the animation to run smoothly from the starting state.
+		// It forces the "collapsed" layout to paint before we set the target split ratio, so the flex-basis transition
+		// actually animates. Without the `requestAnimationFrame`, the browser may batch the initial render and the
+		// update into a single layout, which skips the animation.
 		const frame = requestAnimationFrame(() => {
 			setTopRatioEvent(boundedDefault);
 		});
-		const timeout = window.setTimeout(() => setIsAnimatingEvent(false), ANIMATION_DURATION_MS);
+		animationTimeoutRef.current = window.setTimeout(() => {
+			setIsAnimatingEvent(false);
+			animationTimeoutRef.current = null;
+		}, ANIMATION_DURATION_MS + 50);
 		return () => {
 			cancelAnimationFrame(frame);
-			window.clearTimeout(timeout);
+			clearAnimationTimeout();
 		};
 	}, [showBottom, containerHeight, topRatio, defaultSplit, minTopHeight, minBottomHeight]);
 
+	// Keep the ratio within bounds as the container resizes.
 	useEffect(() => {
 		if (topRatio === null || containerHeight <= 0) return;
 		const clamped = clampRatio(topRatio, containerHeight, minTopHeight, minBottomHeight);
@@ -130,6 +149,12 @@ const SplitPane: React.FC<SplitPaneProps> = ({
 		dividerRef.current?.setPointerCapture(event.pointerId);
 	};
 
+	const handleTransitionEnd = (event: React.TransitionEvent<HTMLDivElement>) => {
+		if (event.propertyName !== 'flex-basis') return;
+		clearAnimationTimeout();
+		setIsAnimating(false);
+	};
+
 	if (!showTop && !showBottom) return null;
 
 	if (!showBottom) {
@@ -140,15 +165,16 @@ const SplitPane: React.FC<SplitPaneProps> = ({
 		);
 	}
 
-	const effectiveRatio =
-		topRatio === null ? clampRatio(defaultSplit, containerHeight, minTopHeight, minBottomHeight) : topRatio;
+	const effectiveRatio = topRatio === null ? 1 : topRatio;
+	const topMinHeight = topRatio === null ? 0 : minTopHeight;
+	const bottomMinHeight = topRatio === null ? 0 : minBottomHeight;
 	const topStyle: CSSProperties = {
 		flexBasis: `${effectiveRatio * 100}%`,
-		minHeight: minTopHeight,
+		minHeight: topMinHeight,
 	};
 	const bottomStyle: CSSProperties = {
 		flexBasis: `${(1 - effectiveRatio) * 100}%`,
-		minHeight: minBottomHeight,
+		minHeight: bottomMinHeight,
 	};
 
 	return (
@@ -161,6 +187,7 @@ const SplitPane: React.FC<SplitPaneProps> = ({
 					isAnimating ? 'split-pane__section--animated' : ''
 				}`}
 				style={topStyle}
+				onTransitionEnd={handleTransitionEnd}
 			>
 				{top}
 			</div>
@@ -176,6 +203,7 @@ const SplitPane: React.FC<SplitPaneProps> = ({
 					isAnimating ? 'split-pane__section--animated' : ''
 				}`}
 				style={bottomStyle}
+				onTransitionEnd={handleTransitionEnd}
 			>
 				{bottom}
 			</div>
