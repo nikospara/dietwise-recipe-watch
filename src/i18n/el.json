@@ -20,7 +20,9 @@
 		"enterUrl": "Πατήστε εδώ για να εισαγάγετε τη διεύθυνση της συνταγής που θέλετε να εκτιμήσετε",
 		"enterUrlModalTitle": "Εισαγάγετε τη διεύθυνση",
 		"ASSESS": "ΕΚΤΙΜΗΣΕ",
-		"urlPlaceholder": "Εισαγάγετε τη διεύθυνση εδώ"
+		"urlPlaceholder": "Εισαγάγετε τη διεύθυνση εδώ",
+		"encounteredErrors": "Παρουσιάστηκαν λάθη:",
+		"titleOfSuggestions": "Προτάσεις - Συμβουλές"
 	},
 	"settings": {
 		"title": "Recipe Watch Ρυθμίσεις",

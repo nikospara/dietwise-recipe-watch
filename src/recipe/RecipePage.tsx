@@ -28,6 +28,10 @@ import i18next from 'i18next';
 import UrlContainer from 'recipe/UrlContainer';
 import UrlModal from 'recipe/UrlModal';
 import SplitPane from 'recipe/SplitPane';
+import RecipesComponent from './RecipesComponent';
+import SuggestionsComponent from './SuggestionsComponent';
+import { hasRecipesContent } from './recipesComponentUtils';
+import { hasSuggestionsContent } from './suggestionsComponentUtils';
 import './RecipePage.css';
 
 const RecipePage: React.FC = () => {
@@ -67,28 +71,16 @@ const RecipePage: React.FC = () => {
 
 	const hasOutcome = mainState.status === 'SUCCESS' || mainState.status === 'FAILURE';
 	const assessing = mainState.status === 'PENDING';
-
-	const topPaneContent = mainState.recipes?.length ? (
-		<div className="recipe-pane">
-			{mainState.recipes.map((recipe, index) => (
-				<section key={`${recipe.name ?? 'recipe'}-${index}`} className="recipe-pane__item">
-					{recipe.name ? <h2 className="recipe-pane__title">{recipe.name}</h2> : null}
-					{recipe.text ? <pre className="recipe-pane__text">{recipe.text}</pre> : null}
-				</section>
-			))}
-		</div>
-	) : null;
-
-	const bottomPaneContent = mainState.suggestions?.length ? (
-		<div className="recipe-pane">
-			<ul className="recipe-pane__list">
-				{mainState.suggestions.map((suggestion, index) => (
-					<li key={index} className="recipe-pane__list-item">
-						{suggestion.text}
-					</li>
-				))}
-			</ul>
-		</div>
+	const recipesProps = {
+		status: mainState.status,
+		recipes: mainState.recipes,
+		suggestions: mainState.suggestions,
+		errors: mainState.errors,
+	};
+	const suggestionsProps = recipesProps;
+	const topPaneContent = hasRecipesContent(recipesProps) ? <RecipesComponent {...recipesProps} /> : null;
+	const bottomPaneContent = hasSuggestionsContent(suggestionsProps) ? (
+		<SuggestionsComponent {...suggestionsProps} />
 	) : null;
 
 	return (

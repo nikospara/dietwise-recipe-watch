@@ -1,15 +1,11 @@
-.flex-grow-1 {
-	flex-grow: 1;
-}
+/* Keep sections ordered alphabetically to avoid chaos */
 
+/* Dimension utilities */
 .min-width-64px {
 	min-width: 64px;
 }
 
-.align-items-center {
-	align-items: center;
-}
-
-.flex {
-	display: flex;
+/* Text utilities */
+.text-pre-wrap {
+	white-space: pre-wrap;
 }

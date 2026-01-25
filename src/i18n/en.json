@@ -20,7 +20,9 @@
 		"enterUrl": "Tap to enter the address of the page containing the recipe you want to assess",
 		"enterUrlModalTitle": "Enter address",
 		"ASSESS": "ASSESS",
-		"urlPlaceholder": "Enter the address here"
+		"urlPlaceholder": "Enter the address here",
+		"encounteredErrors": "Encountered errors:",
+		"titleOfSuggestions": "Suggestions - Advice"
 	},
 	"settings": {
 		"title": "Recipe Watch Settings",

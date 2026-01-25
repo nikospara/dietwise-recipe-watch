@@ -16,21 +16,6 @@
 	padding: 8px 4px;
 }
 
-.recipe-pane__item {
-	margin-bottom: 16px;
-}
-
-.recipe-pane__title {
-	font-size: 1.05rem;
-	margin: 0 0 6px;
-}
-
-.recipe-pane__text {
-	white-space: pre-wrap;
-	margin: 0;
-	font-family: inherit;
-}
-
 .recipe-pane__rating {
 	font-weight: 600;
 	margin-bottom: 8px;

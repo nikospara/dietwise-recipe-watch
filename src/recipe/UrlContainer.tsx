@@ -13,7 +13,7 @@ const UrlContainer: React.FC<UrlContainerProps> = (props) => {
 	const { t } = useTranslation();
 
 	return (
-		<p className="url-container flex align-items-center" onClick={props.onClick}>
+		<p className="url-container ion-display-flex ion-align-items-center" onClick={props.onClick}>
 			{typeof props.url === 'string' ? (
 				<>
 					{props.status === 'PENDING' ? <IonSpinner className="min-width-64px" /> : null}
