@@ -22,7 +22,7 @@ const RecipesComponent: React.FC<RecipesComponentProps> = (props: RecipesCompone
 		);
 	} else if (props.errors?.length && !props.suggestions) {
 		return (
-			<div className="recipes-error-pane">
+			<div className="recipes-pane error-pane">
 				<h2>{t('recipe.encounteredErrors')}</h2>
 				<ul>
 					{props.errors.map((err, index) => (

@@ -23,7 +23,7 @@ const SuggestionsComponent: React.FC<SuggestionsComponentProps> = (props: Sugges
 		);
 	} else if (props.errors && props.recipes) {
 		return (
-			<div className="sugestions-error-pane">
+			<div className="sugestions-pane error-pane">
 				<h2>{t('recipe.encounteredErrors')}</h2>
 				<ul>
 					{props.errors.map((err, index) => (

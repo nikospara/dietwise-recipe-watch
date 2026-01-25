@@ -1,5 +1,5 @@
 .url-container {
-	border-bottom: 1px solid #00d3bb;
+	border-bottom: 2px solid var(--dietwise-dark-green);
 	margin: 0;
 	padding-top: 10px;
 	padding-bottom: 5px;

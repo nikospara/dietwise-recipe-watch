@@ -197,6 +197,7 @@ const SplitPane: React.FC<SplitPaneProps> = ({
 				onPointerDown={handlePointerDown}
 				onPointerMove={handlePointerMove}
 				onPointerUp={handlePointerUp}
+				onContextMenu={(e) => e.preventDefault()}
 			/>
 			<div
 				className={`split-pane__section split-pane__section--bottom ${

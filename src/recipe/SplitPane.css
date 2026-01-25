@@ -27,10 +27,11 @@
 	flex: 0 0 14px;
 	justify-content: center;
 	touch-action: none;
+	background-color: var(--dietwise-dark-green);
 }
 
 .split-pane__divider::before {
-	background: var(--ion-color-medium, #9aa0a6);
+	background: var(--dietwise-light-orange);
 	border-radius: 999px;
 	content: '';
 	height: 4px;
@@ -44,4 +45,8 @@
 
 .split-pane--dragging .split-pane__section {
 	transition: none;
+}
+
+.split-pane__section.split-pane__section--bottom {
+	background-color: var(--dietwise-very-light-green);
 }
