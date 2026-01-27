@@ -33,3 +33,14 @@ if (isPlatform('capacitor')) {
 export function configureServerHost(serverHost: string) {
 	authService.authConfig.server_host = serverHost;
 }
+
+export async function getValidAccessToken(): Promise<string | undefined> {
+	try {
+		const tokenResponse = await authService.getValidToken(0);
+		return tokenResponse?.accessToken;
+	} catch (err) {
+		// TODO Check HTTP response/whatever for expired refresh token and prompt to login again
+		console.error('Unable to obtain valid access token', err);
+		return undefined;
+	}
+}

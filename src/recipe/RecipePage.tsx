@@ -45,7 +45,7 @@ const RecipePage: React.FC = () => {
 		async (url: string) => {
 			try {
 				dispatch(createPrepareToAssessRecipeAction(url));
-				cancelRef.current = assessRecipe(
+				cancelRef.current = await assessRecipe(
 					url || '',
 					i18next.language,
 					(message) => {
