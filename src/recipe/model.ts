@@ -33,10 +33,12 @@ export interface Suggestion {
 export interface Recipe {
 	name: string;
 	recipeYield: string;
-	recipeIngredient: string[];
+	recipeIngredients: string[];
 	recipeInstructions: string[]; // TODO Must reference ingedient
 	text: string;
 }
+
+// TODO Model altered ingredients
 
 export interface RecipeExtractionRecipeAssessmentMessage {
 	type: 'RECIPES';

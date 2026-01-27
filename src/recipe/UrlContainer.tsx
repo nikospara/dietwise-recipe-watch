@@ -18,12 +18,12 @@ const UrlContainer: React.FC<UrlContainerProps> = (props) => {
 				<>
 					{props.status === 'PENDING' ? <IonSpinner className="min-width-64px" /> : null}
 					{props.status === 'SUCCESS' ? (
-						<IonIcon icon={checkmarkCircle} color="success" size="large" className="min-width-64px" />
+						<IonIcon icon={checkmarkCircle} color="dwlightgreen" size="large" className="min-width-64px" />
 					) : null}
 					{props.status === 'FAILURE' ? (
 						<IonIcon icon={alertCircle} color="danger" size="large" className="min-width-64px" />
 					) : null}
-					<span>{props.url}</span>
+					<span className="ion-text-nowrap overflow-hidden text-overflow-ellipsis">{props.url}</span>
 				</>
 			) : (
 				<span className="enter-url-label">{t('recipe.enterUrl')}</span>

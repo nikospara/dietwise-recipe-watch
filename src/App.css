@@ -5,7 +5,16 @@
 	min-width: 64px;
 }
 
+/* Overflow */
+.overflow-hidden {
+	overflow: hidden;
+}
+
 /* Text utilities */
+.text-overflow-ellipsis {
+	text-overflow: ellipsis;
+}
+
 .text-pre-wrap {
 	white-space: pre-wrap;
 }

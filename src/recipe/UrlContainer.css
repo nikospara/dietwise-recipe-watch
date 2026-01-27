@@ -1,8 +1,7 @@
 .url-container {
 	border-bottom: 2px solid var(--dietwise-dark-green);
 	margin: 0;
-	padding-top: 10px;
-	padding-bottom: 5px;
+	padding: 10px 8px 5px 8px;
 }
 
 .enter-url-label {

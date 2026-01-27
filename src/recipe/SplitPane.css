@@ -47,6 +47,13 @@
 	transition: none;
 }
 
+.split-pane__section.split-pane__section--top {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
 .split-pane__section.split-pane__section--bottom {
-	background-color: var(--dietwise-very-light-green);
+	background-color: var(--dietwise-very-light-orange);
+	padding-left: 16px;
+	padding-right: 16px;
 }

@@ -6,4 +6,20 @@ http://ionicframework.com/docs/theming/ */
 	--dietwise-dark-green: #638672;
 	--dietwise-light-orange: #fcc594;
 	--dietwise-very-light-orange: #f5ece4;
+
+	--ion-color-dwlightgreen: #00d3bb;
+	--ion-color-dwlightgreen-rgb: 0,211,187;
+	--ion-color-dwlightgreen-contrast: #000000;
+	--ion-color-dwlightgreen-contrast-rgb: 0,0,0;
+	--ion-color-dwlightgreen-shade: #00baa5;
+	--ion-color-dwlightgreen-tint: #1ad7c2;
+}
+
+.ion-color-dwlightgreen {
+	--ion-color-base: var(--ion-color-dwlightgreen);
+	--ion-color-base-rgb: var(--ion-color-dwlightgreen-rgb);
+	--ion-color-contrast: var(--ion-color-dwlightgreen-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-dwlightgreen-contrast-rgb);
+	--ion-color-shade: var(--ion-color-dwlightgreen-shade);
+	--ion-color-tint: var(--ion-color-dwlightgreen-tint);
 }
