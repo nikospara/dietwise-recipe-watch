@@ -46,16 +46,28 @@ export function reducer(state: MainData, action: MainAction): MainData {
 			return {
 				...state,
 				recipes: action.message.recipes.map((r) => {
-					let text = r.text;
+					let text = r.recipe.text;
 					if (typeof text === 'string') {
 						text = text.replaceAll('\\n', '\n'); // Hack!
 						text = text.trimStart(); // Hack!
 					}
 					return {
-						...r,
+						...r.recipe,
 						text,
 					};
 				}),
+				detectionTypes: action.message.recipes.map((r) => r.detectionType),
+				pageText: action.message.pageText,
+			};
+		}
+		case 'MoreThanOneRecipesAssessmentMessageReceivedAction': {
+			if (state.status !== 'PENDING') {
+				throw new Error('Inconsistent state for MoreThanOneRecipesAssessmentMessageReceivedAction');
+			}
+			return {
+				...state,
+				status: 'SELECT_RECIPE',
+				errors: [`Number of recipes: ${action.numberOfRecipes}`],
 			};
 		}
 		case 'SuggestionsMessageReceivedAction': {

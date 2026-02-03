@@ -1,12 +1,13 @@
 import { IonIcon, IonSpinner } from '@ionic/react';
-import { alertCircle, checkmarkCircle } from 'ionicons/icons';
+import { alertCircle, checkmarkCircle, helpCircle } from 'ionicons/icons';
 import { useTranslation } from 'react-i18next';
+import type { MainDataStatus } from './model';
 import './UrlContainer.css';
 
 export interface UrlContainerProps {
 	onClick: () => void;
 	url: string | undefined;
-	status: 'INITIAL' | 'SUCCESS' | 'FAILURE' | 'PENDING';
+	status: MainDataStatus;
 }
 
 const UrlContainer: React.FC<UrlContainerProps> = (props) => {
@@ -22,6 +23,9 @@ const UrlContainer: React.FC<UrlContainerProps> = (props) => {
 					) : null}
 					{props.status === 'FAILURE' ? (
 						<IonIcon icon={alertCircle} color="danger" size="large" className="min-width-64px" />
+					) : null}
+					{props.status === 'SELECT_RECIPE' ? (
+						<IonIcon icon={helpCircle} color="warning" size="large" className="min-width-64px" />
 					) : null}
 					<span className="ion-text-nowrap overflow-hidden text-overflow-ellipsis">{props.url}</span>
 				</>

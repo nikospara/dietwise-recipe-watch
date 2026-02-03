@@ -16,7 +16,7 @@ export async function assessRecipe(
 	const accessToken = await getValidAccessToken();
 	const handler = streamJson(
 		// TODO Parameterize this!!!
-		'http://localhost:8180/api/v1/recipe/assess/url-dummy',
+		'http://localhost:8180/api/v1/recipe/assess/url',
 		{
 			url,
 			// viewPort would go here

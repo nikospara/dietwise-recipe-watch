@@ -22,7 +22,8 @@
 		"ASSESS": "ASSESS",
 		"urlPlaceholder": "Enter the address here",
 		"encounteredErrors": "Encountered errors:",
-		"titleOfSuggestions": "Suggestions - Advice"
+		"titleOfSuggestions": "Suggestions - Advice",
+		"anonymousRecipeTemplateTitle": "Recipe #{{index, number}}"
 	},
 	"settings": {
 		"title": "Recipe Watch Settings",

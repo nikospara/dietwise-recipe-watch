@@ -74,6 +74,7 @@ const RecipePage: React.FC = () => {
 	const recipesProps = {
 		status: mainState.status,
 		recipes: mainState.recipes,
+		detectionTypes: mainState.detectionTypes,
 		suggestions: mainState.suggestions,
 		errors: mainState.errors,
 	};

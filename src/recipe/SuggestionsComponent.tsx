@@ -1,9 +1,10 @@
 import type { Recipe, Suggestion } from 'recipe/model';
 import { useTranslation } from 'react-i18next';
 import SuggestionComponent from './SuggestionComponent';
+import type { MainDataStatus } from './model';
 
 export interface SuggestionsComponentProps {
-	status: 'INITIAL' | 'SUCCESS' | 'FAILURE' | 'PENDING';
+	status: MainDataStatus;
 	recipes: Recipe[] | undefined;
 	suggestions: Suggestion[] | undefined;
 	errors: string[] | undefined;

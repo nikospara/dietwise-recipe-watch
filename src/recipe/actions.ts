@@ -29,6 +29,11 @@ export interface RecipeExtractionMessageReceivedAction extends Action {
 	message: RecipeExtractionRecipeAssessmentMessage;
 }
 
+export interface MoreThanOneRecipesAssessmentMessageReceivedAction extends Action {
+	type: 'MoreThanOneRecipesAssessmentMessageReceivedAction';
+	numberOfRecipes: number;
+}
+
 export interface SuggestionsMessageReceivedAction extends Action {
 	type: 'SuggestionsMessageReceivedAction';
 	message: SuggestionsRecipeAssessmentMessage;
@@ -41,6 +46,7 @@ export interface RecipeAssessmentErrorMessageReceivedAction extends Action {
 
 export type MessageReceivedAction =
 	| RecipeExtractionMessageReceivedAction
+	| MoreThanOneRecipesAssessmentMessageReceivedAction
 	| SuggestionsMessageReceivedAction
 	| RecipeAssessmentErrorMessageReceivedAction;
 
@@ -50,6 +56,7 @@ export type MainAction =
 	| RecipeAssessmentCompletedAction
 	| ResetMainPageAction
 	| RecipeExtractionMessageReceivedAction
+	| MoreThanOneRecipesAssessmentMessageReceivedAction
 	| SuggestionsMessageReceivedAction
 	| RecipeAssessmentErrorMessageReceivedAction;
 
@@ -101,6 +108,11 @@ export function createMessageReceivedAction(message: RecipeAssessmentMessage): M
 			return {
 				type: 'RecipeAssessmentErrorMessageReceivedAction',
 				message,
+			};
+		case 'MORE_THAN_ONE_RECIPE':
+			return {
+				type: 'MoreThanOneRecipesAssessmentMessageReceivedAction',
+				numberOfRecipes: message.numberOfRecipes,
 			};
 	}
 }

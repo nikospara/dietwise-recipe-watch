@@ -1,13 +1,38 @@
-import type { Recipe } from 'recipe/model';
+import { IonIcon } from '@ionic/react';
+import { addIcons } from 'ionicons';
+import { useTranslation } from 'react-i18next';
+import type { Recipe, RecipeDetectionType } from 'recipe/model';
+// import { homeOutline, logInSharp } from 'ionicons/icons';
+
+addIcons({
+	brain: 'src/assets/images/brain.svg',
+	jsonld: 'src/assets/images/json-ld.svg',
+});
 
 export interface RecipeComponentProps {
+	index: number;
 	recipe: Recipe;
+	detectionType: RecipeDetectionType | undefined;
 }
 
 const RecipeComponent: React.FC<RecipeComponentProps> = (props: RecipeComponentProps) => {
+	const { t } = useTranslation();
+
 	return (
 		<section>
-			{props.recipe.name ? <h2>{props.recipe.name}</h2> : null}
+			<h2 className="ion-display-flex ion-align-items-center ion-justify-content-between">
+				{props.recipe.name
+					? props.recipe.name
+					: t('recipe.anonymousRecipeTemplateTitle', { index: props.index + 1 })}
+				{props.detectionType ? (
+					<IonIcon
+						icon={props.detectionType === 'JSONLD' ? 'jsonld' : 'brain'}
+						aria-hidden="true"
+						color="lightmedium"
+						size="large"
+					/>
+				) : null}
+			</h2>
 			{props.recipe.recipeIngredients?.length > 0 ? (
 				<>
 					<h3>Ingredients</h3>

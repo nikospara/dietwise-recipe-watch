@@ -31,18 +31,31 @@ export interface Suggestion {
 }
 
 export interface Recipe {
-	name: string;
-	recipeYield: string;
+	name?: string;
+	recipeYield?: string;
 	recipeIngredients: string[];
 	recipeInstructions: string[]; // TODO Must reference ingedient
-	text: string;
+	text?: string;
 }
 
 // TODO Model altered ingredients
 
+export type RecipeDetectionType = 'JSONLD' | 'LLM_FROM_TEXT';
+
+export interface RecipeAndDetectionType {
+	recipe: Recipe;
+	detectionType: RecipeDetectionType;
+}
+
 export interface RecipeExtractionRecipeAssessmentMessage {
 	type: 'RECIPES';
-	recipes: Recipe[];
+	recipes: RecipeAndDetectionType[];
+	pageText: string;
+}
+
+export interface MoreThanOneRecipesAssessmentMessage {
+	type: 'MORE_THAN_ONE_RECIPE';
+	numberOfRecipes: number;
 }
 
 export interface SuggestionsRecipeAssessmentMessage {
@@ -58,15 +71,21 @@ export interface RecipeAssessmentErrorMessage {
 
 export type RecipeAssessmentMessage =
 	| RecipeExtractionRecipeAssessmentMessage
+	| MoreThanOneRecipesAssessmentMessage
 	| SuggestionsRecipeAssessmentMessage
 	| RecipeAssessmentErrorMessage;
 
+export type MainDataStatus = 'INITIAL' | 'SUCCESS' | 'FAILURE' | 'PENDING' | 'SELECT_RECIPE';
+
 export interface MainData {
-	status: 'INITIAL' | 'SUCCESS' | 'FAILURE' | 'PENDING';
+	status: MainDataStatus;
 	errors?: string[];
 	rating?: number;
 	recipes?: Recipe[];
+	detectionTypes?: RecipeDetectionType[];
 	suggestions?: Suggestion[];
 	/** The URL of the recipe page. */
 	url?: string;
+	/** The extracted content of the recipe page. */
+	pageText?: string;
 }

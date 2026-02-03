@@ -1,10 +1,12 @@
 import type { Recipe, Suggestion } from 'recipe/model';
 import { useTranslation } from 'react-i18next';
 import RecipeComponent from './RecipeComponent';
+import type { MainDataStatus, RecipeDetectionType } from './model';
 
 export interface RecipesComponentProps {
-	status: 'INITIAL' | 'SUCCESS' | 'FAILURE' | 'PENDING';
+	status: MainDataStatus;
 	recipes: Recipe[] | undefined;
+	detectionTypes: RecipeDetectionType[] | undefined;
 	suggestions: Suggestion[] | undefined;
 	errors: string[] | undefined;
 }
@@ -16,7 +18,12 @@ const RecipesComponent: React.FC<RecipesComponentProps> = (props: RecipesCompone
 		return (
 			<div className="recipes-pane">
 				{props.recipes.map((r, index) => (
-					<RecipeComponent key={r.name ?? `recipe-${index}`} recipe={r} />
+					<RecipeComponent
+						key={r.name ?? `recipe-${index}`}
+						index={index}
+						recipe={r}
+						detectionType={props.detectionTypes?.[index]}
+					/>
 				))}
 			</div>
 		);

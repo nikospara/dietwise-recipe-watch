@@ -13,6 +13,13 @@ http://ionicframework.com/docs/theming/ */
 	--ion-color-dwlightgreen-contrast-rgb: 0,0,0;
 	--ion-color-dwlightgreen-shade: #00baa5;
 	--ion-color-dwlightgreen-tint: #1ad7c2;
+
+	--ion-color-lightmedium: #deddda;
+	--ion-color-lightmedium-rgb: 222,221,218;
+	--ion-color-lightmedium-contrast: #000000;
+	--ion-color-lightmedium-contrast-rgb: 0,0,0;
+	--ion-color-lightmedium-shade: #c3c2c0;
+	--ion-color-lightmedium-tint: #e1e0de;
 }
 
 .ion-color-dwlightgreen {
@@ -22,4 +29,13 @@ http://ionicframework.com/docs/theming/ */
 	--ion-color-contrast-rgb: var(--ion-color-dwlightgreen-contrast-rgb);
 	--ion-color-shade: var(--ion-color-dwlightgreen-shade);
 	--ion-color-tint: var(--ion-color-dwlightgreen-tint);
+}
+
+.ion-color-lightmedium {
+	--ion-color-base: var(--ion-color-lightmedium);
+	--ion-color-base-rgb: var(--ion-color-lightmedium-rgb);
+	--ion-color-contrast: var(--ion-color-lightmedium-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-lightmedium-contrast-rgb);
+	--ion-color-shade: var(--ion-color-lightmedium-shade);
+	--ion-color-tint: var(--ion-color-lightmedium-tint);
 }
