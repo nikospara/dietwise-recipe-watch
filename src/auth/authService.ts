@@ -1,10 +1,15 @@
 import { isPlatform } from '@ionic/react';
-import { AuthService } from 'ionic-appauth';
+import { AuthActions, AuthService } from 'ionic-appauth';
 import { CapacitorBrowser, CapacitorSecureStorage } from 'ionic-appauth/lib/capacitor';
 import { RequestorImpl } from 'services/RequestorImpl';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
 
 export const authService = new AuthService(new CapacitorBrowser(), new CapacitorSecureStorage(), new RequestorImpl());
+
+let hasTokenInMemory = false;
+let lastResumeRefreshAt = 0;
+let resumeRefreshInFlight: Promise<void> | null = null;
+const RESUME_REFRESH_MIN_INTERVAL_MS = 10 * 60 * 1000;
 
 // Configure the service (snake_case keys!)
 authService.authConfig = {
@@ -20,12 +25,57 @@ authService.authConfig = {
 	pkce: false, // TODO true when fully operational
 };
 
+authService.events$.subscribe({
+	next(action) {
+		if (
+			action.action === AuthActions.LoadTokenFromStorageSuccess ||
+			action.action === AuthActions.RefreshSuccess ||
+			action.action === AuthActions.SignInSuccess
+		) {
+			hasTokenInMemory = true;
+		}
+		if (
+			action.action === AuthActions.SignOutSuccess ||
+			action.action === AuthActions.RevokeTokensSuccess ||
+			action.action === AuthActions.LoadTokenFromStorageFailed
+		) {
+			hasTokenInMemory = false;
+		}
+	},
+});
+
 if (isPlatform('capacitor')) {
 	App.addListener('appUrlOpen', (data: URLOpenListenerEvent) => {
 		if (data.url.indexOf(authService.authConfig.redirect_url) === 0) {
 			authService.authorizationCallback(data.url);
 		} else {
 			authService.endSessionCallback();
+		}
+	});
+	App.addListener('appStateChange', async ({ isActive }) => {
+		if (!isActive) {
+			return;
+		}
+		if (!hasTokenInMemory) {
+			return;
+		}
+		const now = Date.now();
+		if (now - lastResumeRefreshAt < RESUME_REFRESH_MIN_INTERVAL_MS) {
+			return;
+		}
+		if (resumeRefreshInFlight) {
+			await resumeRefreshInFlight;
+			return;
+		}
+		try {
+			resumeRefreshInFlight = authService.getValidToken(0).then(() => {
+				lastResumeRefreshAt = Date.now();
+			});
+			await resumeRefreshInFlight;
+		} catch (err) {
+			console.warn('Unable to refresh token on resume', err);
+		} finally {
+			resumeRefreshInFlight = null;
 		}
 	});
 }
