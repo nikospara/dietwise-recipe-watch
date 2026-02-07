@@ -20,6 +20,13 @@ async function bootstrap() {
 	]);
 	try {
 		await authService.loadTokenFromStorage();
+		try {
+			// Ensure we have a fresh access token before attempting to load user info.
+			await authService.getValidToken(0);
+			await authService.loadUserInfo();
+		} catch (reason) {
+			console.warn('Unable to refresh token or load user info on startup', reason);
+		}
 	} catch (reason) {
 		console.warn('Load token from storage failed', reason);
 	}

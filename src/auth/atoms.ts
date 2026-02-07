@@ -40,6 +40,7 @@ export const refreshTokenAtom = atomWithObservable(() =>
 authService.events$
 	.pipe(
 		filter((action) => action.action === AuthActions.LoadTokenFromStorageSuccess),
+		switchMap(() => from(authService.getValidToken(0))),
 		switchMap(() => from(authService.loadUserInfo())),
 		map(() => ['SUCCESS', null]),
 		catchError((err) => ['FAILURE', err]),
