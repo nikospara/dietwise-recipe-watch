@@ -10,6 +10,15 @@ import { configDefaults } from 'vitest/config';
  */
 export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, process.cwd(), '');
+	const includeMobilePreview = env.VITE_INCLUDE_MOBILE_PREVIEW === 'true';
+	const input = {
+		main: path.resolve(process.cwd(), 'index.html'),
+		...(includeMobilePreview
+			? {
+					mobilePreview: path.resolve(process.cwd(), 'mobile-preview.html'),
+				}
+			: {}),
+	};
 
 	return {
 		plugins: [tsconfigPaths(), react(), eslintPlugin()],
@@ -21,6 +30,9 @@ export default defineConfig(({ mode }) => {
 		build: {
 			// Set to {} to enable a watched build workflow, null to disable (default).
 			watch: env.VITE_WATCH ? {} : null,
+			rollupOptions: {
+				input,
+			},
 		},
 		test: {
 			environment: 'jsdom', // Required for DOM-based tests
