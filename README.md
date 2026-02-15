@@ -8,10 +8,16 @@ This repository includes a production-style static web container:
 - Build stage: Node + Vite
 - Runtime stage: Nginx serving `dist/`
 
-### Run with Docker Compose
+### Build image
 
 ```bash
-docker compose up -d --build
+docker build -t recipe-watch-web:local .
+```
+
+### Run container
+
+```bash
+docker run -d --name recipe-watch-web -p 8080:80 recipe-watch-web:local
 ```
 
 App URL:
@@ -24,17 +30,10 @@ Health endpoint:
 
 By default, `mobile-preview.html` is **not** included in the build artifact.
 
-To include it for testing, set this build arg in `docker-compose.yml`:
-
-```yaml
-args:
-  INCLUDE_MOBILE_PREVIEW: "true"
-```
-
-Then rebuild:
+To include it for testing, build with:
 
 ```bash
-docker compose up -d --build
+docker build --build-arg INCLUDE_MOBILE_PREVIEW=true -t recipe-watch-web:mobile-preview .
 ```
 
 Preview URL (only when enabled):
