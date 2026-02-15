@@ -6,13 +6,7 @@ COPY package*.json ./
 RUN --mount=type=cache,target=/root/.npm npm ci
 
 COPY . .
-
-ARG INCLUDE_MOBILE_PREVIEW=false
-RUN if [ "$INCLUDE_MOBILE_PREVIEW" = "true" ]; then \
-      npm run build:mobile-preview; \
-    else \
-      npm run build; \
-    fi
+RUN npm run build:mobile-preview
 
 FROM nginx:1.27-alpine AS runtime
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf

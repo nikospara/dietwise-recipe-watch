@@ -25,16 +25,5 @@ App URL:
 
 Health endpoint:
 - `http://localhost:8080/healthz`
-
-### Optional mobile preview page
-
-By default, `mobile-preview.html` is **not** included in the build artifact.
-
-To include it for testing, build with:
-
-```bash
-docker build --build-arg INCLUDE_MOBILE_PREVIEW=true -t recipe-watch-web:mobile-preview .
-```
-
-Preview URL (only when enabled):
+Mobile preview URL:
 - `http://localhost:8080/mobile-preview`
