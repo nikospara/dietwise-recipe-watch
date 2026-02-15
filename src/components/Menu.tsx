@@ -19,12 +19,15 @@ import { useTranslation } from 'react-i18next';
 import { useAtomValue } from 'jotai';
 import { userAtom } from 'auth/atoms';
 import { authService } from 'auth/authService';
+import dietWiseIconOrange from '@/assets/images/DietWise_icon_Orange.svg';
+import chefHatIcon from '@/assets/images/chef-hat.svg';
+import chefHatFillIcon from '@/assets/images/chef-hat-fill.svg';
 import './Menu.css';
 
 addIcons({
-	logo: 'src/assets/images/DietWise_icon_Orange.svg',
-	chefoutline: 'src/assets/images/chef-hat.svg',
-	chefsharp: 'src/assets/images/chef-hat-fill.svg',
+	logo: dietWiseIconOrange,
+	chefoutline: chefHatIcon,
+	chefsharp: chefHatFillIcon,
 });
 
 interface AppMenuItemProps {

@@ -2,11 +2,13 @@ import { IonIcon } from '@ionic/react';
 import { addIcons } from 'ionicons';
 import { useTranslation } from 'react-i18next';
 import type { Recipe, RecipeDetectionType } from 'recipe/model';
+import brainIcon from '@/assets/images/brain.svg';
+import jsonLdIcon from '@/assets/images/json-ld.svg';
 // import { homeOutline, logInSharp } from 'ionicons/icons';
 
 addIcons({
-	brain: 'src/assets/images/brain.svg',
-	jsonld: 'src/assets/images/json-ld.svg',
+	brain: brainIcon,
+	jsonld: jsonLdIcon,
 });
 
 export interface RecipeComponentProps {
