@@ -46,9 +46,12 @@ import SettingsPage from 'settings/SettingsPage';
 setupIonicReact();
 
 const App: React.FC = () => {
+	const routerBase = import.meta.env.BASE_URL;
+	const basename = routerBase === '/' ? undefined : routerBase.replace(/\/$/, '');
+
 	return (
 		<IonApp>
-			<IonReactRouter>
+			<IonReactRouter basename={basename}>
 				<IonSplitPane contentId="main" when="(min-width: 3000px)">
 					<Menu />
 					<IonRouterOutlet id="main">

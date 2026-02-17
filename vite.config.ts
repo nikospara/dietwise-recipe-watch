@@ -11,6 +11,7 @@ import { configDefaults } from 'vitest/config';
 export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, process.cwd(), '');
 	const includeMobilePreview = env.VITE_INCLUDE_MOBILE_PREVIEW === 'true';
+	const basePath = (env.VITE_BASE_PATH || '/').replace(/\/?$/, '/');
 	const input = {
 		main: path.resolve(process.cwd(), 'index.html'),
 		...(includeMobilePreview
@@ -21,6 +22,7 @@ export default defineConfig(({ mode }) => {
 	};
 
 	return {
+		base: basePath,
 		plugins: [tsconfigPaths(), react(), eslintPlugin()],
 		resolve: {
 			alias: {

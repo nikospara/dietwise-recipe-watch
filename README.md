@@ -14,6 +14,14 @@ This repository includes a production-style static web container:
 docker build -t recipe-watch-web:local .
 ```
 
+The env variable `VITE_BASE_PATH` controls the context path, so building like:
+
+```bash
+docker build --build-arg VITE_BASE_PATH=/recipewatch/ -t recipe-watch:test .
+```
+
+Makes the app available at `http://localhost:5173/recipewatch`.
+
 ### Run container
 
 ```bash
