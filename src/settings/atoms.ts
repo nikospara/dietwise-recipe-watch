@@ -16,6 +16,13 @@ export const languageAtom = atom(
 	},
 );
 
+export const authServerHostAtom = atom(
+	(get) => get(settingsAtom).authServerHost,
+	async (get, set, authServerHost: string) => {
+		await set(settingsAtom, { ...get(settingsAtom), authServerHost });
+	},
+);
+
 export const apiServerHostAtom = atom(
 	(get) => get(settingsAtom).apiServerHost,
 	async (get, set, apiServerHost: string) => {

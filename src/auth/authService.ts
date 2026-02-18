@@ -16,7 +16,7 @@ const webRedirectBase = window.location.origin + (basePath === '' ? '' : basePat
 // Configure the service (snake_case keys!)
 authService.authConfig = {
 	client_id: 'recipewatch',
-	server_host: 'http://localhost:8280/realms/dietwise', // TODO Revisit
+	server_host: '',
 	redirect_url: isPlatform('capacitor')
 		? 'capacitor://localhost/authcallback' // or is it 'eu.dietwise.recipewatch://authcallback'?
 		: `${webRedirectBase}/authcallback`,
