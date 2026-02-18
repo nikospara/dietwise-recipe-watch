@@ -1,5 +1,5 @@
 import { atom, WritableAtom } from 'jotai';
-import { loadable } from 'jotai/utils';
+import { unwrap } from 'jotai/utils';
 import { getValidAccessToken } from 'auth/authService';
 import { apiServerHostAtom } from 'settings/atoms';
 import type { PersonalInfo } from './model';
@@ -24,4 +24,23 @@ export const personalInfoAtom: WritableAtom<Promise<PersonalInfo>, [PersonalInfo
 	},
 );
 
-export const loadablePersonalInfoAtom = loadable(personalInfoAtom);
+const LOADING = Symbol('personal-info-loading');
+
+const unwrappedPersonalInfoAtom = unwrap(personalInfoAtom, () => LOADING);
+
+type LoadablePersonalInfo =
+	| { state: 'loading' }
+	| { state: 'hasError'; error: unknown }
+	| { state: 'hasData'; data: PersonalInfo };
+
+export const loadablePersonalInfoAtom = atom<LoadablePersonalInfo>((get) => {
+	try {
+		const data = get(unwrappedPersonalInfoAtom);
+		if (data === LOADING) {
+			return { state: 'loading' } as const;
+		}
+		return { state: 'hasData', data: data as PersonalInfo } as const;
+	} catch (error) {
+		return { state: 'hasError', error } as const;
+	}
+});
