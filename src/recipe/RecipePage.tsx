@@ -13,8 +13,9 @@ import {
 } from '@ionic/react';
 import { arrowUndo } from 'ionicons/icons';
 import { useTranslation } from 'react-i18next';
-import { useAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 import { mainStateAtom } from 'recipe/atoms';
+import { apiServerHostAtom } from 'settings/atoms';
 import {
 	createPrepareToAssessRecipeAction,
 	createRecipeAssessmentCompletedAction,
@@ -37,6 +38,7 @@ import './RecipePage.css';
 const RecipePage: React.FC = () => {
 	const { t } = useTranslation();
 	const [mainState, dispatch] = useAtom(mainStateAtom);
+	const apiServerHost = useAtomValue(apiServerHostAtom);
 	const [isUrlModalOpen, setUrlModalIsOpen] = useState(false);
 
 	const cancelRef = useRef<CancellationFunction>(null);
@@ -46,6 +48,7 @@ const RecipePage: React.FC = () => {
 			try {
 				dispatch(createPrepareToAssessRecipeAction(url));
 				cancelRef.current = await assessRecipe(
+					apiServerHost,
 					url || '',
 					i18next.language,
 					(message) => {
@@ -64,7 +67,7 @@ const RecipePage: React.FC = () => {
 				dispatch(createRecipeAssessmentFailedAction(error));
 			}
 		},
-		[dispatch],
+		[dispatch, apiServerHost],
 	);
 
 	const resetCallback = useCallback(() => dispatch(createResetMainPageAction()), [dispatch]);
