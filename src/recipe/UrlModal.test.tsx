@@ -25,9 +25,9 @@ describe('UrlModal', () => {
 		expect(screen.getByText('recipe.enterUrlModalTitle')).toBeTruthy();
 		expect(screen.getByText('general.CANCEL')).toBeTruthy();
 		expect(screen.getByText('recipe.ASSESS')).toBeTruthy();
-		const ionInput = document.querySelector('ion-input');
-		expect(ionInput).toBeTruthy();
-		const inputValue = ionInput?.getAttribute('value') ?? (ionInput as { value?: string } | null)?.value;
+		const ionTextarea = document.querySelector('ion-textarea');
+		expect(ionTextarea).toBeTruthy();
+		const inputValue = ionTextarea?.getAttribute('value') ?? (ionTextarea as { value?: string } | null)?.value;
 		expect(inputValue).toBe('https://example.com');
 	});
 
@@ -47,8 +47,8 @@ describe('UrlModal', () => {
 			<UrlModal isOpen={true} setIsOpen={setIsOpen} url="https://old.com" setUrl={setUrl} />,
 		);
 
-		const ionInput = container.querySelector('ion-input');
-		expect(ionInput).toBeTruthy();
+		const ionTextarea = container.querySelector('ion-textarea');
+		expect(ionTextarea).toBeTruthy();
 		const ionInputEvent = new CustomEvent('ionInput', {
 			bubbles: true,
 			cancelable: true,
@@ -57,7 +57,7 @@ describe('UrlModal', () => {
 		Object.defineProperty(ionInputEvent, 'target', {
 			value: { value: ' https://new.com/path ' },
 		});
-		fireEvent(ionInput as Element, ionInputEvent);
+		fireEvent(ionTextarea as Element, ionInputEvent);
 
 		fireEvent.click(screen.getByText('recipe.ASSESS'));
 
