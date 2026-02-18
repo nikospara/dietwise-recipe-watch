@@ -1,5 +1,6 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import {
+	IonButton,
 	IonButtons,
 	IonContent,
 	IonHeader,
@@ -11,28 +12,35 @@ import {
 } from '@ionic/react';
 import { useTranslation } from 'react-i18next';
 import { useAtom, useSetAtom } from 'jotai';
-import { loadablePersonalInfoAtom, personalInfoAtom } from 'personalization/atoms';
+import {
+	loadablePersonalInfoAtom,
+	personalInfoAtom,
+	personalInfoSaveStateAtom,
+	savePersonalInfoAtom,
+} from 'personalization/atoms';
 import type { PersonalInfo } from 'personalization/model';
 import PersonalizationForm from 'personalization/PersonalizationForm';
 
 const PersonalizationPage: React.FC = () => {
 	const { t } = useTranslation();
-	const [saving, setSaving] = useState(false);
 	const [personalInfo] = useAtom(loadablePersonalInfoAtom);
-	const setPersonalInfoAtom = useSetAtom(personalInfoAtom);
+	const [saveState] = useAtom(personalInfoSaveStateAtom);
+	const refreshPersonalInfoAtom = useSetAtom(personalInfoAtom);
+	const setPersonalInfoAtom = useSetAtom(savePersonalInfoAtom);
 	const onSaveCallback = useCallback(
 		async (value: PersonalInfo) => {
 			console.log('Will save personal info', value);
-			setSaving(true);
 			try {
 				await setPersonalInfoAtom(value);
 			} catch (e) {
 				console.error('Error saving personal info', e);
 			}
-			setSaving(false);
 		},
 		[setPersonalInfoAtom],
 	);
+	const onRetryCallback = useCallback(() => {
+		refreshPersonalInfoAtom();
+	}, [refreshPersonalInfoAtom]);
 
 	return (
 		<IonPage>
@@ -54,9 +62,26 @@ const PersonalizationPage: React.FC = () => {
 				</IonHeader>
 
 				{personalInfo.state === 'loading' && <IonSpinner></IonSpinner>}
-				{personalInfo.state === 'hasError' && /* TODO IonToast, retry button */ <div>Error!</div>}
+				{personalInfo.state === 'hasError' && (
+					<p className="ion-padding">
+						An error occured!
+						<br />
+						<IonButton onClick={onRetryCallback}>Retry</IonButton>
+					</p>
+				)}
 				{personalInfo.state === 'hasData' && (
-					<PersonalizationForm value={personalInfo.data} disabled={saving} onSave={onSaveCallback} />
+					<>
+						<PersonalizationForm
+							value={personalInfo.data}
+							disabled={saveState.status === 'saving'}
+							onSave={onSaveCallback}
+						/>
+						{saveState.status === 'error' && (
+							<p className="ion-padding-start ion-padding-end ion-text-danger">
+								{saveState.errorMessage}
+							</p>
+						)}
+					</>
 				)}
 			</IonContent>
 		</IonPage>
