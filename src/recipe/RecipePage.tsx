@@ -15,7 +15,7 @@ import { arrowUndo } from 'ionicons/icons';
 import { useTranslation } from 'react-i18next';
 import { useAtom, useAtomValue } from 'jotai';
 import { mainStateAtom } from 'recipe/atoms';
-import { apiServerHostAtom } from 'settings/atoms';
+import { apiServerHostAtom } from 'config/atoms';
 import {
 	createPrepareToAssessRecipeAction,
 	createRecipeAssessmentCompletedAction,

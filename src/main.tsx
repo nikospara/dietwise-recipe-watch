@@ -1,6 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
+import { appConfigAtom } from 'config/atoms';
+import { loadAppConfig } from 'config/loadAppConfig';
 import { loadSettings } from 'settings/storage';
 import { configureI18n } from './i18n';
 import { Provider as JotaiProvider, createStore } from 'jotai';
@@ -9,8 +11,8 @@ import { authService, configureServerHost as configureAuthServerHost } from 'aut
 
 async function bootstrap() {
 	// configure the application before launching the UI
-	const initialSettings = await loadSettings();
-	configureAuthServerHost(initialSettings.authServerHost);
+	const [initialSettings, initialAppConfig] = await Promise.all([loadSettings(), loadAppConfig()]);
+	configureAuthServerHost(initialAppConfig.authServerHost);
 	const [_t, _l] = await Promise.all([
 		configureI18n(initialSettings.language), // returns t, if we ever want to use it here
 		authService.init().catch((reason) => {
@@ -31,6 +33,7 @@ async function bootstrap() {
 		console.warn('Load token from storage failed', reason);
 	}
 	const jotaiStore = createStore();
+	jotaiStore.set(appConfigAtom, initialAppConfig);
 	jotaiStore.set(settingsAtom, initialSettings);
 	// launch the UI, remember to keep the JotaiProvider outside of React.StrictMode
 	const container = document.getElementById('root');
