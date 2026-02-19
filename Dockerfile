@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1.7
 FROM node:24-alpine AS builder
 WORKDIR /app
+RUN apk add --no-cache git
 
 COPY package*.json ./
 RUN --mount=type=cache,target=/root/.npm npm ci

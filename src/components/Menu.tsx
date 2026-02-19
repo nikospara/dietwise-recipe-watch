@@ -135,6 +135,9 @@ const Menu: React.FC = () => {
 						</IonMenuToggle>
 					)}
 				</IonList>
+				<div className="menu-build-info ion-padding-start ion-padding-end ion-padding-bottom ion-text-center">
+					v{__APP_VERSION__} ({__APP_GIT_HASH__})
+				</div>
 			</IonContent>
 		</IonMenu>
 	);
