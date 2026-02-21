@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import type { Recipe, RecipeDetectionType } from 'recipe/model';
 import brainIcon from '@/assets/images/brain.svg';
 import jsonLdIcon from '@/assets/images/json-ld.svg';
-// import { homeOutline, logInSharp } from 'ionicons/icons';
 
 addIcons({
 	brain: brainIcon,
@@ -39,8 +38,8 @@ const RecipeComponent: React.FC<RecipeComponentProps> = (props: RecipeComponentP
 				<>
 					<h3>Ingredients</h3>
 					<ul>
-						{props.recipe.recipeIngredients.map((ingredient, index) => (
-							<li key={index}>{ingredient}</li>
+						{props.recipe.recipeIngredients.map((ingredient) => (
+							<li key={ingredient.id}>{ingredient.nameInRecipe}</li>
 						))}
 					</ul>
 				</>

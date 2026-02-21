@@ -1,7 +1,7 @@
 import type { Recipe, Suggestion } from 'recipe/model';
 import { useTranslation } from 'react-i18next';
 import SuggestionComponent from './SuggestionComponent';
-import type { MainDataStatus } from './model';
+import type { MainDataStatus } from 'recipe/model';
 
 export interface SuggestionsComponentProps {
 	status: MainDataStatus;

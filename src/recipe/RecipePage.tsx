@@ -26,13 +26,13 @@ import {
 import { assessRecipe } from 'recipe/assessRecipe';
 import type { CancellationFunction } from 'recipe/assessRecipe';
 import i18next from 'i18next';
-import UrlContainer from 'recipe/UrlContainer';
-import UrlModal from 'recipe/UrlModal';
-import SplitPane from 'recipe/SplitPane';
-import RecipesComponent from './RecipesComponent';
-import SuggestionsComponent from './SuggestionsComponent';
-import { hasRecipesContent } from './recipesComponentUtils';
-import { hasSuggestionsContent } from './suggestionsComponentUtils';
+import UrlContainer from 'recipe/components/UrlContainer';
+import UrlModal from 'recipe/components/UrlModal';
+import SplitPane from 'recipe/components/SplitPane';
+import RecipesComponent from 'recipe/components/RecipesComponent';
+import SuggestionsComponent from 'recipe/components/SuggestionsComponent';
+import { hasRecipesContent } from './components/recipesComponentUtils';
+import { hasSuggestionsContent } from 'recipe/components/suggestionsComponentUtils';
 import './RecipePage.css';
 
 const RecipePage: React.FC = () => {

@@ -14,26 +14,42 @@ export interface RecipeExtractionAndAssessmentParam {
 
 export interface AppliesToIngredient {
 	type: 'INGREDIENT';
-	/** The name of the ingredient this suggestion applies to. */
+	/** The id of the ingredient this suggestion applies to. */
 	ingredient: string;
-	// TODO must also reference recipe
 }
 
 export interface AppliesToRecipe {
 	type: 'RECIPE';
 	/** The name of the recipe this suggestion applies to. */
-	recipe: string;
+	recipeName: string;
 }
 
-export interface Suggestion {
+export interface SuggestionTemplate {
+	alternative: string;
+	restriction?: string;
+	equivalence?: string;
+	techniqueNotes?: string;
+}
+
+export interface Suggestion extends SuggestionTemplate {
+	target: AppliesToIngredient | AppliesToRecipe;
+	ruleId: string;
+	recommendation: string;
+	rationale?: string;
 	text: string;
-	appliesTo: AppliesToIngredient | AppliesToRecipe;
+}
+
+export interface Ingredient {
+	id: string;
+	nameInRecipe: string;
+	triggerIngredient?: string;
+	roleOrTechnique?: string;
 }
 
 export interface Recipe {
 	name?: string;
 	recipeYield?: string;
-	recipeIngredients: string[];
+	recipeIngredients: Ingredient[];
 	recipeInstructions: string[]; // TODO Must reference ingedient
 	text?: string;
 }
