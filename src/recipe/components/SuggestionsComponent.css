@@ -1,0 +1,8 @@
+.sticky-suggestions-title {
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	background: var(--ion-background-color, #fff);
+	margin: 0;
+	padding: 0.75rem 0;
+}

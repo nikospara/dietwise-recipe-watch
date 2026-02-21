@@ -81,11 +81,8 @@ const RecipePage: React.FC = () => {
 		suggestions: mainState.suggestions,
 		errors: mainState.errors,
 	};
-	const suggestionsProps = recipesProps;
 	const topPaneContent = hasRecipesContent(recipesProps) ? <RecipesComponent {...recipesProps} /> : null;
-	const bottomPaneContent = hasSuggestionsContent(suggestionsProps) ? (
-		<SuggestionsComponent {...suggestionsProps} />
-	) : null;
+	const bottomPaneContent = hasSuggestionsContent(mainState) ? <SuggestionsComponent /> : null;
 
 	return (
 		<IonPage>

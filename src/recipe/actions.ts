@@ -3,6 +3,7 @@ import type {
 	RecipeAssessmentMessage,
 	RecipeExtractionRecipeAssessmentMessage,
 	SuggestionsRecipeAssessmentMessage,
+	SuggestionStatus,
 } from './model';
 import type { Action } from 'model';
 
@@ -44,6 +45,12 @@ export interface RecipeAssessmentErrorMessageReceivedAction extends Action {
 	message: RecipeAssessmentErrorMessage;
 }
 
+export interface SuggestionStatusAction extends Action {
+	type: 'SuggestionStatusAction';
+	id: string;
+	status: SuggestionStatus;
+}
+
 export type MessageReceivedAction =
 	| RecipeExtractionMessageReceivedAction
 	| MoreThanOneRecipesAssessmentMessageReceivedAction
@@ -58,7 +65,8 @@ export type MainAction =
 	| RecipeExtractionMessageReceivedAction
 	| MoreThanOneRecipesAssessmentMessageReceivedAction
 	| SuggestionsMessageReceivedAction
-	| RecipeAssessmentErrorMessageReceivedAction;
+	| RecipeAssessmentErrorMessageReceivedAction
+	| SuggestionStatusAction;
 
 export function createPrepareToAssessRecipeAction(url: string): PrepareToAssessRecipeAction {
 	return {
@@ -115,4 +123,12 @@ export function createMessageReceivedAction(message: RecipeAssessmentMessage): M
 				numberOfRecipes: message.numberOfRecipes,
 			};
 	}
+}
+
+export function createSuggestionStatusAction(id: string, status: SuggestionStatus): SuggestionStatusAction {
+	return {
+		type: 'SuggestionStatusAction',
+		id,
+		status,
+	};
 }

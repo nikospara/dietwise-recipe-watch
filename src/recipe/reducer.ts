@@ -1,5 +1,6 @@
 import type { MainAction } from './actions';
 import type { MainData } from './model';
+import { v4 as uuidv4 } from 'uuid';
 
 export function createInitialState(): MainData {
 	return {
@@ -74,11 +75,16 @@ export function reducer(state: MainData, action: MainAction): MainData {
 			if (state.status !== 'PENDING') {
 				throw new Error('Inconsistent state for SuggestionsMessageReceivedAction');
 			}
+			const suggestions = action.message.suggestions?.map((s) => ({ id: uuidv4(), ...s }));
 			return {
 				...state,
 				status: 'SUCCESS',
 				rating: action.message.rating,
-				suggestions: action.message.suggestions,
+				suggestions,
+				suggestionState: suggestions?.reduce(
+					(aggr, cur) => ({ ...aggr, [cur.id]: { status: 'UNDECIDED' } }),
+					{},
+				),
 			};
 		}
 		case 'RecipeAssessmentErrorMessageReceivedAction': {
@@ -89,6 +95,18 @@ export function reducer(state: MainData, action: MainAction): MainData {
 				...state,
 				status: 'FAILURE',
 				errors: action.message.errors,
+			};
+		}
+		case 'SuggestionStatusAction': {
+			return {
+				...state,
+				suggestionState: {
+					...(state.suggestionState || {}),
+					[action.id]: {
+						...(state.suggestionState?.[action.id] || {}),
+						status: action.status,
+					},
+				},
 			};
 		}
 		// see https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking

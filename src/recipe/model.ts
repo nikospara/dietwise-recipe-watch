@@ -39,6 +39,23 @@ export interface Suggestion extends SuggestionTemplate {
 	text: string;
 }
 
+export interface SuggestionWithId extends Suggestion {
+	id: string;
+}
+
+export interface SuggestionExtraData {
+	ranking: number;
+	totalAccepted: number;
+	total: number;
+}
+
+export type SuggestionStatus = 'ACCEPTED' | 'REJECTED' | 'UNDECIDED';
+
+export interface SuggestionState {
+	extra?: SuggestionExtraData;
+	status: SuggestionStatus;
+}
+
 export interface Ingredient {
 	id: string;
 	nameInRecipe: string;
@@ -99,7 +116,8 @@ export interface MainData {
 	rating?: number;
 	recipes?: Recipe[];
 	detectionTypes?: RecipeDetectionType[];
-	suggestions?: Suggestion[];
+	suggestions?: SuggestionWithId[];
+	suggestionState?: { [key: string]: SuggestionState };
 	/** The URL of the recipe page. */
 	url?: string;
 	/** The extracted content of the recipe page. */

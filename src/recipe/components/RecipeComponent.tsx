@@ -1,9 +1,11 @@
-import { IonIcon } from '@ionic/react';
+import { IonIcon, IonItem, IonLabel, IonList } from '@ionic/react';
 import { addIcons } from 'ionicons';
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { Recipe, RecipeDetectionType } from 'recipe/model';
 import brainIcon from '@/assets/images/brain.svg';
 import jsonLdIcon from '@/assets/images/json-ld.svg';
+import './RecipeComponent.css';
 
 addIcons({
 	brain: brainIcon,
@@ -18,10 +20,38 @@ export interface RecipeComponentProps {
 
 const RecipeComponent: React.FC<RecipeComponentProps> = (props: RecipeComponentProps) => {
 	const { t } = useTranslation();
+	const sectionRef = useRef<HTMLElement>(null);
+	const titleRef = useRef<HTMLHeadingElement>(null);
+
+	useEffect(() => {
+		const section = sectionRef.current;
+		const title = titleRef.current;
+		if (!section || !title) {
+			return;
+		}
+
+		const updateTitleHeight = () => {
+			section.style.setProperty('--recipe-title-height', `${title.getBoundingClientRect().height}px`);
+		};
+
+		updateTitleHeight();
+
+		const resizeObserver = new ResizeObserver(updateTitleHeight);
+		resizeObserver.observe(title);
+		window.addEventListener('resize', updateTitleHeight);
+
+		return () => {
+			resizeObserver.disconnect();
+			window.removeEventListener('resize', updateTitleHeight);
+		};
+	}, []);
 
 	return (
-		<section>
-			<h2 className="ion-display-flex ion-align-items-center ion-justify-content-between">
+		<section ref={sectionRef}>
+			<h2
+				ref={titleRef}
+				className="sticky-recipe-title ion-display-flex ion-align-items-center ion-justify-content-between"
+			>
 				{props.recipe.name
 					? props.recipe.name
 					: t('recipe.anonymousRecipeTemplateTitle', { index: props.index + 1 })}
@@ -36,12 +66,14 @@ const RecipeComponent: React.FC<RecipeComponentProps> = (props: RecipeComponentP
 			</h2>
 			{props.recipe.recipeIngredients?.length > 0 ? (
 				<>
-					<h3>Ingredients</h3>
-					<ul>
+					<h3 className="sticky-ingredients-title">{t('recipe.titleOfIngredients')}</h3>
+					<IonList>
 						{props.recipe.recipeIngredients.map((ingredient) => (
-							<li key={ingredient.id}>{ingredient.nameInRecipe}</li>
+							<IonItem key={ingredient.id}>
+								<IonLabel>{ingredient.nameInRecipe}</IonLabel>
+							</IonItem>
 						))}
-					</ul>
+					</IonList>
 				</>
 			) : props.recipe.text ? (
 				<pre className="text-pre-wrap">{props.recipe.text}</pre>

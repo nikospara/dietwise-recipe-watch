@@ -22,6 +22,7 @@
 		"ASSESS": "ASSESS",
 		"urlPlaceholder": "Enter the address here",
 		"encounteredErrors": "Encountered errors:",
+		"titleOfIngredients": "Ingredients",
 		"titleOfSuggestions": "Suggestions - Advice",
 		"anonymousRecipeTemplateTitle": "Recipe #{{index, number}}"
 	},

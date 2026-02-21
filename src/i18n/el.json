@@ -22,6 +22,7 @@
 		"ASSESS": "ΕΚΤΙΜΗΣΕ",
 		"urlPlaceholder": "Εισαγάγετε τη διεύθυνση εδώ",
 		"encounteredErrors": "Παρουσιάστηκαν λάθη:",
+		"titleOfIngredients": "Υλικά",
 		"titleOfSuggestions": "Προτάσεις - Συμβουλές",
 		"anonymousRecipeTemplateTitle": "Συνταγή #{{index, number}}"
 	},
