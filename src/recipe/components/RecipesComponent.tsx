@@ -1,6 +1,9 @@
+import { useAtomValue } from 'jotai';
+import { mainStateAtom } from 'recipe/atoms';
 import type { MainDataStatus, Recipe, RecipeDetectionType, SuggestionState } from 'recipe/model';
 import { useTranslation } from 'react-i18next';
 import RecipeComponent from './RecipeComponent';
+
 export interface RecipesComponentProps {
 	status: MainDataStatus;
 	recipes: Recipe[] | undefined;
@@ -9,28 +12,31 @@ export interface RecipesComponentProps {
 	errors: string[] | undefined;
 }
 
-const RecipesComponent: React.FC<RecipesComponentProps> = (props: RecipesComponentProps) => {
+const RecipesComponent: React.FC = () => {
 	const { t } = useTranslation();
+	const mainState = useAtomValue(mainStateAtom);
 
-	if (props.recipes?.length) {
+	if (mainState.recipes?.length) {
 		return (
 			<div className="recipes-pane">
-				{props.recipes.map((r, index) => (
+				{mainState.recipes.map((r, index) => (
 					<RecipeComponent
 						key={r.name ?? `recipe-${index}`}
 						index={index}
 						recipe={r}
-						detectionType={props.detectionTypes?.[index]}
+						detectionType={mainState.detectionTypes?.[index]}
+						suggestions={mainState.suggestions}
+						ingredientState={mainState.ingredientState}
 					/>
 				))}
 			</div>
 		);
-	} else if (props.errors?.length && !props.suggestions) {
+	} else if (mainState.errors?.length && !mainState.suggestions) {
 		return (
 			<div className="recipes-pane error-pane">
 				<h2>{t('recipe.encounteredErrors')}</h2>
 				<ul>
-					{props.errors.map((err, index) => (
+					{mainState.errors.map((err, index) => (
 						<li key={index}>{err}</li>
 					))}
 				</ul>

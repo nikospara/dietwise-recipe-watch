@@ -17,15 +17,19 @@ const SuggestionComponent: React.FC<SuggestionComponentProps> = ({ suggestion, s
 	const rejectButtonFill = status === 'REJECTED' ? 'solid' : 'outline';
 
 	return (
-		<IonItem>
-			<IonLabel>{suggestion.text}</IonLabel>
-			<IonButton slot="end" size="default" color="success" fill={acceptButtonFill} onClick={acceptCallback}>
-				<IonIcon slot="icon-only" icon={checkmark}></IonIcon>
-			</IonButton>
-			<IonButton slot="end" size="default" color="warning" fill={rejectButtonFill} onClick={rejectCallback}>
-				<IonIcon slot="icon-only" icon={close}></IonIcon>
-			</IonButton>
-		</IonItem>
+		<>
+			<IonItem lines="none">
+				<IonLabel>{suggestion.text}</IonLabel>
+			</IonItem>
+			<IonItem>
+				<IonButton slot="end" size="small" color="success" fill={acceptButtonFill} onClick={acceptCallback}>
+					<IonIcon slot="icon-only" icon={checkmark}></IonIcon>
+				</IonButton>
+				<IonButton slot="end" size="small" color="warning" fill={rejectButtonFill} onClick={rejectCallback}>
+					<IonIcon slot="icon-only" icon={close}></IonIcon>
+				</IonButton>
+			</IonItem>
+		</>
 	);
 };
 

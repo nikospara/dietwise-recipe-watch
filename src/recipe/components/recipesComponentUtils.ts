@@ -1,5 +1,11 @@
-import type { RecipesComponentProps } from './RecipesComponent';
+import type { Recipe } from 'recipe/model';
 
-export const hasRecipesContent = (props: RecipesComponentProps): boolean => {
-	return Boolean(props.recipes?.length || (props.errors?.length && !props.suggestions));
+export interface HasRecipesArgument {
+	recipes?: Recipe[];
+	suggestionIds?: string[];
+	errors?: string[];
+}
+
+export const hasRecipesContent = (props: HasRecipesArgument): boolean => {
+	return Boolean(props.recipes?.length || (props.errors?.length && !props.suggestionIds));
 };

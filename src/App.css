@@ -11,10 +11,22 @@
 }
 
 /* Text utilities */
+.text-bold {
+	font-weight: bold;
+}
+
 .text-overflow-ellipsis {
 	text-overflow: ellipsis;
 }
 
 .text-pre-wrap {
 	white-space: pre-wrap;
+}
+
+.text-strikethrough {
+	text-decoration: line-through;
+}
+
+.color-medium {
+	color: var(--ion-color-medium);
 }

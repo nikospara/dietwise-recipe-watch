@@ -74,14 +74,8 @@ const RecipePage: React.FC = () => {
 
 	const hasOutcome = mainState.status === 'SUCCESS' || mainState.status === 'FAILURE';
 	const assessing = mainState.status === 'PENDING';
-	const recipesProps = {
-		status: mainState.status,
-		recipes: mainState.recipes,
-		detectionTypes: mainState.detectionTypes,
-		suggestions: mainState.suggestions,
-		errors: mainState.errors,
-	};
-	const topPaneContent = hasRecipesContent(recipesProps) ? <RecipesComponent {...recipesProps} /> : null;
+
+	const topPaneContent = hasRecipesContent(mainState) ? <RecipesComponent /> : null;
 	const bottomPaneContent = hasSuggestionsContent(mainState) ? <SuggestionsComponent /> : null;
 
 	return (

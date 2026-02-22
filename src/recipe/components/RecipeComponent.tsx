@@ -1,8 +1,9 @@
-import { IonIcon, IonItem, IonLabel, IonList } from '@ionic/react';
+import { IonIcon, IonList } from '@ionic/react';
 import { addIcons } from 'ionicons';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { Recipe, RecipeDetectionType } from 'recipe/model';
+import type { IngredientStateType, Recipe, RecipeDetectionType, SuggestionState } from 'recipe/model';
+import IngredientComponent from './IngredientComponent';
 import brainIcon from '@/assets/images/brain.svg';
 import jsonLdIcon from '@/assets/images/json-ld.svg';
 import './RecipeComponent.css';
@@ -16,6 +17,8 @@ export interface RecipeComponentProps {
 	index: number;
 	recipe: Recipe;
 	detectionType: RecipeDetectionType | undefined;
+	suggestions: { [key: string]: SuggestionState } | undefined;
+	ingredientState: IngredientStateType | undefined;
 }
 
 const RecipeComponent: React.FC<RecipeComponentProps> = (props: RecipeComponentProps) => {
@@ -68,11 +71,19 @@ const RecipeComponent: React.FC<RecipeComponentProps> = (props: RecipeComponentP
 				<>
 					<h3 className="sticky-ingredients-title">{t('recipe.titleOfIngredients')}</h3>
 					<IonList>
-						{props.recipe.recipeIngredients.map((ingredient) => (
-							<IonItem key={ingredient.id}>
-								<IonLabel>{ingredient.nameInRecipe}</IonLabel>
-							</IonItem>
-						))}
+						{props.recipe.recipeIngredients.map((ingredient) => {
+							const acceptedSuggestionId = props.ingredientState?.[ingredient.id];
+							const acceptedSuggestion = acceptedSuggestionId
+								? props.suggestions?.[acceptedSuggestionId]
+								: undefined;
+							return (
+								<IngredientComponent
+									key={ingredient.id}
+									ingredient={ingredient}
+									acceptedSuggestion={acceptedSuggestion}
+								/>
+							);
+						})}
 					</IonList>
 				</>
 			) : props.recipe.text ? (
