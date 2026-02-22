@@ -1,5 +1,5 @@
 import type { MainAction } from './actions';
-import type { MainData } from './model';
+import type { MainData, SuggestionState } from './model';
 import { v4 as uuidv4 } from 'uuid';
 
 export function createInitialState(): MainData {
@@ -36,13 +36,13 @@ export function reducer(state: MainData, action: MainAction): MainData {
 		}
 		case 'ResetMainPageAction': {
 			if (state.status === 'PENDING') {
-				throw new Error('Inconsistent state for ResetMainPageAction');
+				throw new Error('Inconsistent state for ResetMainPageAction: ' + state.status);
 			}
 			return createInitialState();
 		}
 		case 'RecipeExtractionMessageReceivedAction': {
 			if (state.status !== 'PENDING') {
-				throw new Error('Inconsistent state for RecipeExtractionMessageReceivedAction');
+				throw new Error('Inconsistent state for RecipeExtractionMessageReceivedAction: ' + state.status);
 			}
 			return {
 				...state,
@@ -63,7 +63,9 @@ export function reducer(state: MainData, action: MainAction): MainData {
 		}
 		case 'MoreThanOneRecipesAssessmentMessageReceivedAction': {
 			if (state.status !== 'PENDING') {
-				throw new Error('Inconsistent state for MoreThanOneRecipesAssessmentMessageReceivedAction');
+				throw new Error(
+					'Inconsistent state for MoreThanOneRecipesAssessmentMessageReceivedAction: ' + state.status,
+				);
 			}
 			return {
 				...state,
@@ -73,23 +75,40 @@ export function reducer(state: MainData, action: MainAction): MainData {
 		}
 		case 'SuggestionsMessageReceivedAction': {
 			if (state.status !== 'PENDING') {
-				throw new Error('Inconsistent state for SuggestionsMessageReceivedAction');
+				throw new Error('Inconsistent state for SuggestionsMessageReceivedAction: ' + state.status);
 			}
-			const suggestions = action.message.suggestions?.map((s) => ({ id: uuidv4(), ...s }));
+			const aggregateStateInitial: { ids: string[]; suggestions: { [key: string]: SuggestionState } } = {
+				ids: [],
+				suggestions: {},
+			};
+			const aggregateState = action.message.suggestions?.reduce((aggr, cur) => {
+				const id = uuidv4();
+				const ids = [...aggr.ids, id];
+				const suggestionState: SuggestionState = {
+					suggestion: { ...cur, id },
+					extra: undefined,
+					status: 'UNDECIDED',
+				};
+				return {
+					ids,
+					suggestions: {
+						...aggr.suggestions,
+						[id]: suggestionState,
+					},
+				};
+			}, aggregateStateInitial);
 			return {
 				...state,
 				status: 'SUCCESS',
 				rating: action.message.rating,
-				suggestions,
-				suggestionState: suggestions?.reduce(
-					(aggr, cur) => ({ ...aggr, [cur.id]: { status: 'UNDECIDED' } }),
-					{},
-				),
+				suggestionIds: aggregateState?.ids,
+				suggestions: aggregateState?.suggestions,
+				ingredientState: {},
 			};
 		}
 		case 'RecipeAssessmentErrorMessageReceivedAction': {
 			if (state.status !== 'PENDING') {
-				throw new Error('Inconsistent state for RecipeAssessmentErrorMessageReceivedAction');
+				throw new Error('Inconsistent state for RecipeAssessmentErrorMessageReceivedAction: ' + state.status);
 			}
 			return {
 				...state,
@@ -98,16 +117,123 @@ export function reducer(state: MainData, action: MainAction): MainData {
 			};
 		}
 		case 'SuggestionStatusAction': {
-			return {
-				...state,
-				suggestionState: {
-					...(state.suggestionState || {}),
-					[action.id]: {
-						...(state.suggestionState?.[action.id] || {}),
-						status: action.status,
-					},
-				},
-			};
+			if (state.status !== 'SUCCESS') {
+				throw new Error('Inconsistent state for SuggestionStatusAction: ' + state.status);
+			}
+			const target = state.suggestions?.[action.id];
+			if (!target) throw new Error('No suggestion with id ' + action.id);
+			const currentRecipe = state.recipes?.[0];
+			if (!currentRecipe) throw new Error('Got suggestions without a recipe');
+			const oldStatus = target.status;
+			const newStatus = action.status;
+			if (oldStatus !== newStatus) {
+				const newSuggestionState: SuggestionState = {
+					...target,
+					status: newStatus,
+				};
+				switch (newStatus) {
+					case 'ACCEPTED': {
+						if (target.suggestion.target.type === 'INGREDIENT') {
+							const targetIngredientId = target.suggestion.target.ingredient;
+							let newSuggestions = state.suggestions;
+							// deactivate the previous selected for the same ingredient
+							const previouslySelectedSuggestionId = state.ingredientState?.[targetIngredientId];
+							if (previouslySelectedSuggestionId) {
+								const previouslySelectedSuggestion =
+									state.suggestions?.[previouslySelectedSuggestionId];
+								if (!previouslySelectedSuggestion) {
+									throw new Error(
+										`The previous suggestion for ingredient does not exist: i: ${targetIngredientId}, s: ${previouslySelectedSuggestionId}`,
+									);
+								}
+								newSuggestions = {
+									...newSuggestions,
+									[previouslySelectedSuggestionId]: {
+										...previouslySelectedSuggestion,
+										status: 'UNDECIDED',
+									},
+								};
+							}
+							// mark the new suggestion as accepted
+							newSuggestions = {
+								...newSuggestions,
+								[action.id]: newSuggestionState,
+							};
+							// assign the suggestion to the ingredient
+							const newIngredientState = {
+								...state.ingredientState,
+								[targetIngredientId]: action.id,
+							};
+							return {
+								...state,
+								suggestions: newSuggestions,
+								ingredientState: newIngredientState,
+							};
+						} else {
+							// no RECIPE-level suggestions so far
+							return state;
+						}
+					}
+					case 'REJECTED': {
+						if (target.suggestion.target.type === 'INGREDIENT') {
+							const targetIngredientId = target.suggestion.target.ingredient;
+							// mark the new suggestion
+							const newSuggestions = {
+								...state.suggestions,
+								[action.id]: newSuggestionState,
+							};
+							// assign undefined to the ingredient, only if previously related to this suggestion
+							let newIngredientState = state.ingredientState;
+							const previouslySelectedSuggestionId = state.ingredientState?.[targetIngredientId];
+							if (previouslySelectedSuggestionId === action.id) {
+								newIngredientState = {
+									...state.ingredientState,
+									[targetIngredientId]: undefined,
+								};
+							}
+							return {
+								...state,
+								suggestions: newSuggestions,
+								ingredientState: newIngredientState,
+							};
+						} else {
+							// no RECIPE-level suggestions so far
+							return state;
+						}
+					}
+					case 'UNDECIDED': {
+						if (target.suggestion.target.type === 'INGREDIENT') {
+							const targetIngredientId = target.suggestion.target.ingredient;
+							// mark the new suggestion
+							const newSuggestions = {
+								...state.suggestions,
+								[action.id]: newSuggestionState,
+							};
+							// assign undefined to the ingredient, only if previously related to this suggestion
+							let newIngredientState = state.ingredientState;
+							const previouslySelectedSuggestionId = state.ingredientState?.[targetIngredientId];
+							if (previouslySelectedSuggestionId === action.id) {
+								newIngredientState = {
+									...state.ingredientState,
+									[targetIngredientId]: undefined,
+								};
+							}
+							return {
+								...state,
+								suggestions: newSuggestions,
+								ingredientState: newIngredientState,
+							};
+						} else {
+							// no RECIPE-level suggestions so far
+							return state;
+						}
+					}
+				}
+			} else {
+				return state;
+			}
+			// XXX
+			// throw new Error('Illegal fallthrough'); // TS claims the default below is illegal without this; WHY?!?!
 		}
 		// see https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
 		default: {

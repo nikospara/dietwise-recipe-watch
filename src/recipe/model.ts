@@ -52,6 +52,7 @@ export interface SuggestionExtraData {
 export type SuggestionStatus = 'ACCEPTED' | 'REJECTED' | 'UNDECIDED';
 
 export interface SuggestionState {
+	suggestion: SuggestionWithId;
 	extra?: SuggestionExtraData;
 	status: SuggestionStatus;
 }
@@ -110,14 +111,19 @@ export type RecipeAssessmentMessage =
 
 export type MainDataStatus = 'INITIAL' | 'SUCCESS' | 'FAILURE' | 'PENDING' | 'SELECT_RECIPE';
 
+export type IngredientStateType = { [key: string]: string | undefined };
+
 export interface MainData {
 	status: MainDataStatus;
 	errors?: string[];
 	rating?: number;
 	recipes?: Recipe[];
 	detectionTypes?: RecipeDetectionType[];
-	suggestions?: SuggestionWithId[];
-	suggestionState?: { [key: string]: SuggestionState };
+	suggestionIds?: string[];
+	/** Map from suggestion id to suggestion state. */
+	suggestions?: { [key: string]: SuggestionState };
+	/** Map from ingredient id to suggestion id, only if the substitution is accepted. */
+	ingredientState?: IngredientStateType;
 	/** The URL of the recipe page. */
 	url?: string;
 	/** The extracted content of the recipe page. */

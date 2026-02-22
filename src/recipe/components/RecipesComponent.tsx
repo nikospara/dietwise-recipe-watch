@@ -1,13 +1,11 @@
-import type { Recipe, Suggestion } from 'recipe/model';
+import type { MainDataStatus, Recipe, RecipeDetectionType, SuggestionState } from 'recipe/model';
 import { useTranslation } from 'react-i18next';
 import RecipeComponent from './RecipeComponent';
-import type { MainDataStatus, RecipeDetectionType } from '../model';
-
 export interface RecipesComponentProps {
 	status: MainDataStatus;
 	recipes: Recipe[] | undefined;
 	detectionTypes: RecipeDetectionType[] | undefined;
-	suggestions: Suggestion[] | undefined;
+	suggestions: { [key: string]: SuggestionState } | undefined;
 	errors: string[] | undefined;
 }
 

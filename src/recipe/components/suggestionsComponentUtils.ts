@@ -1,11 +1,11 @@
-import type { Recipe, SuggestionWithId } from 'recipe/model';
+import type { Recipe } from 'recipe/model';
 
 export interface HasSuggestionsArgument {
 	recipes?: Recipe[];
-	suggestions?: SuggestionWithId[];
+	suggestionIds?: string[];
 	errors?: string[];
 }
 
 export const hasSuggestionsContent = (props: HasSuggestionsArgument): boolean => {
-	return Boolean(props.suggestions?.length || (props.errors && props.recipes));
+	return Boolean(props.suggestionIds?.length || (props.errors && props.recipes));
 };
