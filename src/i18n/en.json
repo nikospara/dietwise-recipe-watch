@@ -17,6 +17,9 @@
 	},
 	"recipe": {
 		"title": "Recipe Watch Recipe",
+		"helpTitle": "Help",
+		"welcomeHeading": "Welcome to the Recipe assessment page",
+		"welcomeFooter": "Don't worry if you forget these instructions; to see them again, press the Help button that will appear at the top of the screen while assessing a recipe!",
 		"enterUrl": "Tap to enter the address of the page containing the recipe you want to assess",
 		"enterUrlModalTitle": "Enter address",
 		"ASSESS": "ASSESS",
@@ -25,6 +28,10 @@
 		"titleOfIngredients": "Ingredients",
 		"titleOfSuggestions": "Suggestions - Advice",
 		"anonymousRecipeTemplateTitle": "Recipe #{{index, number}}"
+	},
+	"ingredient": {
+		"equivalence": "Equivalence:",
+		"techniqueNotes": "Notes:"
 	},
 	"settings": {
 		"title": "Recipe Watch Settings",

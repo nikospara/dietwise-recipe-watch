@@ -17,6 +17,9 @@
 	},
 	"recipe": {
 		"title": "Recipe Watch Συνταγή",
+		"helpTitle": "Βοήθεια",
+		"welcomeHeading": "Καλωσήλθατε στη σελίδα εκτίμησης συνταγών",
+		"welcomeFooter": "Μην ανησυχείτε αν δε θυμάστε αυτές τις οδηγίες, θα μπορείτε να τις δείτε πατώντας το κουμπί βοήθεια που θα εμφανιστεί το πάνω μέρος της οθόνης όταν εκτιμήσετε μια συνταγή!",
 		"enterUrl": "Πατήστε εδώ για να εισαγάγετε τη διεύθυνση της συνταγής που θέλετε να εκτιμήσετε",
 		"enterUrlModalTitle": "Εισαγάγετε τη διεύθυνση",
 		"ASSESS": "ΕΚΤΙΜΗΣΕ",
@@ -25,6 +28,10 @@
 		"titleOfIngredients": "Υλικά",
 		"titleOfSuggestions": "Προτάσεις - Συμβουλές",
 		"anonymousRecipeTemplateTitle": "Συνταγή #{{index, number}}"
+	},
+	"ingredient": {
+		"equivalence": "Ισοδυναμία:",
+		"techniqueNotes": "Σημειώσεις:"
 	},
 	"settings": {
 		"title": "Recipe Watch Ρυθμίσεις",

@@ -1,8 +1,23 @@
 /* Keep sections ordered alphabetically to avoid chaos */
 
+/* Borders */
+.border-top-1px-lightmedium {
+	border-top: 1px solid var(--ion-color-lightmedium);
+}
+
+/* Color */
+.color-medium {
+	color: var(--ion-color-medium);
+}
+
 /* Dimension utilities */
 .min-width-64px {
 	min-width: 64px;
+}
+
+/* Flext extras */
+.gap-10px {
+	gap: 10px;
 }
 
 /* Overflow */
@@ -25,8 +40,4 @@
 
 .text-strikethrough {
 	text-decoration: line-through;
-}
-
-.color-medium {
-	color: var(--ion-color-medium);
 }

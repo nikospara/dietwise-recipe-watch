@@ -19,6 +19,7 @@ export interface RecipeComponentProps {
 	detectionType: RecipeDetectionType | undefined;
 	suggestions: { [key: string]: SuggestionState } | undefined;
 	ingredientState: IngredientStateType | undefined;
+	onMarkUndecided: (arg: string) => void;
 }
 
 const RecipeComponent: React.FC<RecipeComponentProps> = (props: RecipeComponentProps) => {
@@ -81,6 +82,7 @@ const RecipeComponent: React.FC<RecipeComponentProps> = (props: RecipeComponentP
 									key={ingredient.id}
 									ingredient={ingredient}
 									acceptedSuggestion={acceptedSuggestion}
+									onMarkUndecided={props.onMarkUndecided}
 								/>
 							);
 						})}

@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import {
+	IonButton,
 	IonButtons,
 	IonContent,
 	IonFab,
@@ -11,7 +12,7 @@ import {
 	IonTitle,
 	IonToolbar,
 } from '@ionic/react';
-import { arrowUndo } from 'ionicons/icons';
+import { arrowUndo, helpCircleOutline } from 'ionicons/icons';
 import { useTranslation } from 'react-i18next';
 import { useAtom, useAtomValue } from 'jotai';
 import { mainStateAtom } from 'recipe/atoms';
@@ -28,11 +29,13 @@ import type { CancellationFunction } from 'recipe/assessRecipe';
 import i18next from 'i18next';
 import UrlContainer from 'recipe/components/UrlContainer';
 import UrlModal from 'recipe/components/UrlModal';
+import HelpModal from 'recipe/help/HelpModal';
 import SplitPane from 'recipe/components/SplitPane';
 import RecipesComponent from 'recipe/components/RecipesComponent';
 import SuggestionsComponent from 'recipe/components/SuggestionsComponent';
 import { hasRecipesContent } from './components/recipesComponentUtils';
 import { hasSuggestionsContent } from 'recipe/components/suggestionsComponentUtils';
+import HelpContentsComponent from 'recipe/help/HelpContentsComponent';
 import './RecipePage.css';
 
 const RecipePage: React.FC = () => {
@@ -40,6 +43,7 @@ const RecipePage: React.FC = () => {
 	const [mainState, dispatch] = useAtom(mainStateAtom);
 	const apiServerHost = useAtomValue(apiServerHostAtom);
 	const [isUrlModalOpen, setUrlModalIsOpen] = useState(false);
+	const [isHelpModalOpen, setHelpModalIsOpen] = useState(false);
 
 	const cancelRef = useRef<CancellationFunction>(null);
 
@@ -85,6 +89,13 @@ const RecipePage: React.FC = () => {
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
+					{assessing || hasOutcome ? (
+						<IonButtons slot="end">
+							<IonButton onClick={() => setHelpModalIsOpen(true)}>
+								<IonIcon slot="icon-only" icon={helpCircleOutline}></IonIcon>
+							</IonButton>
+						</IonButtons>
+					) : null}
 					<IonTitle>{t('recipe.title')}</IonTitle>
 				</IonToolbar>
 			</IonHeader>
@@ -103,6 +114,15 @@ const RecipePage: React.FC = () => {
 						url={mainState.url}
 						status={mainState.status}
 					/>
+					{!assessing && !hasOutcome ? (
+						<>
+							<h1 className="ion-padding-horizontal">{t('recipe.welcomeHeading')}</h1>
+							<HelpContentsComponent />
+							<p className="ion-margin-horizontal ion-padding-vertical border-top-1px-lightmedium">
+								{t('recipe.welcomeFooter')}
+							</p>
+						</>
+					) : null}
 					<SplitPane className="recipe-page__split" top={topPaneContent} bottom={bottomPaneContent} />
 				</div>
 
@@ -112,6 +132,8 @@ const RecipePage: React.FC = () => {
 					url={mainState.url}
 					setUrl={assessRecipeCallback}
 				/>
+
+				<HelpModal isOpen={isHelpModalOpen} setIsOpen={setHelpModalIsOpen} />
 
 				{assessing || hasOutcome ? (
 					<IonFab slot="fixed" vertical="bottom" horizontal="end">

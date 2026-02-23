@@ -1,5 +1,7 @@
-import { useAtomValue } from 'jotai';
+import { useCallback } from 'react';
+import { useAtom } from 'jotai';
 import { mainStateAtom } from 'recipe/atoms';
+import { createSuggestionStatusAction } from 'recipe/actions';
 import type { MainDataStatus, Recipe, RecipeDetectionType, SuggestionState } from 'recipe/model';
 import { useTranslation } from 'react-i18next';
 import RecipeComponent from './RecipeComponent';
@@ -14,7 +16,11 @@ export interface RecipesComponentProps {
 
 const RecipesComponent: React.FC = () => {
 	const { t } = useTranslation();
-	const mainState = useAtomValue(mainStateAtom);
+	const [mainState, dispatch] = useAtom(mainStateAtom);
+	const onMarkUndecided = useCallback(
+		(arg: string) => dispatch(createSuggestionStatusAction(arg, 'UNDECIDED')),
+		[dispatch],
+	);
 
 	if (mainState.recipes?.length) {
 		return (
@@ -27,6 +33,7 @@ const RecipesComponent: React.FC = () => {
 						detectionType={mainState.detectionTypes?.[index]}
 						suggestions={mainState.suggestions}
 						ingredientState={mainState.ingredientState}
+						onMarkUndecided={onMarkUndecided}
 					/>
 				))}
 			</div>
