@@ -32,15 +32,12 @@ export interface SuggestionTemplate {
 }
 
 export interface Suggestion extends SuggestionTemplate {
+	id: string;
 	target: AppliesToIngredient | AppliesToRecipe;
 	ruleId: string;
 	recommendation: string;
 	rationale?: string;
 	text: string;
-}
-
-export interface SuggestionWithId extends Suggestion {
-	id: string;
 }
 
 export interface SuggestionExtraData {
@@ -52,7 +49,7 @@ export interface SuggestionExtraData {
 export type SuggestionStatus = 'ACCEPTED' | 'REJECTED' | 'UNDECIDED';
 
 export interface SuggestionState {
-	suggestion: SuggestionWithId;
+	suggestion: Suggestion;
 	extra?: SuggestionExtraData;
 	status: SuggestionStatus;
 }
@@ -71,8 +68,6 @@ export interface Recipe {
 	recipeInstructions: string[]; // TODO Must reference ingedient
 	text?: string;
 }
-
-// TODO Model altered ingredients
 
 export type RecipeDetectionType = 'JSONLD' | 'LLM_FROM_TEXT';
 

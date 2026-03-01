@@ -1,6 +1,5 @@
 import type { MainAction } from './actions';
 import type { MainData, SuggestionState } from './model';
-import { v4 as uuidv4 } from 'uuid';
 import { acceptedSuggestion, rejectedSuggestion, undecided } from 'recipe/reducers/reduceSuggestionStatusAction';
 
 export function createInitialState(): MainData {
@@ -83,10 +82,9 @@ export function reducer(state: MainData, action: MainAction): MainData {
 				suggestions: {},
 			};
 			const aggregateState = action.message.suggestions?.reduce((aggr, cur) => {
-				const id = uuidv4();
-				const ids = [...aggr.ids, id];
+				const ids = [...aggr.ids, cur.id];
 				const suggestionState: SuggestionState = {
-					suggestion: { ...cur, id },
+					suggestion: cur,
 					extra: undefined,
 					status: 'UNDECIDED',
 				};
@@ -94,7 +92,7 @@ export function reducer(state: MainData, action: MainAction): MainData {
 					ids,
 					suggestions: {
 						...aggr.suggestions,
-						[id]: suggestionState,
+						[cur.id]: suggestionState,
 					},
 				};
 			}, aggregateStateInitial);
