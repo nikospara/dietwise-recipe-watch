@@ -47,7 +47,7 @@ export interface RecipeAssessmentErrorMessageReceivedAction extends Action {
 
 export interface SuggestionStatusAction extends Action {
 	type: 'SuggestionStatusAction';
-	id: string;
+	key: string;
 	status: SuggestionStatus;
 }
 
@@ -125,10 +125,10 @@ export function createMessageReceivedAction(message: RecipeAssessmentMessage): M
 	}
 }
 
-export function createSuggestionStatusAction(id: string, status: SuggestionStatus): SuggestionStatusAction {
+export function createSuggestionStatusAction(key: string, status: SuggestionStatus): SuggestionStatusAction {
 	return {
 		type: 'SuggestionStatusAction',
-		id,
+		key,
 		status,
 	};
 }

@@ -29,12 +29,12 @@ export function acceptedSuggestion(state: MainData, action: SuggestionStatusActi
 		// mark the new suggestion as accepted
 		newSuggestions = {
 			...newSuggestions,
-			[action.id]: newSuggestionState,
+			[action.key]: newSuggestionState,
 		};
 		// assign the suggestion to the ingredient
 		const newIngredientState = {
 			...state.ingredientState,
-			[targetIngredientId]: action.id,
+			[targetIngredientId]: action.key,
 		};
 		return {
 			...state,
@@ -57,12 +57,12 @@ export function rejectedSuggestion(state: MainData, action: SuggestionStatusActi
 		// mark the new suggestion
 		const newSuggestions = {
 			...state.suggestions,
-			[action.id]: newSuggestionState,
+			[action.key]: newSuggestionState,
 		};
 		// assign undefined to the ingredient, only if previously related to this suggestion
 		let newIngredientState = state.ingredientState;
 		const previouslySelectedSuggestionId = state.ingredientState?.[targetIngredientId];
-		if (previouslySelectedSuggestionId === action.id) {
+		if (previouslySelectedSuggestionId === action.key) {
 			newIngredientState = {
 				...state.ingredientState,
 				[targetIngredientId]: undefined,
@@ -89,12 +89,12 @@ export function undecided(state: MainData, action: SuggestionStatusAction, targe
 		// mark the new suggestion
 		const newSuggestions = {
 			...state.suggestions,
-			[action.id]: newSuggestionState,
+			[action.key]: newSuggestionState,
 		};
 		// assign undefined to the ingredient, only if previously related to this suggestion
 		let newIngredientState = state.ingredientState;
 		const previouslySelectedSuggestionId = state.ingredientState?.[targetIngredientId];
-		if (previouslySelectedSuggestionId === action.id) {
+		if (previouslySelectedSuggestionId === action.key) {
 			newIngredientState = {
 				...state.ingredientState,
 				[targetIngredientId]: undefined,

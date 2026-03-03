@@ -1,5 +1,6 @@
 import type { MainAction } from './actions';
 import type { MainData, SuggestionState } from './model';
+import { keyOfSuggestion } from './model';
 import { acceptedSuggestion, rejectedSuggestion, undecided } from 'recipe/reducers/reduceSuggestionStatusAction';
 
 export function createInitialState(): MainData {
@@ -77,22 +78,23 @@ export function reducer(state: MainData, action: MainAction): MainData {
 			if (state.status !== 'PENDING') {
 				throw new Error('Inconsistent state for SuggestionsMessageReceivedAction: ' + state.status);
 			}
-			const aggregateStateInitial: { ids: string[]; suggestions: { [key: string]: SuggestionState } } = {
-				ids: [],
+			const aggregateStateInitial: { keys: string[]; suggestions: { [key: string]: SuggestionState } } = {
+				keys: [],
 				suggestions: {},
 			};
 			const aggregateState = action.message.suggestions?.reduce((aggr, cur) => {
-				const ids = [...aggr.ids, cur.id];
+				const key = keyOfSuggestion(cur);
+				const keys = [...aggr.keys, key];
 				const suggestionState: SuggestionState = {
 					suggestion: cur,
 					extra: undefined,
 					status: 'UNDECIDED',
 				};
 				return {
-					ids,
+					keys,
 					suggestions: {
 						...aggr.suggestions,
-						[cur.id]: suggestionState,
+						[key]: suggestionState,
 					},
 				};
 			}, aggregateStateInitial);
@@ -100,7 +102,7 @@ export function reducer(state: MainData, action: MainAction): MainData {
 				...state,
 				status: 'SUCCESS',
 				rating: action.message.rating,
-				suggestionIds: aggregateState?.ids,
+				suggestionKeys: aggregateState?.keys,
 				suggestions: aggregateState?.suggestions,
 				ingredientState: {},
 			};
@@ -119,8 +121,8 @@ export function reducer(state: MainData, action: MainAction): MainData {
 			if (state.status !== 'SUCCESS') {
 				throw new Error('Inconsistent state for SuggestionStatusAction: ' + state.status);
 			}
-			const target = state.suggestions?.[action.id];
-			if (!target) throw new Error('No suggestion with id ' + action.id);
+			const target = state.suggestions?.[action.key];
+			if (!target) throw new Error('No suggestion with key ' + action.key);
 			const currentRecipe = state.recipes?.[0];
 			if (!currentRecipe) throw new Error('Got suggestions without a recipe');
 			const oldStatus = target.status;

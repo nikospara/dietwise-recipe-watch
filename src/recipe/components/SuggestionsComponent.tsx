@@ -11,25 +11,25 @@ const SuggestionsComponent: React.FC = () => {
 	const { t } = useTranslation();
 	const [mainState, dispatch] = useAtom(mainStateAtom);
 
-	if (mainState.suggestionIds?.length) {
+	if (mainState.suggestionKeys?.length) {
 		return (
 			<div className="sugestions-pane">
 				<h2 className="sticky-suggestions-title">{t('recipe.titleOfSuggestions')}</h2>
 				<IonList>
-					{mainState.suggestionIds.map((suggestionId) => {
-						const suggestionState = mainState.suggestions?.[suggestionId];
+					{mainState.suggestionKeys.map((suggestionKey) => {
+						const suggestionState = mainState.suggestions?.[suggestionKey];
 						if (!suggestionState) return null;
 						const status = suggestionState.status;
 						const onAction = (action: SuggestionStatus) => {
 							if (status === action) {
-								dispatch(createSuggestionStatusAction(suggestionState.suggestion.id, 'UNDECIDED'));
+								dispatch(createSuggestionStatusAction(suggestionKey, 'UNDECIDED'));
 							} else {
-								dispatch(createSuggestionStatusAction(suggestionState.suggestion.id, action));
+								dispatch(createSuggestionStatusAction(suggestionKey, action));
 							}
 						};
 						return (
 							<SuggestionComponent
-								key={suggestionState.suggestion.id}
+								key={suggestionKey}
 								suggestion={suggestionState.suggestion}
 								status={status}
 								onAction={onAction}

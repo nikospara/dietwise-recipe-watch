@@ -114,13 +114,18 @@ export interface MainData {
 	rating?: number;
 	recipes?: Recipe[];
 	detectionTypes?: RecipeDetectionType[];
-	suggestionIds?: string[];
-	/** Map from suggestion id to suggestion state. */
+	suggestionKeys?: string[];
+	/** Map from suggestion key to suggestion state. */
 	suggestions?: { [key: string]: SuggestionState };
-	/** Map from ingredient id to suggestion id, only if the substitution is accepted. */
+	/** Map from ingredient id to suggestion key, only if the substitution is accepted. */
 	ingredientState?: IngredientStateType;
 	/** The URL of the recipe page. */
 	url?: string;
 	/** The extracted content of the recipe page. */
 	pageText?: string;
+}
+
+export function keyOfSuggestion(s: Suggestion): string {
+	const targetId = s.target.type === 'INGREDIENT' ? 'I' + s.target.ingredient : 'R';
+	return s.id + targetId;
 }
