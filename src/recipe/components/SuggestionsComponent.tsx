@@ -39,14 +39,13 @@ const SuggestionsComponent: React.FC = () => {
 				</IonList>
 			</div>
 		);
-	} else if (mainState.errors && mainState.recipes) {
+	} else if ((mainState.emptySuggestionsFromServer || mainState.errors) && mainState.recipes) {
 		return (
 			<div className="sugestions-pane error-pane">
 				<h2>{t('recipe.encounteredErrors')}</h2>
 				<ul>
-					{mainState.errors.map((err, index) => (
-						<li key={index}>{err}</li>
-					))}
+					{mainState.errors ? mainState.errors.map((err, index) => <li key={index}>{err}</li>) : null}
+					{mainState.emptySuggestionsFromServer ? <li>{t('recipe.emptySuggestionsFromServer')}</li> : null}
 				</ul>
 			</div>
 		);

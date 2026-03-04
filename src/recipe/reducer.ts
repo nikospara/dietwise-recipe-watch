@@ -6,6 +6,7 @@ import { acceptedSuggestion, rejectedSuggestion, undecided } from 'recipe/reduce
 export function createInitialState(): MainData {
 	return {
 		status: 'INITIAL',
+		emptySuggestionsFromServer: false,
 	};
 }
 
@@ -14,6 +15,7 @@ export function reducer(state: MainData, action: MainAction): MainData {
 		case 'PrepareToAssessRecipeAction': {
 			return {
 				status: 'PENDING',
+				emptySuggestionsFromServer: false,
 				url: action.url,
 			};
 		}
@@ -102,6 +104,7 @@ export function reducer(state: MainData, action: MainAction): MainData {
 				...state,
 				status: 'SUCCESS',
 				rating: action.message.rating,
+				emptySuggestionsFromServer: !!action.message.suggestions && action.message.suggestions.length === 0,
 				suggestionKeys: aggregateState?.keys,
 				suggestions: aggregateState?.suggestions,
 				ingredientState: {},

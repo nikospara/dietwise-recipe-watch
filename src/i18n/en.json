@@ -27,7 +27,8 @@
 		"encounteredErrors": "Encountered errors:",
 		"titleOfIngredients": "Ingredients",
 		"titleOfSuggestions": "Suggestions - Advice",
-		"anonymousRecipeTemplateTitle": "Recipe #{{index, number}}"
+		"anonymousRecipeTemplateTitle": "Recipe #{{index, number}}",
+		"emptySuggestionsFromServer": "There are no suggestions for this recipe."
 	},
 	"ingredient": {
 		"equivalence": "Equivalence:",

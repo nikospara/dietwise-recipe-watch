@@ -115,6 +115,7 @@ export interface MainData {
 	recipes?: Recipe[];
 	detectionTypes?: RecipeDetectionType[];
 	suggestionKeys?: string[];
+	emptySuggestionsFromServer: boolean;
 	/** Map from suggestion key to suggestion state. */
 	suggestions?: { [key: string]: SuggestionState };
 	/** Map from ingredient id to suggestion key, only if the substitution is accepted. */

@@ -27,7 +27,8 @@
 		"encounteredErrors": "Παρουσιάστηκαν λάθη:",
 		"titleOfIngredients": "Υλικά",
 		"titleOfSuggestions": "Προτάσεις - Συμβουλές",
-		"anonymousRecipeTemplateTitle": "Συνταγή #{{index, number}}"
+		"anonymousRecipeTemplateTitle": "Συνταγή #{{index, number}}",
+		"emptySuggestionsFromServer": "Δεν υπάρχουν προτάσεις για τη συνταγή αυτή."
 	},
 	"ingredient": {
 		"equivalence": "Ισοδυναμία:",
