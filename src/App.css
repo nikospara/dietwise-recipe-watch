@@ -6,6 +6,9 @@
 }
 
 /* Color */
+.color-gold {
+	color: var(--dietwise-gold);
+}
 .color-medium {
 	color: var(--ion-color-medium);
 }

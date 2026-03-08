@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { TbStar, TbStarFilled, TbStarHalfFilled } from 'react-icons/tb';
 
 export interface RatingComponentProps {
@@ -7,8 +6,6 @@ export interface RatingComponentProps {
 }
 
 const RatingComponent: React.FC<RatingComponentProps> = (props: RatingComponentProps) => {
-	const { t } = useTranslation();
-
 	const stars = new Array(props.max);
 	const rating = typeof props.rating === 'number' ? props.rating : 0;
 
@@ -22,15 +19,7 @@ const RatingComponent: React.FC<RatingComponentProps> = (props: RatingComponentP
 		}
 	}
 
-	return (
-		<div>
-			<h2>
-				{t('main.RatingComponent.rating')}
-				&nbsp;
-				{typeof props.rating === 'number' && <span>{stars}</span>}
-			</h2>
-		</div>
-	);
+	return <div className="color-gold">{stars}</div>;
 };
 
 export default RatingComponent;

@@ -76,6 +76,14 @@ export interface RecipeAndDetectionType {
 	detectionType: RecipeDetectionType;
 }
 
+export type RecommendationWeight = 'LIMITED' | 'ENCOURAGED';
+
+export interface ScoringData {
+	totalNumberOfRecomendations: number;
+	recommendationWeights: { [key: string]: RecommendationWeight };
+	recommendationsPerIngredient: { [key: string]: string[] };
+}
+
 export interface RecipeExtractionRecipeAssessmentMessage {
 	type: 'RECIPES';
 	recipes: RecipeAndDetectionType[];
@@ -90,7 +98,11 @@ export interface MoreThanOneRecipesAssessmentMessage {
 export interface SuggestionsRecipeAssessmentMessage {
 	type: 'SUGGESTIONS';
 	suggestions?: Suggestion[];
-	rating?: number;
+}
+
+export interface ScoringRecipeAssessmentMessage {
+	type: 'SCORING';
+	scoringData: ScoringData;
 }
 
 export interface RecipeAssessmentErrorMessage {
@@ -102,6 +114,7 @@ export type RecipeAssessmentMessage =
 	| RecipeExtractionRecipeAssessmentMessage
 	| MoreThanOneRecipesAssessmentMessage
 	| SuggestionsRecipeAssessmentMessage
+	| ScoringRecipeAssessmentMessage
 	| RecipeAssessmentErrorMessage;
 
 export type MainDataStatus = 'INITIAL' | 'SUCCESS' | 'FAILURE' | 'PENDING' | 'SELECT_RECIPE';
@@ -124,6 +137,7 @@ export interface MainData {
 	url?: string;
 	/** The extracted content of the recipe page. */
 	pageText?: string;
+	scoringData?: ScoringData;
 }
 
 export function keyOfSuggestion(s: Suggestion): string {

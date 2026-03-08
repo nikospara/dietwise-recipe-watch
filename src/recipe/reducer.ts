@@ -2,6 +2,7 @@ import type { MainAction } from './actions';
 import type { MainData, SuggestionState } from './model';
 import { keyOfSuggestion } from './model';
 import { acceptedSuggestion, rejectedSuggestion, undecided } from 'recipe/reducers/reduceSuggestionStatusAction';
+import { calculateRating } from 'recipe/reducers/calculateRating';
 
 export function createInitialState(): MainData {
 	return {
@@ -27,15 +28,16 @@ export function reducer(state: MainData, action: MainAction): MainData {
 			};
 		}
 		case 'RecipeAssessmentCompletedAction': {
-			if (state.status === 'PENDING') {
-				return {
-					...state,
-					status: 'FAILURE',
-					errors: ['The processing was interrupted'],
-				};
-			} else {
-				return state;
+			if (state.status !== 'PENDING' && state.status !== 'FAILURE') {
+				throw new Error('Inconsistent state for RecipeAssessmentCompletedAction: ' + state.status);
 			}
+			if (state.status === 'FAILURE') {
+				console.warn('Received completion while in FAILURE state, that is weird');
+			}
+			return {
+				...state,
+				status: 'SUCCESS',
+			};
 		}
 		case 'ResetMainPageAction': {
 			if (state.status === 'PENDING') {
@@ -102,13 +104,22 @@ export function reducer(state: MainData, action: MainAction): MainData {
 			}, aggregateStateInitial);
 			return {
 				...state,
-				status: 'SUCCESS',
-				rating: action.message.rating,
 				emptySuggestionsFromServer: !!action.message.suggestions && action.message.suggestions.length === 0,
 				suggestionKeys: aggregateState?.keys,
 				suggestions: aggregateState?.suggestions,
 				ingredientState: {},
 			};
+		}
+		case 'ScoringMessageReceivedAction': {
+			if (state.status !== 'PENDING') {
+				throw new Error('Inconsistent state for ScoringMessageReceivedAction: ' + state.status);
+			}
+			const newState = {
+				...state,
+				scoringData: action.message.scoringData,
+			};
+			newState.rating = calculateRating(newState);
+			return newState;
 		}
 		case 'RecipeAssessmentErrorMessageReceivedAction': {
 			if (state.status !== 'PENDING') {

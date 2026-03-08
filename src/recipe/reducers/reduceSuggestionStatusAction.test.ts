@@ -46,6 +46,7 @@ describe('acceptedSuggestion', () => {
 		const target = createIngredientSuggestionState('s1', 'i1', 'UNDECIDED');
 		const state: MainData = {
 			status: 'SUCCESS',
+			emptySuggestionsFromServer: false,
 			suggestions: {
 				s1: target,
 			},
@@ -64,6 +65,7 @@ describe('acceptedSuggestion', () => {
 		const target = createIngredientSuggestionState('s-next', 'i1', 'UNDECIDED');
 		const state: MainData = {
 			status: 'SUCCESS',
+			emptySuggestionsFromServer: false,
 			suggestions: {
 				's-prev': previous,
 				's-next': target,
@@ -84,6 +86,7 @@ describe('acceptedSuggestion', () => {
 		const target = createIngredientSuggestionState('s-next', 'i1');
 		const state: MainData = {
 			status: 'SUCCESS',
+			emptySuggestionsFromServer: false,
 			suggestions: {
 				's-next': target,
 			},
@@ -101,6 +104,7 @@ describe('acceptedSuggestion', () => {
 		const target = createRecipeSuggestionState('s-recipe', 'UNDECIDED');
 		const state: MainData = {
 			status: 'SUCCESS',
+			emptySuggestionsFromServer: false,
 			suggestions: {
 				's-recipe': target,
 			},
@@ -119,6 +123,7 @@ describe('rejectedSuggestion', () => {
 		const selected = createIngredientSuggestionState('s2', 'i1', 'ACCEPTED');
 		const state: MainData = {
 			status: 'SUCCESS',
+			emptySuggestionsFromServer: false,
 			suggestions: {
 				s1: target,
 				s2: selected,
@@ -139,6 +144,7 @@ describe('rejectedSuggestion', () => {
 		const target = createIngredientSuggestionState('s1', 'i1', 'ACCEPTED');
 		const state: MainData = {
 			status: 'SUCCESS',
+			emptySuggestionsFromServer: false,
 			suggestions: {
 				s1: target,
 			},
@@ -157,6 +163,7 @@ describe('rejectedSuggestion', () => {
 		const target = createRecipeSuggestionState('s-recipe', 'UNDECIDED');
 		const state: MainData = {
 			status: 'SUCCESS',
+			emptySuggestionsFromServer: false,
 			suggestions: {
 				's-recipe': target,
 			},
@@ -175,6 +182,7 @@ describe('undecided', () => {
 		const selected = createIngredientSuggestionState('s2', 'i1', 'ACCEPTED');
 		const state: MainData = {
 			status: 'SUCCESS',
+			emptySuggestionsFromServer: false,
 			suggestions: {
 				s1: target,
 				s2: selected,
@@ -195,6 +203,7 @@ describe('undecided', () => {
 		const target = createIngredientSuggestionState('s1', 'i1', 'ACCEPTED');
 		const state: MainData = {
 			status: 'SUCCESS',
+			emptySuggestionsFromServer: false,
 			suggestions: {
 				s1: target,
 			},
@@ -213,6 +222,7 @@ describe('undecided', () => {
 		const target = createRecipeSuggestionState('s-recipe', 'ACCEPTED');
 		const state: MainData = {
 			status: 'SUCCESS',
+			emptySuggestionsFromServer: false,
 			suggestions: {
 				's-recipe': target,
 			},

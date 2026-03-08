@@ -3,6 +3,7 @@ import type {
 	RecipeAssessmentMessage,
 	RecipeExtractionRecipeAssessmentMessage,
 	SuggestionsRecipeAssessmentMessage,
+	ScoringRecipeAssessmentMessage,
 	SuggestionStatus,
 } from './model';
 import type { Action } from 'model';
@@ -40,6 +41,11 @@ export interface SuggestionsMessageReceivedAction extends Action {
 	message: SuggestionsRecipeAssessmentMessage;
 }
 
+export interface ScoringMessageReceivedAction extends Action {
+	type: 'ScoringMessageReceivedAction';
+	message: ScoringRecipeAssessmentMessage;
+}
+
 export interface RecipeAssessmentErrorMessageReceivedAction extends Action {
 	type: 'RecipeAssessmentErrorMessageReceivedAction';
 	message: RecipeAssessmentErrorMessage;
@@ -55,6 +61,7 @@ export type MessageReceivedAction =
 	| RecipeExtractionMessageReceivedAction
 	| MoreThanOneRecipesAssessmentMessageReceivedAction
 	| SuggestionsMessageReceivedAction
+	| ScoringMessageReceivedAction
 	| RecipeAssessmentErrorMessageReceivedAction;
 
 export type MainAction =
@@ -65,6 +72,7 @@ export type MainAction =
 	| RecipeExtractionMessageReceivedAction
 	| MoreThanOneRecipesAssessmentMessageReceivedAction
 	| SuggestionsMessageReceivedAction
+	| ScoringMessageReceivedAction
 	| RecipeAssessmentErrorMessageReceivedAction
 	| SuggestionStatusAction;
 
@@ -107,20 +115,25 @@ export function createMessageReceivedAction(message: RecipeAssessmentMessage): M
 				type: 'RecipeExtractionMessageReceivedAction',
 				message,
 			};
+		case 'MORE_THAN_ONE_RECIPE':
+			return {
+				type: 'MoreThanOneRecipesAssessmentMessageReceivedAction',
+				numberOfRecipes: message.numberOfRecipes,
+			};
 		case 'SUGGESTIONS':
 			return {
 				type: 'SuggestionsMessageReceivedAction',
+				message,
+			};
+		case 'SCORING':
+			return {
+				type: 'ScoringMessageReceivedAction',
 				message,
 			};
 		case 'ERROR':
 			return {
 				type: 'RecipeAssessmentErrorMessageReceivedAction',
 				message,
-			};
-		case 'MORE_THAN_ONE_RECIPE':
-			return {
-				type: 'MoreThanOneRecipesAssessmentMessageReceivedAction',
-				numberOfRecipes: message.numberOfRecipes,
 			};
 	}
 }

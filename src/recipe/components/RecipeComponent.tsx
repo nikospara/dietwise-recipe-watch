@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { IngredientStateType, Recipe, RecipeDetectionType, SuggestionState } from 'recipe/model';
 import IngredientComponent from './IngredientComponent';
+import RatingComponent from './RatingComponent';
 import brainIcon from '@/assets/images/brain.svg';
 import jsonLdIcon from '@/assets/images/json-ld.svg';
 import './RecipeComponent.css';
@@ -16,6 +17,7 @@ addIcons({
 export interface RecipeComponentProps {
 	index: number;
 	recipe: Recipe;
+	rating?: number;
 	detectionType: RecipeDetectionType | undefined;
 	suggestions: { [key: string]: SuggestionState } | undefined;
 	ingredientState: IngredientStateType | undefined;
@@ -52,21 +54,21 @@ const RecipeComponent: React.FC<RecipeComponentProps> = (props: RecipeComponentP
 
 	return (
 		<section ref={sectionRef}>
-			<h2
-				ref={titleRef}
-				className="sticky-recipe-title ion-display-flex ion-align-items-center ion-justify-content-between"
-			>
-				{props.recipe.name
-					? props.recipe.name
-					: t('recipe.anonymousRecipeTemplateTitle', { index: props.index + 1 })}
-				{props.detectionType ? (
-					<IonIcon
-						icon={props.detectionType === 'JSONLD' ? 'jsonld' : 'brain'}
-						aria-hidden="true"
-						color="lightmedium"
-						size="large"
-					/>
-				) : null}
+			<h2 ref={titleRef} className="sticky-recipe-title">
+				<div className="ion-display-flex ion-align-items-center ion-justify-content-between">
+					{props.recipe.name
+						? props.recipe.name
+						: t('recipe.anonymousRecipeTemplateTitle', { index: props.index + 1 })}
+					{props.detectionType ? (
+						<IonIcon
+							icon={props.detectionType === 'JSONLD' ? 'jsonld' : 'brain'}
+							aria-hidden="true"
+							color="lightmedium"
+							size="large"
+						/>
+					) : null}
+				</div>
+				{typeof props.rating === 'number' ? <RatingComponent rating={10 * props.rating} max={10} /> : null}
 			</h2>
 			{props.recipe.recipeIngredients?.length > 0 ? (
 				<>

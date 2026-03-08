@@ -30,6 +30,7 @@ const RecipesComponent: React.FC = () => {
 						key={r.name ?? `recipe-${index}`}
 						index={index}
 						recipe={r}
+						rating={mainState.recipes?.length === 1 ? mainState.rating : undefined}
 						detectionType={mainState.detectionTypes?.[index]}
 						suggestions={mainState.suggestions}
 						ingredientState={mainState.ingredientState}

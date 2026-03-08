@@ -2,6 +2,7 @@
 import { IonButton, IonIcon, IonItem, IonLabel } from '@ionic/react';
 import { removeOutline } from 'ionicons/icons';
 import { useTranslation } from 'react-i18next';
+import { keyOfSuggestion } from 'recipe/model';
 import type { Ingredient, SuggestionState } from 'recipe/model';
 
 export interface IngredientComponentProps {
@@ -53,7 +54,7 @@ const IngredientComponent: React.FC<IngredientComponentProps> = ({
 					shape="round"
 					color="dark"
 					fill="outline"
-					onClick={() => onMarkUndecided(acceptedSuggestion?.suggestion.id)}
+					onClick={() => onMarkUndecided(keyOfSuggestion(acceptedSuggestion.suggestion))}
 				>
 					<IonIcon slot="icon-only" icon={removeOutline}></IonIcon>
 				</IonButton>
