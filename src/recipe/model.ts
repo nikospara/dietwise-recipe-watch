@@ -37,6 +37,7 @@ export interface Suggestion extends SuggestionTemplate {
 	ruleId: string;
 	recommendation: string;
 	rationale?: string;
+	alternativeComponentNames: string[];
 	text: string;
 }
 
@@ -141,6 +142,9 @@ export interface MainData {
 }
 
 export function keyOfSuggestion(s: Suggestion): string {
-	const targetId = s.target.type === 'INGREDIENT' ? 'I' + s.target.ingredient : 'R';
-	return s.id + targetId;
+	return s.target.type === 'INGREDIENT' ? keyOfIngredientSuggestion(s.id, s.target.ingredient) : s.id + 'R';
+}
+
+export function keyOfIngredientSuggestion(suggestionId: string, ingredientId: string): string {
+	return suggestionId + 'I' + ingredientId;
 }

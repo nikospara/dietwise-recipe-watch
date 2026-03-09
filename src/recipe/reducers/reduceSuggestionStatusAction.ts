@@ -1,5 +1,6 @@
 import type { SuggestionStatusAction } from 'recipe/actions';
 import type { MainData, SuggestionState } from 'recipe/model';
+import { calculateRating } from './calculateRating';
 
 export function acceptedSuggestion(state: MainData, action: SuggestionStatusAction, target: SuggestionState): MainData {
 	if (target.suggestion.target.type === 'INGREDIENT') {
@@ -36,11 +37,13 @@ export function acceptedSuggestion(state: MainData, action: SuggestionStatusActi
 			...state.ingredientState,
 			[targetIngredientId]: action.key,
 		};
-		return {
+		const newState = {
 			...state,
 			suggestions: newSuggestions,
 			ingredientState: newIngredientState,
 		};
+		newState.rating = calculateRating(newState);
+		return newState;
 	} else {
 		// no RECIPE-level suggestions so far
 		return state;
@@ -68,11 +71,13 @@ export function rejectedSuggestion(state: MainData, action: SuggestionStatusActi
 				[targetIngredientId]: undefined,
 			};
 		}
-		return {
+		const newState = {
 			...state,
 			suggestions: newSuggestions,
 			ingredientState: newIngredientState,
 		};
+		newState.rating = calculateRating(newState);
+		return newState;
 	} else {
 		// no RECIPE-level suggestions so far
 		return state;
@@ -100,11 +105,13 @@ export function undecided(state: MainData, action: SuggestionStatusAction, targe
 				[targetIngredientId]: undefined,
 			};
 		}
-		return {
+		const newState = {
 			...state,
 			suggestions: newSuggestions,
 			ingredientState: newIngredientState,
 		};
+		newState.rating = calculateRating(newState);
+		return newState;
 	} else {
 		// no RECIPE-level suggestions so far
 		return state;

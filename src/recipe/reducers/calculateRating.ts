@@ -1,4 +1,5 @@
 import { MainData } from 'recipe/model';
+// import { keyOfIngredientSuggestion } from 'recipe/model';
 
 type PresenceMap = { [key: string]: boolean };
 
@@ -8,16 +9,19 @@ export function calculateRating(state: MainData): number | undefined {
 		(aggr, cur) => ({ ...aggr, [cur]: false }),
 		{},
 	);
-	for (const key in state.scoringData.recommendationsPerIngredient) {
-		if (state.ingredientState?.[key]) {
-			// the ingredient is replaced
-			// TODO Calculate the contribution of its replacement, from the DB
-			continue;
-		} else {
-			const recommendations = state.scoringData.recommendationsPerIngredient[key];
-			for (let i = 0; i < recommendations.length; i++) {
-				presenceMap[recommendations[i]] = true;
-			}
+	for (const ingredientId in state.scoringData.recommendationsPerIngredient) {
+		let recommendations = state.scoringData.recommendationsPerIngredient[ingredientId];
+		if (state.ingredientState?.[ingredientId]) {
+			// the ingredient is replaced, calculate the contribution of its replacement
+			// const acceptedSuggestionId = state.ingredientState?.[ingredientId];
+			// const suggestionKey = keyOfIngredientSuggestion(acceptedSuggestionId, ingredientId);
+			const suggestionKey = state.ingredientState?.[ingredientId];
+			const acceptedSuggestion = state?.suggestions?.[suggestionKey];
+			const maybeRecommendations = acceptedSuggestion?.suggestion.alternativeComponentNames;
+			if (maybeRecommendations) recommendations = acceptedSuggestion?.suggestion.alternativeComponentNames;
+		}
+		for (let i = 0; i < recommendations.length; i++) {
+			presenceMap[recommendations[i]] = true;
 		}
 	}
 	let score = 0;

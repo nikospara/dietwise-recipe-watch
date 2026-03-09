@@ -19,6 +19,7 @@ function createIngredientSuggestionState(
 			},
 			ruleId: `rule-${id}`,
 			recommendation: `recommendation-${id}`,
+			alternativeComponentNames: [],
 			text: `text-${id}`,
 		},
 	};
@@ -36,6 +37,7 @@ function createRecipeSuggestionState(id: string, status: SuggestionState['status
 			},
 			ruleId: `rule-${id}`,
 			recommendation: `recommendation-${id}`,
+			alternativeComponentNames: [],
 			text: `text-${id}`,
 		},
 	};
