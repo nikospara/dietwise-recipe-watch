@@ -12,6 +12,10 @@ export interface RecipeExtractionAndAssessmentParam {
 	langCode: string;
 }
 
+export interface StatisticsParam {
+	suggestionId: string;
+}
+
 export interface AppliesToIngredient {
 	type: 'INGREDIENT';
 	/** The id of the ingredient this suggestion applies to. */

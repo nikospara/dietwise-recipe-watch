@@ -14,8 +14,8 @@ import {
 } from '@ionic/react';
 import { arrowUndo, helpCircleOutline } from 'ionicons/icons';
 import { useTranslation } from 'react-i18next';
-import { useAtom, useAtomValue } from 'jotai';
-import { mainStateAtom } from 'recipe/atoms';
+import { useAtom, useAtomValue, useSetAtom } from 'jotai';
+import { mainStateAtom, suggestionInFlightAtom } from 'recipe/atoms';
 import { apiServerHostAtom } from 'config/atoms';
 import {
 	createPrepareToAssessRecipeAction,
@@ -41,6 +41,7 @@ import './RecipePage.css';
 const RecipePage: React.FC = () => {
 	const { t } = useTranslation();
 	const [mainState, dispatch] = useAtom(mainStateAtom);
+	const setSuggestionInFlight = useSetAtom(suggestionInFlightAtom);
 	const apiServerHost = useAtomValue(apiServerHostAtom);
 	const [isUrlModalOpen, setUrlModalIsOpen] = useState(false);
 	const [isHelpModalOpen, setHelpModalIsOpen] = useState(false);
@@ -74,7 +75,10 @@ const RecipePage: React.FC = () => {
 		[dispatch, apiServerHost],
 	);
 
-	const resetCallback = useCallback(() => dispatch(createResetMainPageAction()), [dispatch]);
+	const resetCallback = useCallback(() => {
+		dispatch(createResetMainPageAction());
+		setSuggestionInFlight({});
+	}, [dispatch, setSuggestionInFlight]);
 
 	const hasOutcome = mainState.status === 'SUCCESS' || mainState.status === 'FAILURE';
 	const assessing = mainState.status === 'PENDING';

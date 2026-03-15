@@ -1,10 +1,13 @@
 import { useCallback } from 'react';
-import { useAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
+import { apiServerHostAtom } from 'config/atoms';
 import { mainStateAtom } from 'recipe/atoms';
 import { createSuggestionStatusAction } from 'recipe/actions';
 import type { MainDataStatus, Recipe, RecipeDetectionType, SuggestionState } from 'recipe/model';
 import { useTranslation } from 'react-i18next';
 import RecipeComponent from './RecipeComponent';
+import { waitForSuggestionStatisticsWithTimeout } from './suggestionsStatisticsUtils';
+import { useSuggestionInFlight } from './useSuggestionInFlight';
 
 export interface RecipesComponentProps {
 	status: MainDataStatus;
@@ -17,9 +20,26 @@ export interface RecipesComponentProps {
 const RecipesComponent: React.FC = () => {
 	const { t } = useTranslation();
 	const [mainState, dispatch] = useAtom(mainStateAtom);
+	const apiServerHost = useAtomValue(apiServerHostAtom);
+	const { isSuggestionInFlight, setSuggestionInFlight } = useSuggestionInFlight();
+
 	const onMarkUndecided = useCallback(
-		(arg: string) => dispatch(createSuggestionStatusAction(arg, 'UNDECIDED')),
-		[dispatch],
+		async (suggestionKey: string, suggestionId: string) => {
+			if (isSuggestionInFlight(suggestionKey)) {
+				return;
+			}
+
+			dispatch(createSuggestionStatusAction(suggestionKey, 'UNDECIDED'));
+			setSuggestionInFlight(suggestionKey, true);
+			try {
+				await waitForSuggestionStatisticsWithTimeout(apiServerHost, suggestionId, 'ACCEPTED', 'UNDECIDED');
+			} catch (error) {
+				console.error('Unable to notify suggestion statistics', error);
+			} finally {
+				setSuggestionInFlight(suggestionKey, false);
+			}
+		},
+		[apiServerHost, dispatch, isSuggestionInFlight, setSuggestionInFlight],
 	);
 
 	if (mainState.recipes?.length) {
@@ -34,6 +54,7 @@ const RecipesComponent: React.FC = () => {
 						detectionType={mainState.detectionTypes?.[index]}
 						suggestions={mainState.suggestions}
 						ingredientState={mainState.ingredientState}
+						isSuggestionInFlight={isSuggestionInFlight}
 						onMarkUndecided={onMarkUndecided}
 					/>
 				))}

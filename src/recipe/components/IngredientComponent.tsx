@@ -8,7 +8,8 @@ import type { Ingredient, SuggestionState } from 'recipe/model';
 export interface IngredientComponentProps {
 	ingredient: Ingredient;
 	acceptedSuggestion: SuggestionState | undefined;
-	onMarkUndecided: (arg: string) => void;
+	acceptedSuggestionDisabled?: boolean;
+	onMarkUndecided: (suggestionKey: string, suggestionId: string) => void | Promise<void>;
 }
 
 export interface IngredientSuggestionProps {
@@ -38,6 +39,7 @@ const IngredientSuggestion: React.FC<IngredientSuggestionProps> = ({ acceptedSug
 const IngredientComponent: React.FC<IngredientComponentProps> = ({
 	ingredient,
 	acceptedSuggestion,
+	acceptedSuggestionDisabled,
 	onMarkUndecided,
 }) => {
 	const originalIngredientClassName = acceptedSuggestion ? 'text-strikethrough color-medium' : '';
@@ -54,7 +56,13 @@ const IngredientComponent: React.FC<IngredientComponentProps> = ({
 					shape="round"
 					color="dark"
 					fill="outline"
-					onClick={() => onMarkUndecided(keyOfSuggestion(acceptedSuggestion.suggestion))}
+					disabled={acceptedSuggestionDisabled}
+					onClick={() =>
+						onMarkUndecided(
+							keyOfSuggestion(acceptedSuggestion.suggestion),
+							acceptedSuggestion.suggestion.id,
+						)
+					}
 				>
 					<IonIcon slot="icon-only" icon={removeOutline}></IonIcon>
 				</IonButton>
