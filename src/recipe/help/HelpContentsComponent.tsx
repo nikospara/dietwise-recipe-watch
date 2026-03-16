@@ -39,6 +39,12 @@ const HelpContentsComponent: React.FC = () => {
 				Another way to switch a suggestion to undecided is to click the "minus" button of a replaced ingredient
 				in the recipe in the top half of the page.
 			</p>
+			<p>
+				The application displays statistics about a suggestion near the "Approve" / "Reject" buttons, for the
+				current user and all the users in total. The text looks like "User: 1/2/3", where 1 is the number of
+				times this suggestion is accepted, 2is the number of times this suggestion is rejected and 3 the number
+				of times this suggestion has been proposed.
+			</p>
 		</div>
 	);
 };

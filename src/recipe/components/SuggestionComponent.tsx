@@ -1,7 +1,8 @@
 import { useCallback } from 'react';
 import { IonButton, IonIcon, IonItem, IonLabel } from '@ionic/react';
+import { useTranslation } from 'react-i18next';
 import { checkmark, close } from 'ionicons/icons';
-import type { Suggestion, SuggestionStatus } from 'recipe/model';
+import type { Suggestion, SuggestionStatus, SuggestionStats } from 'recipe/model';
 
 export interface SuggestionComponentProps {
 	suggestion: Suggestion;
@@ -11,6 +12,7 @@ export interface SuggestionComponentProps {
 }
 
 const SuggestionComponent: React.FC<SuggestionComponentProps> = ({ suggestion, status, disabled, onAction }) => {
+	const { t } = useTranslation();
 	const acceptCallback = useCallback(() => onAction('ACCEPTED'), [onAction]);
 	const rejectCallback = useCallback(() => onAction('REJECTED'), [onAction]);
 
@@ -23,6 +25,12 @@ const SuggestionComponent: React.FC<SuggestionComponentProps> = ({ suggestion, s
 				<IonLabel>{suggestion.text}</IonLabel>
 			</IonItem>
 			<IonItem>
+				<IonLabel>
+					<p>
+						{t('recipe.userStats')} {formatStats(suggestion.userSuggestionStats, status)}{' '}
+						{t('recipe.totalStats')} {formatStats(suggestion.totalSuggestionStats, status)}
+					</p>
+				</IonLabel>
 				<IonButton
 					slot="end"
 					size="small"
@@ -47,5 +55,17 @@ const SuggestionComponent: React.FC<SuggestionComponentProps> = ({ suggestion, s
 		</>
 	);
 };
+
+function formatStats(stats: SuggestionStats, status: SuggestionStatus | undefined) {
+	const timesAccepted =
+		status === 'ACCEPTED' && stats.timesAccepted + stats.timesRejected < stats.timesSuggested
+			? stats.timesAccepted + 1
+			: stats.timesAccepted;
+	const timesRejected =
+		status === 'REJECTED' && stats.timesAccepted + stats.timesRejected < stats.timesSuggested
+			? stats.timesRejected + 1
+			: stats.timesRejected;
+	return `${timesAccepted}/${timesRejected}/${stats.timesSuggested}`;
+}
 
 export default SuggestionComponent;

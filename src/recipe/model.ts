@@ -16,6 +16,10 @@ export interface StatisticsParam {
 	suggestionId: string;
 }
 
+export interface StatisticsResponse {
+	updatedValue: number;
+}
+
 export interface AppliesToIngredient {
 	type: 'INGREDIENT';
 	/** The id of the ingredient this suggestion applies to. */
@@ -35,6 +39,12 @@ export interface SuggestionTemplate {
 	techniqueNotes?: string;
 }
 
+export interface SuggestionStats {
+	timesSuggested: number;
+	timesAccepted: number;
+	timesRejected: number;
+}
+
 export interface Suggestion extends SuggestionTemplate {
 	id: string;
 	target: AppliesToIngredient | AppliesToRecipe;
@@ -42,6 +52,8 @@ export interface Suggestion extends SuggestionTemplate {
 	recommendation: string;
 	rationale?: string;
 	alternativeComponentNames: string[];
+	totalSuggestionStats: SuggestionStats;
+	userSuggestionStats: SuggestionStats;
 	text: string;
 }
 

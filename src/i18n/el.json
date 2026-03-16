@@ -28,7 +28,9 @@
 		"titleOfIngredients": "Υλικά",
 		"titleOfSuggestions": "Προτάσεις - Συμβουλές",
 		"anonymousRecipeTemplateTitle": "Συνταγή #{{index, number}}",
-		"emptySuggestionsFromServer": "Δεν υπάρχουν προτάσεις για τη συνταγή αυτή."
+		"emptySuggestionsFromServer": "Δεν υπάρχουν προτάσεις για τη συνταγή αυτή.",
+		"userStats": "Χρήστης:",
+		"totalStats": "Σύνολο:"
 	},
 	"ingredient": {
 		"equivalence": "Ισοδυναμία:",

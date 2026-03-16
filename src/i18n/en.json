@@ -28,7 +28,9 @@
 		"titleOfIngredients": "Ingredients",
 		"titleOfSuggestions": "Suggestions - Advice",
 		"anonymousRecipeTemplateTitle": "Recipe #{{index, number}}",
-		"emptySuggestionsFromServer": "There are no suggestions for this recipe."
+		"emptySuggestionsFromServer": "There are no suggestions for this recipe.",
+		"userStats": "User:",
+		"totalStats": "Totals:"
 	},
 	"ingredient": {
 		"equivalence": "Equivalence:",
