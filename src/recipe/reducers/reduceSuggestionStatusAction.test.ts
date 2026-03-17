@@ -20,6 +20,16 @@ function createIngredientSuggestionState(
 			ruleId: `rule-${id}`,
 			recommendation: `recommendation-${id}`,
 			alternativeComponentNames: [],
+			totalSuggestionStats: {
+				timesSuggested: 1,
+				timesAccepted: 0,
+				timesRejected: 0,
+			},
+			userSuggestionStats: {
+				timesSuggested: 1,
+				timesAccepted: 0,
+				timesRejected: 0,
+			},
 			text: `text-${id}`,
 		},
 	};
@@ -38,6 +48,16 @@ function createRecipeSuggestionState(id: string, status: SuggestionState['status
 			ruleId: `rule-${id}`,
 			recommendation: `recommendation-${id}`,
 			alternativeComponentNames: [],
+			totalSuggestionStats: {
+				timesSuggested: 1,
+				timesAccepted: 0,
+				timesRejected: 0,
+			},
+			userSuggestionStats: {
+				timesSuggested: 1,
+				timesAccepted: 0,
+				timesRejected: 0,
+			},
 			text: `text-${id}`,
 		},
 	};
