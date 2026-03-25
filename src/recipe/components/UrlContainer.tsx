@@ -1,7 +1,7 @@
 import { IonIcon, IonSpinner } from '@ionic/react';
 import { alertCircle, checkmarkCircle, helpCircle } from 'ionicons/icons';
 import { useTranslation } from 'react-i18next';
-import type { MainDataStatus } from 'recipe/model';
+import type { MainDataStatus } from '@/recipe/model';
 import './UrlContainer.css';
 
 export interface UrlContainerProps {

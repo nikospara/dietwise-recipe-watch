@@ -1,6 +1,6 @@
 import type { RecipeAssessmentMessage, RecipeExtractionAndAssessmentParam } from './model';
-import { streamJson } from 'common/streamJson';
-import { getValidAccessToken } from 'auth/authService';
+import { streamJson } from '@/common/streamJson';
+import { getValidAccessToken } from '@/auth/authService';
 
 export interface CancellationFunction {
 	(): void;

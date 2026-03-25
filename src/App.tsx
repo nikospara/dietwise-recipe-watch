@@ -1,7 +1,7 @@
 import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
-import Menu from 'components/Menu';
+import Menu from '@/components/Menu';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -36,12 +36,12 @@ import './theme/variables.css';
 import './App.css';
 
 // importing the top-level page components; let's keep them sorted allphabetically
-import AuthCallbackPage from 'auth/AuthCallbackPage';
-import EndSessionPage from 'auth/EndSessionPage';
-import HomePage from 'home/HomePage';
-import PersonalizationPage from 'personalization/PersonalizationPage';
-import RecipePage from 'recipe/RecipePage';
-import SettingsPage from 'settings/SettingsPage';
+import AuthCallbackPage from '@/auth/AuthCallbackPage';
+import EndSessionPage from '@/auth/EndSessionPage';
+import HomePage from '@/home/HomePage';
+import PersonalizationPage from '@/personalization/PersonalizationPage';
+import RecipePage from '@/recipe/RecipePage';
+import SettingsPage from '@/settings/SettingsPage';
 
 setupIonicReact();
 

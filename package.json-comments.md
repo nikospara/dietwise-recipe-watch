@@ -30,3 +30,8 @@ Incompatible with ionic-router.
 ### eslint: 9.x - 10.x
 
 At least `@nabla/vite-plugin-eslint@2.0.6` (the latest as of 2026/02/18) has a peer dependency on `eslint@"^8.45 || ^9"`.
+
+
+### typescript: 5.x - 6.x
+
+Because `typescript-eslint` does not support it.

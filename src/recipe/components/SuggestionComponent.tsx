@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { IonButton, IonIcon, IonItem, IonLabel } from '@ionic/react';
 import { useTranslation } from 'react-i18next';
 import { checkmark, close } from 'ionicons/icons';
-import type { Suggestion, SuggestionStatus, SuggestionStats } from 'recipe/model';
+import type { Suggestion, SuggestionStatus, SuggestionStats } from '@/recipe/model';
 
 export interface SuggestionComponentProps {
 	suggestion: Suggestion;

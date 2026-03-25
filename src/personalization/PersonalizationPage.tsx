@@ -17,9 +17,9 @@ import {
 	personalInfoAtom,
 	personalInfoSaveStateAtom,
 	savePersonalInfoAtom,
-} from 'personalization/atoms';
-import type { PersonalInfo } from 'personalization/model';
-import PersonalizationForm from 'personalization/PersonalizationForm';
+} from '@/personalization/atoms';
+import type { PersonalInfo } from '@/personalization/model';
+import PersonalizationForm from '@/personalization/PersonalizationForm';
 
 const PersonalizationPage: React.FC = () => {
 	const { t } = useTranslation();

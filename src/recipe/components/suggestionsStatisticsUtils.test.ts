@@ -1,18 +1,18 @@
 import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest';
-import { getValidAccessToken } from 'auth/authService';
-import { postSuggestionStatistics } from 'recipe/api';
+import { getValidAccessToken } from '@/auth/authService';
+import { postSuggestionStatistics } from '@/recipe/api';
 import {
 	notifySuggestionStatistics,
 	statisticsActionsForSuggestionTransition,
 	waitForSuggestionStatisticsWithTimeout,
 } from './suggestionsStatisticsUtils';
 
-vi.mock('auth/authService', () => ({
+vi.mock('@/auth/authService', () => ({
 	getValidAccessToken: vi.fn(),
 }));
 
-vi.mock('recipe/api', async () => {
-	const actual = await vi.importActual<typeof import('recipe/api')>('recipe/api');
+vi.mock('@/recipe/api', async () => {
+	const actual = await vi.importActual<typeof import('@/recipe/api')>('@/recipe/api');
 	return {
 		...actual,
 		postSuggestionStatistics: vi.fn(),

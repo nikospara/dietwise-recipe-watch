@@ -15,7 +15,7 @@ import {
 import type { SelectChangeEventDetail } from '@ionic/core';
 import { useTranslation } from 'react-i18next';
 import { useAtom } from 'jotai';
-import { languageAtom } from 'settings/atoms';
+import { languageAtom } from '@/settings/atoms';
 
 const SettingsPage: React.FC = () => {
 	const { t } = useTranslation();

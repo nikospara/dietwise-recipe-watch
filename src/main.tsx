@@ -1,13 +1,13 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import { appConfigAtom } from 'config/atoms';
-import { loadAppConfig } from 'config/loadAppConfig';
-import { loadSettings } from 'settings/storage';
+import { appConfigAtom } from '@/config/atoms';
+import { loadAppConfig } from '@/config/loadAppConfig';
+import { loadSettings } from '@/settings/storage';
 import { configureI18n } from './i18n';
 import { Provider as JotaiProvider, createStore } from 'jotai';
-import { settingsAtom } from 'settings/atoms';
-import { authService, configureServerHost as configureAuthServerHost } from 'auth/authService';
+import { settingsAtom } from '@/settings/atoms';
+import { authService, configureServerHost as configureAuthServerHost } from '@/auth/authService';
 
 async function bootstrap() {
 	// configure the application before launching the UI

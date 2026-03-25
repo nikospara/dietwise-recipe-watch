@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { createSuggestionStatusAction } from 'recipe/actions';
-import type { MainData, SuggestionState } from 'recipe/model';
+import { createSuggestionStatusAction } from '@/recipe/actions';
+import type { MainData, SuggestionState } from '@/recipe/model';
 import { acceptedSuggestion, rejectedSuggestion, undecided } from './reduceSuggestionStatusAction';
 
 function createIngredientSuggestionState(

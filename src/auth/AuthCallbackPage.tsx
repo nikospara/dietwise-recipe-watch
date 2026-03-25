@@ -1,7 +1,7 @@
 import { useRef, RefObject } from 'react';
 import { useIonViewDidEnter, useIonViewWillLeave, IonPage } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
-import { authService } from 'auth/authService';
+import { authService } from '@/auth/authService';
 import { filter, from, Subscription, switchMap, take, throwError } from 'rxjs';
 import { AuthActions } from 'ionic-appauth';
 

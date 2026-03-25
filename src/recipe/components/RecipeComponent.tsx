@@ -2,7 +2,7 @@ import { IonIcon, IonList } from '@ionic/react';
 import { addIcons } from 'ionicons';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { IngredientStateType, Recipe, RecipeDetectionType, SuggestionState } from 'recipe/model';
+import type { IngredientStateType, Recipe, RecipeDetectionType, SuggestionState } from '@/recipe/model';
 import IngredientComponent from './IngredientComponent';
 import RatingComponent from './RatingComponent';
 import brainIcon from '@/assets/images/brain.svg';

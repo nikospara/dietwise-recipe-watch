@@ -1,11 +1,11 @@
 import { IonList } from '@ionic/react';
 import { useAtom, useAtomValue } from 'jotai';
-import { apiServerHostAtom } from 'config/atoms';
-import { mainStateAtom } from 'recipe/atoms';
+import { apiServerHostAtom } from '@/config/atoms';
+import { mainStateAtom } from '@/recipe/atoms';
 import { useTranslation } from 'react-i18next';
-import { createSuggestionStatusAction } from 'recipe/actions';
+import { createSuggestionStatusAction } from '@/recipe/actions';
 import SuggestionComponent from './SuggestionComponent';
-import type { SuggestionStatus } from 'recipe/model';
+import type { SuggestionStatus } from '@/recipe/model';
 import { waitForSuggestionStatisticsWithTimeout } from './suggestionsStatisticsUtils';
 import { useSuggestionInFlight } from './useSuggestionInFlight';
 import './SuggestionsComponent.css';

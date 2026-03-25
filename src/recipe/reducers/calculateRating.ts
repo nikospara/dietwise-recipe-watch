@@ -1,5 +1,5 @@
-import { MainData } from 'recipe/model';
-// import { keyOfIngredientSuggestion } from 'recipe/model';
+import { MainData } from '@/recipe/model';
+// import { keyOfIngredientSuggestion } from '@/recipe/model';
 
 type PresenceMap = { [key: string]: boolean };
 

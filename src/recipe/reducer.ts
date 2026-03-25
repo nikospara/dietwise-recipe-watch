@@ -1,8 +1,8 @@
 import type { MainAction } from './actions';
 import type { MainData, SuggestionState } from './model';
 import { keyOfSuggestion } from './model';
-import { acceptedSuggestion, rejectedSuggestion, undecided } from 'recipe/reducers/reduceSuggestionStatusAction';
-import { calculateRating } from 'recipe/reducers/calculateRating';
+import { acceptedSuggestion, rejectedSuggestion, undecided } from '@/recipe/reducers/reduceSuggestionStatusAction';
+import { calculateRating } from '@/recipe/reducers/calculateRating';
 
 export function createInitialState(): MainData {
 	return {

@@ -1,6 +1,6 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useTranslation } from 'react-i18next';
-// import { useAuth } from 'auth/useAuth';
+// import { useAuth } from '@/auth/useAuth';
 
 const HomePage: React.FC = () => {
 	const { t } = useTranslation();

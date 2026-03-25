@@ -17,8 +17,8 @@ import {
 import type { Location } from 'history';
 import { useTranslation } from 'react-i18next';
 import { useAtomValue } from 'jotai';
-import { userAtom } from 'auth/atoms';
-import { authService } from 'auth/authService';
+import { userAtom } from '@/auth/atoms';
+import { authService } from '@/auth/authService';
 import dietWiseIconOrange from '@/assets/images/DietWise_icon_Orange.svg';
 import chefHatIcon from '@/assets/images/chef-hat.svg';
 import chefHatFillIcon from '@/assets/images/chef-hat-fill.svg';

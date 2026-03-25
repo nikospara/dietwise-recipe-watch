@@ -1,4 +1,4 @@
-import type { Recipe } from 'recipe/model';
+import type { Recipe } from '@/recipe/model';
 
 export interface HasRecipesArgument {
 	recipes?: Recipe[];

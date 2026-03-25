@@ -15,27 +15,27 @@ import {
 import { arrowUndo, helpCircleOutline } from 'ionicons/icons';
 import { useTranslation } from 'react-i18next';
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
-import { mainStateAtom, suggestionInFlightAtom } from 'recipe/atoms';
-import { apiServerHostAtom } from 'config/atoms';
+import { mainStateAtom, suggestionInFlightAtom } from '@/recipe/atoms';
+import { apiServerHostAtom } from '@/config/atoms';
 import {
 	createPrepareToAssessRecipeAction,
 	createRecipeAssessmentCompletedAction,
 	createRecipeAssessmentFailedAction,
 	createResetMainPageAction,
 	createMessageReceivedAction,
-} from 'recipe/actions';
-import { assessRecipe } from 'recipe/assessRecipe';
-import type { CancellationFunction } from 'recipe/assessRecipe';
+} from '@/recipe/actions';
+import { assessRecipe } from '@/recipe/assessRecipe';
+import type { CancellationFunction } from '@/recipe/assessRecipe';
 import i18next from 'i18next';
-import UrlContainer from 'recipe/components/UrlContainer';
-import UrlModal from 'recipe/components/UrlModal';
-import HelpModal from 'recipe/help/HelpModal';
-import SplitPane from 'recipe/components/SplitPane';
-import RecipesComponent from 'recipe/components/RecipesComponent';
-import SuggestionsComponent from 'recipe/components/SuggestionsComponent';
+import UrlContainer from '@/recipe/components/UrlContainer';
+import UrlModal from '@/recipe/components/UrlModal';
+import HelpModal from '@/recipe/help/HelpModal';
+import SplitPane from '@/recipe/components/SplitPane';
+import RecipesComponent from '@/recipe/components/RecipesComponent';
+import SuggestionsComponent from '@/recipe/components/SuggestionsComponent';
 import { hasRecipesContent } from './components/recipesComponentUtils';
-import { hasSuggestionsContent } from 'recipe/components/suggestionsComponentUtils';
-import HelpContentsComponent from 'recipe/help/HelpContentsComponent';
+import { hasSuggestionsContent } from '@/recipe/components/suggestionsComponentUtils';
+import HelpContentsComponent from '@/recipe/help/HelpContentsComponent';
 import './RecipePage.css';
 
 const RecipePage: React.FC = () => {

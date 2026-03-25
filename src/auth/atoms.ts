@@ -3,7 +3,7 @@ import { atomWithObservable } from 'jotai/utils';
 import { catchError, filter, from, map, switchMap, BehaviorSubject } from 'rxjs';
 import { AuthActions } from 'ionic-appauth';
 import type { TokenResponse } from '@openid/appauth';
-import { authService } from 'auth/authService';
+import { authService } from '@/auth/authService';
 import type { User } from './model';
 
 // Just for debugging, maybe remove for production

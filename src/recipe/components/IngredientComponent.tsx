@@ -2,8 +2,8 @@
 import { IonButton, IonIcon, IonItem, IonLabel } from '@ionic/react';
 import { removeOutline } from 'ionicons/icons';
 import { useTranslation } from 'react-i18next';
-import { keyOfSuggestion } from 'recipe/model';
-import type { Ingredient, SuggestionState } from 'recipe/model';
+import { keyOfSuggestion } from '@/recipe/model';
+import type { Ingredient, SuggestionState } from '@/recipe/model';
 
 export interface IngredientComponentProps {
 	ingredient: Ingredient;

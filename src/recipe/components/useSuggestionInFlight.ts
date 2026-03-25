@@ -1,6 +1,6 @@
 import { useCallback, useRef } from 'react';
 import { useAtom } from 'jotai';
-import { suggestionInFlightAtom } from 'recipe/atoms';
+import { suggestionInFlightAtom } from '@/recipe/atoms';
 
 /**
  * Tracks per-suggestion in-flight UI locks while also blocking same-frame repeat clicks

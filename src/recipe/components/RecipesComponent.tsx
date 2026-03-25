@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
 import { useAtom, useAtomValue } from 'jotai';
-import { apiServerHostAtom } from 'config/atoms';
-import { mainStateAtom } from 'recipe/atoms';
-import { createSuggestionStatusAction } from 'recipe/actions';
-import type { MainDataStatus, Recipe, RecipeDetectionType, SuggestionState } from 'recipe/model';
+import { apiServerHostAtom } from '@/config/atoms';
+import { mainStateAtom } from '@/recipe/atoms';
+import { createSuggestionStatusAction } from '@/recipe/actions';
+import type { MainDataStatus, Recipe, RecipeDetectionType, SuggestionState } from '@/recipe/model';
 import { useTranslation } from 'react-i18next';
 import RecipeComponent from './RecipeComponent';
 import { waitForSuggestionStatisticsWithTimeout } from './suggestionsStatisticsUtils';

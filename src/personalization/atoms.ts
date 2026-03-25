@@ -1,8 +1,8 @@
 import { atom } from 'jotai';
 import { atomWithRefresh, unwrap } from 'jotai/utils';
 import { t } from 'i18next';
-import { getValidAccessToken } from 'auth/authService';
-import { apiServerHostAtom } from 'config/atoms';
+import { getValidAccessToken } from '@/auth/authService';
+import { apiServerHostAtom } from '@/config/atoms';
 import type { PersonalInfo } from './model';
 import { fetchPersonalInfo, savePersonalInfo } from './api';
 

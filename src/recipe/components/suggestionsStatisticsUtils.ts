@@ -1,7 +1,7 @@
-import { getValidAccessToken } from 'auth/authService';
-import { postSuggestionStatistics } from 'recipe/api';
-import type { SuggestionStatus } from 'recipe/model';
-import type { StatisticsAction } from 'recipe/api';
+import { getValidAccessToken } from '@/auth/authService';
+import { postSuggestionStatistics } from '@/recipe/api';
+import type { SuggestionStatus } from '@/recipe/model';
+import type { StatisticsAction } from '@/recipe/api';
 
 const SUGGESTION_STATISTICS_TIMEOUT_MS = 8000;
 

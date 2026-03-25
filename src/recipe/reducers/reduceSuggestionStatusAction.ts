@@ -1,5 +1,5 @@
-import type { SuggestionStatusAction } from 'recipe/actions';
-import type { MainData, SuggestionState } from 'recipe/model';
+import type { SuggestionStatusAction } from '@/recipe/actions';
+import type { MainData, SuggestionState } from '@/recipe/model';
 import { calculateRating } from './calculateRating';
 
 export function acceptedSuggestion(state: MainData, action: SuggestionStatusAction, target: SuggestionState): MainData {

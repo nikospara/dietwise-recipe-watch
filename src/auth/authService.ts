@@ -1,7 +1,7 @@
 import { isPlatform } from '@ionic/react';
 import { AuthActions, AuthService } from 'ionic-appauth';
 import { CapacitorBrowser, CapacitorSecureStorage } from 'ionic-appauth/lib/capacitor';
-import { RequestorImpl } from 'services/RequestorImpl';
+import { RequestorImpl } from '@/services/RequestorImpl';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
 
 export const authService = new AuthService(new CapacitorBrowser(), new CapacitorSecureStorage(), new RequestorImpl());

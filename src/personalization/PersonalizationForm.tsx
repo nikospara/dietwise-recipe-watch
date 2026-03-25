@@ -3,7 +3,7 @@ import { IonFab, IonFabButton, IonIcon, IonInput, IonItem, IonList, IonSelect, I
 import { alert, checkmark } from 'ionicons/icons';
 import type { InputInputEventDetail, SelectChangeEventDetail } from '@ionic/core';
 import { useTranslation } from 'react-i18next';
-import type { BiologicalGender, PersonalInfo, PersonalInfoValidity } from 'personalization/model';
+import type { BiologicalGender, PersonalInfo, PersonalInfoValidity } from '@/personalization/model';
 
 export interface PersonalizationFormProps {
 	value: PersonalInfo;

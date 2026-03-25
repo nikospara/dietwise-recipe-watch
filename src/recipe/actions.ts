@@ -6,7 +6,7 @@ import type {
 	ScoringRecipeAssessmentMessage,
 	SuggestionStatus,
 } from './model';
-import type { Action } from 'model';
+import type { Action } from '@/model';
 
 export interface PrepareToAssessRecipeAction extends Action {
 	type: 'PrepareToAssessRecipeAction';

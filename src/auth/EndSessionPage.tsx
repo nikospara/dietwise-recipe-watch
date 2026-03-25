@@ -1,6 +1,6 @@
 import { useIonViewDidEnter, IonPage } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
-import { authService } from 'auth/authService';
+import { authService } from '@/auth/authService';
 
 const EndSessionPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
 	useIonViewDidEnter(() => {
