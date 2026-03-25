@@ -36,13 +36,13 @@
   },
   "devDependencies": {
     "@capacitor/cli": "8.3.0",
-    "@nabla/vite-plugin-eslint": "^2.0.6",
+    "@nabla/vite-plugin-eslint": "^3.0.1",
     "@testing-library/dom": ">=7.21.4",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.5.1",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react-swc": "^4.3.0",
+    "@vitejs/plugin-react": "^6.0.1",
     "baseline-browser-mapping": "^2.10.10",
     "cypress": "^15.13.0",
     "eslint": "^9.20.1",
@@ -57,8 +57,7 @@
     "terser": "^5.46.1",
     "typescript": "~5.9.2",
     "typescript-eslint": "^8.57.2",
-    "vite": "^7.3.1",
-    "vite-tsconfig-paths": "^6.1.1",
+    "vite": "^8.0.2",
     "vitest": "^4.1.1"
   }
 }

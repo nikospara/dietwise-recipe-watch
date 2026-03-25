@@ -1,10 +1,9 @@
 import { defineConfig, loadEnv } from 'vite';
 import eslintPlugin from '@nabla/vite-plugin-eslint';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import path from 'path';
 import { readFileSync } from 'fs';
 import { execSync } from 'child_process';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import { configDefaults } from 'vitest/config';
 
 function readAppVersion(): string {
@@ -50,12 +49,13 @@ export default defineConfig(({ mode }) => {
 
 	return {
 		base: basePath,
-		plugins: [tsconfigPaths(), react(), eslintPlugin()],
+		plugins: [react(), eslintPlugin()],
 		define: {
 			__APP_VERSION__: JSON.stringify(appVersion),
 			__APP_GIT_HASH__: JSON.stringify(gitHash),
 		},
 		resolve: {
+			tsconfigPaths: true,
 			alias: {
 				'@': path.resolve('./src'),
 			},
