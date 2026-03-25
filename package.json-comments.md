@@ -22,11 +22,11 @@ ChatGPT claims there is an issue/conflict because Ionic / Stencil components do 
 **Resolution (2026/02/18):** ChatGRP offered a solution with shims in `setupTests.ts` that works around the problem.
 
 
-### react-router-dom - 5.x - 7.x
+### react-router/react-router-dom - 5.x - 7.x
 
 Incompatible with ionic-router.
 
 
-### eslint": 9.x - 10.x
+### eslint: 9.x - 10.x
 
 At least `@nabla/vite-plugin-eslint@2.0.6` (the latest as of 2026/02/18) has a peer dependency on `eslint@"^8.45 || ^9"`.
