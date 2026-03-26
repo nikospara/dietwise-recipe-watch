@@ -12,16 +12,17 @@ let resumeRefreshInFlight: Promise<void> | null = null;
 const RESUME_REFRESH_MIN_INTERVAL_MS = 10 * 60 * 1000;
 const basePath = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
 const webRedirectBase = window.location.origin + (basePath === '' ? '' : basePath);
+const nativeRedirectScheme = 'eu.dietwise.recipewatch';
 
 // Configure the service (snake_case keys!)
 authService.authConfig = {
 	client_id: 'recipewatch',
 	server_host: '',
 	redirect_url: isPlatform('capacitor')
-		? 'capacitor://localhost/authcallback' // or is it 'eu.dietwise.recipewatch://authcallback'?
+		? `${nativeRedirectScheme}://authcallback`
 		: `${webRedirectBase}/authcallback`,
 	end_session_redirect_url: isPlatform('capacitor')
-		? 'capacitor://localhost/endsession' // or is it 'eu.dietwise.recipewatch://endsession'
+		? `${nativeRedirectScheme}://endsession`
 		: `${webRedirectBase}/endsession`,
 	scopes: 'openid profile email offline_access',
 	pkce: false, // TODO true when fully operational
