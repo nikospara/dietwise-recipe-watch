@@ -56,3 +56,53 @@ Health endpoint:
 
 Mobile preview URL:
 - `http://localhost:8080/mobile-preview`
+
+## Android app icon and splash generation
+
+This repository is set up to generate Android launcher icons and splash screens from a single source image.
+
+### One-time setup
+
+Install the official Capacitor asset tool:
+
+```bash
+npm install --save-dev @capacitor/assets
+```
+
+### Source image
+
+Put a square logo image at:
+
+```text
+resources/logo.png
+```
+
+Recommended:
+
+- PNG format
+- at least `1024x1024`
+- transparent background if you want the generated white background to show through cleanly
+
+### Generate Android assets
+
+Run:
+
+```bash
+npm run assets:android
+```
+
+This will:
+
+- generate Android icon and splash assets from `resources/logo.png`
+- write them into `android/app/src/main/res/...`
+- run `npx cap sync android` so the native project stays in sync
+
+### Notes
+
+- The current script uses white for both icon and splash backgrounds.
+- If Android Studio still shows an old launcher icon after regeneration, uninstall the app from the device or emulator and reinstall it.
+- For available generation flags, run:
+
+```bash
+npm run assets:android:help
+```
