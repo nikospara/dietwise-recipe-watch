@@ -5,6 +5,7 @@ import { RequestorImpl } from '@/services/RequestorImpl';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
 
 export const authService = new AuthService(new CapacitorBrowser(), new CapacitorSecureStorage(), new RequestorImpl());
+const LOG_SENSITIVE_DATA = import.meta.env.DEV;
 
 let hasTokenInMemory = false;
 let lastResumeRefreshAt = 0;
@@ -25,7 +26,7 @@ authService.authConfig = {
 		? `${nativeRedirectScheme}://endsession`
 		: `${webRedirectBase}/endsession`,
 	scopes: 'openid profile email offline_access',
-	pkce: false, // TODO true when fully operational
+	pkce: true,
 };
 
 authService.events$.subscribe({
@@ -76,7 +77,9 @@ if (isPlatform('capacitor')) {
 			});
 			await resumeRefreshInFlight;
 		} catch (err) {
-			console.warn('Unable to refresh token on resume', err);
+			if (LOG_SENSITIVE_DATA) {
+				console.warn('Unable to refresh token on resume', err);
+			}
 		} finally {
 			resumeRefreshInFlight = null;
 		}
@@ -93,7 +96,9 @@ export async function getValidAccessToken(): Promise<string | undefined> {
 		return tokenResponse?.accessToken;
 	} catch (err) {
 		// TODO Check HTTP response/whatever for expired refresh token and prompt to login again
-		console.error('Unable to obtain valid access token', err);
+		if (LOG_SENSITIVE_DATA) {
+			console.error('Unable to obtain valid access token', err);
+		}
 		return undefined;
 	}
 }

@@ -5,6 +5,8 @@ import { authService } from '@/auth/authService';
 import { filter, from, Subscription, switchMap, take, throwError } from 'rxjs';
 import { AuthActions } from 'ionic-appauth';
 
+const LOG_SENSITIVE_DATA = import.meta.env.DEV;
+
 const AuthCallbackPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
 	const unsubscribeRef: RefObject<Subscription | null> = useRef(null);
 
@@ -31,7 +33,9 @@ const AuthCallbackPage: React.FC<RouteComponentProps> = (props: RouteComponentPr
 					props.history.replace('/Home');
 				},
 				error(err) {
-					console.error('Sign in failed', err);
+					if (LOG_SENSITIVE_DATA) {
+						console.error('Sign in failed', err);
+					}
 					props.history.replace('/Home');
 				},
 			});

@@ -6,13 +6,19 @@ import type { TokenResponse } from '@openid/appauth';
 import { authService } from '@/auth/authService';
 import type { User } from './model';
 
+const LOG_SENSITIVE_DATA = import.meta.env.DEV;
+
 // Just for debugging, maybe remove for production
 authService.events$.subscribe({
 	next(action) {
-		console.log('AUTH EVENT', action);
+		if (LOG_SENSITIVE_DATA) {
+			console.log('AUTH EVENT', action);
+		}
 	},
 	error(err) {
-		console.error('AUTH ERROR', err);
+		if (LOG_SENSITIVE_DATA) {
+			console.error('AUTH ERROR', err);
+		}
 	},
 });
 
@@ -51,7 +57,7 @@ authService.events$
 	)
 	.subscribe({
 		next([outcome, err]) {
-			if (err) {
+			if (err && LOG_SENSITIVE_DATA) {
 				// The err signals a system error; if the app simply fails to load user info,
 				// e.g. due to token expired, we succeed above, and we only get the relevant
 				// message in the authService.events$ stream.

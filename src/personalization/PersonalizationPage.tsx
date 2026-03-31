@@ -21,6 +21,8 @@ import {
 import type { PersonalInfo } from '@/personalization/model';
 import PersonalizationForm from '@/personalization/PersonalizationForm';
 
+const LOG_SENSITIVE_DATA = import.meta.env.DEV;
+
 const PersonalizationPage: React.FC = () => {
 	const { t } = useTranslation();
 	const [personalInfo] = useAtom(loadablePersonalInfoAtom);
@@ -29,7 +31,9 @@ const PersonalizationPage: React.FC = () => {
 	const setPersonalInfoAtom = useSetAtom(savePersonalInfoAtom);
 	const onSaveCallback = useCallback(
 		async (value: PersonalInfo) => {
-			console.log('Will save personal info', value);
+			if (LOG_SENSITIVE_DATA) {
+				console.log('Will save personal info', value);
+			}
 			try {
 				await setPersonalInfoAtom(value);
 			} catch (e) {

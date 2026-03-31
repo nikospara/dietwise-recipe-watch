@@ -9,6 +9,8 @@ import { Provider as JotaiProvider, createStore } from 'jotai';
 import { settingsAtom } from '@/settings/atoms';
 import { authService, configureServerHost as configureAuthServerHost } from '@/auth/authService';
 
+const LOG_SENSITIVE_DATA = import.meta.env.DEV;
+
 async function bootstrap() {
 	// configure the application before launching the UI
 	const [initialSettings, initialAppConfig] = await Promise.all([loadSettings(), loadAppConfig()]);
@@ -16,7 +18,9 @@ async function bootstrap() {
 	const [_t, _l] = await Promise.all([
 		configureI18n(initialSettings.language), // returns t, if we ever want to use it here
 		authService.init().catch((reason) => {
-			console.log('authService initialization failed', reason);
+			if (LOG_SENSITIVE_DATA) {
+				console.log('authService initialization failed', reason);
+			}
 			throw reason;
 		}),
 	]);
@@ -27,10 +31,14 @@ async function bootstrap() {
 			await authService.getValidToken(0);
 			await authService.loadUserInfo();
 		} catch (reason) {
-			console.warn('Unable to refresh token or load user info on startup', reason);
+			if (LOG_SENSITIVE_DATA) {
+				console.warn('Unable to refresh token or load user info on startup', reason);
+			}
 		}
 	} catch (reason) {
-		console.warn('Load token from storage failed', reason);
+		if (LOG_SENSITIVE_DATA) {
+			console.warn('Load token from storage failed', reason);
+		}
 	}
 	const jotaiStore = createStore();
 	jotaiStore.set(appConfigAtom, initialAppConfig);
