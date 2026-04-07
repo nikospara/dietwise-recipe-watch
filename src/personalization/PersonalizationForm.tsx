@@ -31,6 +31,9 @@ const PersonalizationForm: React.FC<PersonalizationFormProps> = ({
 	const onChangeGenderCallback = useCallback((e: CustomEvent<SelectChangeEventDetail<BiologicalGender>>) => {
 		setValue((v) => ({ ...v, gender: e.detail.value }));
 	}, []);
+	const onChangeCountryCallback = useCallback((e: CustomEvent<SelectChangeEventDetail<string>>) => {
+		setValue((v) => ({ ...v, country: e.detail.value }));
+	}, []);
 	const onChangeYearOfBirthCallback = useCallback(
 		(e: CustomEvent<InputInputEventDetail>) => {
 			if (typeof e.detail.value === 'string' && e.detail.value.length > 0) {
@@ -89,6 +92,20 @@ const PersonalizationForm: React.FC<PersonalizationFormProps> = ({
 						className={`ion-text-right ion-touched${validity.errors?.yearOfBirth?.length && ' ion-invalid'}`}
 						errorText={makeErrors(validity.errors?.yearOfBirth)}
 					></IonInput>
+				</IonItem>
+				<IonItem>
+					<IonSelect
+						label={t('personalization.country')}
+						cancelText={t('general.CANCEL')}
+						okText={t('general.OK')}
+						onIonChange={onChangeCountryCallback}
+						value={value.country}
+						disabled={disabled}
+					>
+						<IonSelectOption value="BE">{t('countries.BE')}</IonSelectOption>
+						<IonSelectOption value="GR">{t('countries.GR')}</IonSelectOption>
+						<IonSelectOption value="LT">{t('countries.LT')}</IonSelectOption>
+					</IonSelect>
 				</IonItem>
 			</IonList>
 			<IonFab slot="fixed" vertical="bottom" horizontal="end">

@@ -3,6 +3,7 @@ export type BiologicalGender = 'FEMALE' | 'MALE';
 export interface PersonalInfo {
 	gender?: BiologicalGender;
 	yearOfBirth?: number;
+	country?: string;
 }
 
 export type PersonalInfoValidity = {
