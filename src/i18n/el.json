@@ -29,6 +29,7 @@
 		"titleOfSuggestions": "Προτάσεις - Συμβουλές",
 		"anonymousRecipeTemplateTitle": "Συνταγή #{{index, number}}",
 		"emptySuggestionsFromServer": "Δεν υπάρχουν προτάσεις για τη συνταγή αυτή.",
+		"seasonalityWarning": "Μπορεί να είναι εκτός εποχής!",
 		"userStats": "Χρήστης:",
 		"totalStats": "Σύνολο:"
 	},

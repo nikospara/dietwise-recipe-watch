@@ -1,8 +1,9 @@
 import { useCallback } from 'react';
 import { IonButton, IonIcon, IonItem, IonLabel } from '@ionic/react';
 import { useTranslation } from 'react-i18next';
-import { checkmark, close } from 'ionicons/icons';
-import type { Suggestion, SuggestionStatus, SuggestionStats } from '@/recipe/model';
+import { alertCircleOutline, checkmark, close } from 'ionicons/icons';
+import type { Suggestion, SuggestionStatus } from '@/recipe/model';
+import { isOutsideSeasonalityRange } from './suggestionsComponentUtils';
 
 export interface SuggestionComponentProps {
 	suggestion: Suggestion;
@@ -15,6 +16,7 @@ const SuggestionComponent: React.FC<SuggestionComponentProps> = ({ suggestion, s
 	const { t } = useTranslation();
 	const acceptCallback = useCallback(() => onAction('ACCEPTED'), [onAction]);
 	const rejectCallback = useCallback(() => onAction('REJECTED'), [onAction]);
+	const showSeasonalityWarning = isOutsideSeasonalityRange(suggestion);
 
 	const acceptButtonFill = status === 'ACCEPTED' ? 'solid' : 'outline';
 	const rejectButtonFill = status === 'REJECTED' ? 'solid' : 'outline';
@@ -26,10 +28,12 @@ const SuggestionComponent: React.FC<SuggestionComponentProps> = ({ suggestion, s
 			</IonItem>
 			<IonItem>
 				<IonLabel>
-					<p>
-						{t('recipe.userStats')} {formatStats(suggestion.userSuggestionStats, status)}{' '}
-						{t('recipe.totalStats')} {formatStats(suggestion.totalSuggestionStats, status)}
-					</p>
+					{showSeasonalityWarning && (
+						<p className="ion-display-flex ion-align-items-end gap-5px">
+							<IonIcon icon={alertCircleOutline}></IonIcon>
+							{t('recipe.seasonalityWarning')}
+						</p>
+					)}
 				</IonLabel>
 				<IonButton
 					slot="end"
@@ -55,17 +59,5 @@ const SuggestionComponent: React.FC<SuggestionComponentProps> = ({ suggestion, s
 		</>
 	);
 };
-
-function formatStats(stats: SuggestionStats, status: SuggestionStatus | undefined) {
-	const timesAccepted =
-		status === 'ACCEPTED' && stats.timesAccepted + stats.timesRejected < stats.timesSuggested
-			? stats.timesAccepted + 1
-			: stats.timesAccepted;
-	const timesRejected =
-		status === 'REJECTED' && stats.timesAccepted + stats.timesRejected < stats.timesSuggested
-			? stats.timesRejected + 1
-			: stats.timesRejected;
-	return `${timesAccepted}/${timesRejected}/${stats.timesSuggested}`;
-}
 
 export default SuggestionComponent;

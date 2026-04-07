@@ -29,6 +29,7 @@
 		"titleOfSuggestions": "Suggestions - Advice",
 		"anonymousRecipeTemplateTitle": "Recipe #{{index, number}}",
 		"emptySuggestionsFromServer": "There are no suggestions for this recipe.",
+		"seasonalityWarning": "May be out of season!",
 		"userStats": "User:",
 		"totalStats": "Totals:"
 	},

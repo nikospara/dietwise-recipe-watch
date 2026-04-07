@@ -39,6 +39,11 @@ export interface SuggestionTemplate {
 	techniqueNotes?: string;
 }
 
+export interface Seasonality {
+	monthFrom: number;
+	monthTo: number;
+}
+
 export interface SuggestionStats {
 	timesSuggested: number;
 	timesAccepted: number;
@@ -50,6 +55,7 @@ export interface Suggestion extends SuggestionTemplate {
 	target: AppliesToIngredient | AppliesToRecipe;
 	ruleId: string;
 	recommendation: string;
+	seasonality?: Seasonality;
 	rationale?: string;
 	alternativeComponentNames: string[];
 	totalSuggestionStats: SuggestionStats;
