@@ -50,12 +50,15 @@ export interface SuggestionStats {
 	timesRejected: number;
 }
 
+export type Cost = 'LO' | 'MED' | 'HI';
+
 export interface Suggestion extends SuggestionTemplate {
 	id: string;
 	target: AppliesToIngredient | AppliesToRecipe;
 	ruleId: string;
 	recommendation: string;
 	seasonality?: Seasonality;
+	cost?: Cost;
 	rationale?: string;
 	alternativeComponentNames: string[];
 	totalSuggestionStats: SuggestionStats;

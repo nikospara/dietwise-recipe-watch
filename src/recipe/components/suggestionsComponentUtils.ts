@@ -1,4 +1,4 @@
-import type { Recipe, Suggestion, SuggestionStats, SuggestionStatus } from '@/recipe/model';
+import type { Cost, Recipe, Suggestion, SuggestionStats, SuggestionStatus } from '@/recipe/model';
 
 export interface HasSuggestionsArgument {
 	recipes?: Recipe[];
@@ -37,4 +37,15 @@ export function formatStats(stats: SuggestionStats, status: SuggestionStatus | u
 			? stats.timesRejected + 1
 			: stats.timesRejected;
 	return `${timesAccepted}/${timesRejected}/${stats.timesSuggested}`;
+}
+
+export function makeCostString(cost?: Cost) {
+	switch (cost) {
+		case 'HI':
+			return '€€€';
+		case 'LO':
+			return '€';
+		default:
+			return '€€';
+	}
 }
