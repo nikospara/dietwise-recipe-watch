@@ -1,4 +1,5 @@
 import { StrictMode } from 'react';
+import { setupIonicReact } from '@ionic/react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import { appConfigAtom } from '@/config/atoms';
@@ -12,6 +13,8 @@ import { authService, configureServerHost as configureAuthServerHost } from '@/a
 const LOG_SENSITIVE_DATA = import.meta.env.DEV;
 
 async function bootstrap() {
+	// innerHTMLTemplatesEnabled: true to display rich text in the info alerts of the suggestions
+	setupIonicReact({ innerHTMLTemplatesEnabled: true });
 	// configure the application before launching the UI
 	const [initialSettings, initialAppConfig] = await Promise.all([loadSettings(), loadAppConfig()]);
 	configureAuthServerHost(initialAppConfig.authServerHost);

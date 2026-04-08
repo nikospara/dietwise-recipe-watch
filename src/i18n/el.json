@@ -30,6 +30,11 @@
 		"anonymousRecipeTemplateTitle": "Συνταγή #{{index, number}}",
 		"emptySuggestionsFromServer": "Δεν υπάρχουν προτάσεις για τη συνταγή αυτή.",
 		"seasonalityWarning": "Μπορεί να είναι εκτός εποχής!",
+		"cost": {
+			"LO": "Χαμηλού κόστους",
+			"MED": "Μέτριου κόστους",
+			"HI": "Υψηλού κόστους"
+		},
 		"userStats": "Χρήστης:",
 		"totalStats": "Σύνολο:"
 	},

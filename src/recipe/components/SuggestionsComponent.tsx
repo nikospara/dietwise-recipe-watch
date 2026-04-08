@@ -1,4 +1,4 @@
-import { IonList } from '@ionic/react';
+import { IonList, useIonAlert } from '@ionic/react';
 import { useAtom, useAtomValue } from 'jotai';
 import { apiServerHostAtom } from '@/config/atoms';
 import { mainStateAtom } from '@/recipe/atoms';
@@ -15,6 +15,7 @@ const SuggestionsComponent: React.FC = () => {
 	const [mainState, dispatch] = useAtom(mainStateAtom);
 	const apiServerHost = useAtomValue(apiServerHostAtom);
 	const { isSuggestionInFlight, setSuggestionInFlight } = useSuggestionInFlight();
+	const [presentAlert] = useIonAlert();
 
 	if (mainState.suggestionKeys?.length) {
 		return (
@@ -76,6 +77,9 @@ const SuggestionsComponent: React.FC = () => {
 								status={status}
 								disabled={isSuggestionInFlight(suggestionKey)}
 								onAction={onAction}
+								onInfoClicked={(header, message) =>
+									presentAlert({ header, message, buttons: [t('general.OK')] })
+								}
 							/>
 						);
 					})}
