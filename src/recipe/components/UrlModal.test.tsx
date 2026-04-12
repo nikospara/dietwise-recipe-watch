@@ -20,7 +20,9 @@ vi.mock('@ionic/react', async () => {
 
 describe('UrlModal', () => {
 	it('renders title, actions, and initial url', () => {
-		render(<UrlModal isOpen={true} setIsOpen={vi.fn()} url="https://example.com" setUrl={vi.fn()} />);
+		render(
+			<UrlModal isOpen={true} setIsOpen={vi.fn()} url="https://example.com" language="en" setData={vi.fn()} />,
+		);
 
 		expect(screen.getByText('recipe.enterUrlModalTitle')).toBeTruthy();
 		expect(screen.getByText('general.CANCEL')).toBeTruthy();
@@ -33,7 +35,7 @@ describe('UrlModal', () => {
 
 	it('closes on cancel', () => {
 		const setIsOpen = vi.fn();
-		render(<UrlModal isOpen={true} setIsOpen={setIsOpen} url="" setUrl={vi.fn()} />);
+		render(<UrlModal isOpen={true} setIsOpen={setIsOpen} url="" language="en" setData={vi.fn()} />);
 
 		fireEvent.click(screen.getByText('general.CANCEL'));
 
@@ -42,9 +44,9 @@ describe('UrlModal', () => {
 
 	it('assesses trimmed url and closes when changed', () => {
 		const setIsOpen = vi.fn();
-		const setUrl = vi.fn();
+		const setData = vi.fn();
 		const { container } = render(
-			<UrlModal isOpen={true} setIsOpen={setIsOpen} url="https://old.com" setUrl={setUrl} />,
+			<UrlModal isOpen={true} setIsOpen={setIsOpen} url="https://old.com" language="en" setData={setData} />,
 		);
 
 		const ionTextarea = container.querySelector('ion-textarea');
@@ -61,7 +63,7 @@ describe('UrlModal', () => {
 
 		fireEvent.click(screen.getByText('recipe.ASSESS'));
 
-		expect(setUrl).toHaveBeenCalledWith('https://new.com/path');
+		expect(setData).toHaveBeenCalledWith('https://new.com/path', 'en');
 		expect(setIsOpen).toHaveBeenCalledWith(false);
 	});
 });

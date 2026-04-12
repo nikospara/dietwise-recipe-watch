@@ -9,7 +9,7 @@ export interface CancellationFunction {
 export async function assessRecipe(
 	apiServerHost: string,
 	url: string,
-	langCode: string,
+	lang: string,
 	onMessage?: (message: RecipeAssessmentMessage) => void,
 	onError?: (error: unknown) => void,
 	onComplete?: () => void,
@@ -20,7 +20,7 @@ export async function assessRecipe(
 		{
 			url,
 			// viewPort would go here
-			langCode,
+			lang,
 		} as RecipeExtractionAndAssessmentParam,
 		{
 			onMessage,

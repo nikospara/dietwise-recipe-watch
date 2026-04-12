@@ -11,6 +11,7 @@ import type { Action } from '@/model';
 export interface PrepareToAssessRecipeAction extends Action {
 	type: 'PrepareToAssessRecipeAction';
 	url: string;
+	lang: string;
 }
 
 export interface RecipeAssessmentFailedAction extends Action {
@@ -76,10 +77,11 @@ export type MainAction =
 	| RecipeAssessmentErrorMessageReceivedAction
 	| SuggestionStatusAction;
 
-export function createPrepareToAssessRecipeAction(url: string): PrepareToAssessRecipeAction {
+export function createPrepareToAssessRecipeAction(url: string, lang: string): PrepareToAssessRecipeAction {
 	return {
 		type: 'PrepareToAssessRecipeAction',
 		url,
+		lang,
 	};
 }
 

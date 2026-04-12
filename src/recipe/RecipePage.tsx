@@ -26,7 +26,6 @@ import {
 } from '@/recipe/actions';
 import { assessRecipe } from '@/recipe/assessRecipe';
 import type { CancellationFunction } from '@/recipe/assessRecipe';
-import i18next from 'i18next';
 import UrlContainer from '@/recipe/components/UrlContainer';
 import UrlModal from '@/recipe/components/UrlModal';
 import HelpModal from '@/recipe/help/HelpModal';
@@ -49,13 +48,13 @@ const RecipePage: React.FC = () => {
 	const cancelRef = useRef<CancellationFunction>(null);
 
 	const assessRecipeCallback = useCallback(
-		async (url: string) => {
+		async (url: string, lang: string) => {
 			try {
-				dispatch(createPrepareToAssessRecipeAction(url));
+				dispatch(createPrepareToAssessRecipeAction(url, lang));
 				cancelRef.current = await assessRecipe(
 					apiServerHost,
 					url || '',
-					i18next.language,
+					lang,
 					(message) => {
 						dispatch(createMessageReceivedAction(message));
 					},
@@ -134,7 +133,8 @@ const RecipePage: React.FC = () => {
 					isOpen={isUrlModalOpen}
 					setIsOpen={setUrlModalIsOpen}
 					url={mainState.url}
-					setUrl={assessRecipeCallback}
+					language={mainState.lang}
+					setData={assessRecipeCallback}
 				/>
 
 				<HelpModal isOpen={isHelpModalOpen} setIsOpen={setHelpModalIsOpen} />

@@ -8,10 +8,13 @@ import {
 	IonItem,
 	IonList,
 	IonModal,
+	IonSelect,
+	IonSelectOption,
 	IonTextarea,
 	IonTitle,
 	IonToolbar,
 } from '@ionic/react';
+import type { SelectChangeEventDetail } from '@ionic/core';
 import { close } from 'ionicons/icons';
 import { useTranslation } from 'react-i18next';
 import './UrlModal.css';
@@ -20,22 +23,28 @@ export interface UrlModalProps {
 	isOpen: boolean;
 	setIsOpen: (isOpen: boolean) => void;
 	url: string | undefined;
-	setUrl: (url: string) => void;
+	language: string;
+	setData: (url: string, lang: string) => void;
 }
 
 const UrlModal: React.FC<UrlModalProps> = (props) => {
 	const { t } = useTranslation();
 
 	const [url, setUrl] = useState<string | null | undefined>(props.url);
+	const [language, setLanguage] = useState<string>(props.language);
+
+	const onChangeLanguageCallback = useCallback((e: CustomEvent<SelectChangeEventDetail<string>>) => {
+		setLanguage(e.detail.value);
+	}, []);
 
 	const assessCallback = useCallback(() => {
 		let localUrl = url;
 		if (localUrl && typeof localUrl === 'string') localUrl = localUrl.trim();
-		if (localUrl && localUrl !== props.url) {
-			props.setUrl('' + localUrl);
+		if (localUrl && (localUrl !== props.url || language !== props.language)) {
+			props.setData('' + localUrl, language);
 			props.setIsOpen(false);
 		}
-	}, [props, url]);
+	}, [props, url, language]);
 
 	return (
 		<IonModal isOpen={props.isOpen} onDidDismiss={() => props.setIsOpen(false)}>
@@ -69,6 +78,26 @@ const UrlModal: React.FC<UrlModalProps> = (props) => {
 								<IonIcon slot="icon-only" icon={close} aria-hidden="true"></IonIcon>
 							</IonButton>
 						</IonTextarea>
+					</IonItem>
+					<IonItem>
+						<IonSelect
+							label={t('recipe.language')}
+							cancelText={t('general.CANCEL')}
+							okText={t('general.OK')}
+							onIonChange={onChangeLanguageCallback}
+							value={language}
+						>
+							<IonSelectOption value="en">{t('languages.en')}</IonSelectOption>
+							<IonSelectOption value="el" disabled={true}>
+								{t('languages.el')}
+							</IonSelectOption>
+							<IonSelectOption value="lt" disabled={true}>
+								{t('languages.lt')}
+							</IonSelectOption>
+							<IonSelectOption value="nl" disabled={true}>
+								{t('languages.nl')}
+							</IonSelectOption>
+						</IonSelect>
 					</IonItem>
 				</IonList>
 			</IonContent>

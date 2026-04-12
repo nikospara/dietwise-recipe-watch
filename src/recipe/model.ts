@@ -9,7 +9,7 @@ export interface RecipeExtractionAndAssessmentParam {
 	/** The viewport in the client. */
 	viewport?: Viewport;
 	/** The language of the page. */
-	langCode: string;
+	lang: string;
 }
 
 export interface StatisticsParam {
@@ -161,6 +161,8 @@ export interface MainData {
 	ingredientState?: IngredientStateType;
 	/** The URL of the recipe page. */
 	url?: string;
+	/** The language of the recipe page. */
+	lang: string;
 	/** The extracted content of the recipe page. */
 	pageText?: string;
 	scoringData?: ScoringData;

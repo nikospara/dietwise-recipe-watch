@@ -8,6 +8,7 @@ export function createInitialState(): MainData {
 	return {
 		status: 'INITIAL',
 		emptySuggestionsFromServer: false,
+		lang: 'en',
 	};
 }
 
@@ -18,6 +19,7 @@ export function reducer(state: MainData, action: MainAction): MainData {
 				status: 'PENDING',
 				emptySuggestionsFromServer: false,
 				url: action.url,
+				lang: action.lang,
 			};
 		}
 		case 'RecipeAssessmentFailedAction': {

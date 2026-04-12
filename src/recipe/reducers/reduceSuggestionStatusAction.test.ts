@@ -73,6 +73,7 @@ describe('acceptedSuggestion', () => {
 				s1: target,
 			},
 			ingredientState: {},
+			lang: 'en',
 		};
 
 		const next = acceptedSuggestion(state, createSuggestionStatusAction('s1', 'ACCEPTED'), target);
@@ -95,6 +96,7 @@ describe('acceptedSuggestion', () => {
 			ingredientState: {
 				i1: 's-prev',
 			},
+			lang: 'en',
 		};
 
 		const next = acceptedSuggestion(state, createSuggestionStatusAction('s-next', 'ACCEPTED'), target);
@@ -115,6 +117,7 @@ describe('acceptedSuggestion', () => {
 			ingredientState: {
 				i1: 'missing-id',
 			},
+			lang: 'en',
 		};
 
 		expect(() =>
@@ -131,6 +134,7 @@ describe('acceptedSuggestion', () => {
 				's-recipe': target,
 			},
 			ingredientState: {},
+			lang: 'en',
 		};
 
 		const next = acceptedSuggestion(state, createSuggestionStatusAction('s-recipe', 'ACCEPTED'), target);
@@ -153,6 +157,7 @@ describe('rejectedSuggestion', () => {
 			ingredientState: {
 				i1: 's2',
 			},
+			lang: 'en',
 		};
 
 		const next = rejectedSuggestion(state, createSuggestionStatusAction('s1', 'REJECTED'), target);
@@ -173,6 +178,7 @@ describe('rejectedSuggestion', () => {
 			ingredientState: {
 				i1: 's1',
 			},
+			lang: 'en',
 		};
 
 		const next = rejectedSuggestion(state, createSuggestionStatusAction('s1', 'REJECTED'), target);
@@ -190,6 +196,7 @@ describe('rejectedSuggestion', () => {
 				's-recipe': target,
 			},
 			ingredientState: {},
+			lang: 'en',
 		};
 
 		const next = rejectedSuggestion(state, createSuggestionStatusAction('s-recipe', 'REJECTED'), target);
@@ -212,6 +219,7 @@ describe('undecided', () => {
 			ingredientState: {
 				i1: 's2',
 			},
+			lang: 'en',
 		};
 
 		const next = undecided(state, createSuggestionStatusAction('s1', 'UNDECIDED'), target);
@@ -232,6 +240,7 @@ describe('undecided', () => {
 			ingredientState: {
 				i1: 's1',
 			},
+			lang: 'en',
 		};
 
 		const next = undecided(state, createSuggestionStatusAction('s1', 'UNDECIDED'), target);
@@ -249,6 +258,7 @@ describe('undecided', () => {
 				's-recipe': target,
 			},
 			ingredientState: {},
+			lang: 'en',
 		};
 
 		const next = undecided(state, createSuggestionStatusAction('s-recipe', 'UNDECIDED'), target);
