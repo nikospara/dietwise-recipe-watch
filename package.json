@@ -9,6 +9,8 @@
     "build": "tsc && vite build",
     "build:mobile-preview": "tsc && VITE_INCLUDE_MOBILE_PREVIEW=true vite build",
     "preview": "vite preview",
+    "i18n:csv:export": "node scripts/i18n-csv.mjs export",
+    "i18n:csv:import": "node scripts/i18n-csv.mjs import",
     "assets:android": "npx @capacitor/assets generate --android --assetPath resources --iconBackgroundColor '#ffffff' --splashBackgroundColor '#ffffff' && npx cap sync android",
     "assets:android:help": "npx @capacitor/assets generate --help",
     "test:e2e": "cypress run",

@@ -48,3 +48,10 @@
 .text-strikethrough {
 	text-decoration: line-through;
 }
+
+/* ********** OTHER ************* */
+.moto {
+	color: var(--ion-color-medium);
+	text-align: center;
+	font-size: 90%;
+}

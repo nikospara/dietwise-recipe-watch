@@ -13,10 +13,13 @@
 		"logout": "Logout"
 	},
 	"home": {
-		"title": "Recipe Watch Home"
+		"title": "MyRecipeWatch Home",
+		"heading": "DietWise: MyRecipeWatch",
+		"moto": "Empowerment through personalization and inclusion",
+		"paragraph1": "MyRecipeWatch is your ultimate companion for discovering, sharing, and enjoying delicious recipes. Our AI-powered app is designed to help you make informed food choices, reduce food waste, and explore new culinary horizons, all while aligning with national nutrition guidelines."
 	},
 	"recipe": {
-		"title": "Recipe Watch Recipe",
+		"title": "MyRecipeWatch Recipe",
 		"helpTitle": "Help",
 		"welcomeHeading": "Welcome to the Recipe assessment page",
 		"welcomeFooter": "Don't worry if you forget these instructions; to see them again, press the Help button that will appear at the top of the screen while assessing a recipe!",
@@ -37,14 +40,25 @@
 		},
 		"userStats": "User:",
 		"totalStats": "Totals:",
-		"language": "Recipe language"
+		"language": "Recipe language",
+		"help": {
+			"paragraph1": "Click in the area at the top of the page and enter the web address of the page containing the recipe you are interested in assessing. Then click the \"Assess\" button. The system will begin assessing the recipe.",
+			"paragraph2": "The assessment takes place in two steps: (1) extract the recipe from the page and (2) suggest alternative, healthier and/or more sustainable ingredients. The application displays the list of ingredients in the top half of the page and the suggestions in the bottom half.",
+			"paragraph3": "When browsing suggestions, you have three options:",
+			"explainUndecidedButton": "Leave the suggestion undecided",
+			"explainApproveButton": "Approve the suggestion - press",
+			"explainRejectButton": "Reject the suggestion - press",
+			"paragraph4": "Press an activated button (\"Approve\" or \"Reject\") again to switch a suggestion to undecided.",
+			"paragraph5": "Another way to switch a suggestion to undecided is to click the \"minus\" button of a replaced ingredient in the recipe in the top half of the page.",
+			"paragraph6": "The application displays a rough cost estimation of each alternative in the form of one, two or three Euro symbols (€/€€/€€€), meaning \"relatively cheap\", \"medium/average cost\", and \"relatively high cost\" respectively."
+		}
 	},
 	"ingredient": {
 		"equivalence": "Equivalence:",
 		"techniqueNotes": "Notes:"
 	},
 	"settings": {
-		"title": "Recipe Watch Settings",
+		"title": "MyRecipeWatch Settings",
 		"language": "Language"
 	},
 	"personalization": {

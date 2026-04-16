@@ -24,9 +24,11 @@ const HomePage: React.FC = () => {
 						<IonTitle size="large">{t('home.title')}</IonTitle>
 					</IonToolbar>
 				</IonHeader>
-				<p className="ion-padding">
-					Welcome content here... <span style={{ color: 'var(--dietwise-dark-green)' }}>eventually...</span>
-				</p>
+				<div className="help ion-padding-horizontal">
+					<h1>{t('home.heading')}</h1>
+					<p className="moto">{t('home.moto')}</p>
+					<p>{t('home.paragraph1')}</p>
+				</div>
 			</IonContent>
 		</IonPage>
 	);
