@@ -39,17 +39,14 @@ describe('SplitPane', () => {
 		expect(container.querySelector('.split-pane__divider')).toBeNull();
 	});
 
-	it('initializes the split and animates to the default ratio', async () => {
+	it('initializes the split and animates to the default ratio', () => {
 		setResizeObserver(400);
 		const raf = vi.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
 			cb(0);
 			return 1;
 		});
 
-		// eslint-disable-next-line prettier/prettier
-		const { container, getByText } = render(
-			<SplitPane top={<div>Top</div>} bottom={<div>Bottom</div>} />
-		);
+		const { container, getByText } = render(<SplitPane top={<div>Top</div>} bottom={<div>Bottom</div>} />);
 
 		expect(getByText('Top')).toBeTruthy();
 		expect(getByText('Bottom')).toBeTruthy();

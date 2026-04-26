@@ -46,9 +46,9 @@
 			"paragraph2": "The assessment takes place in two steps: (1) extract the recipe from the page and (2) suggest alternative, healthier and/or more sustainable ingredients. The application displays the list of ingredients in the top half of the page and the suggestions in the bottom half.",
 			"paragraph3": "When browsing suggestions, you have three options:",
 			"explainUndecidedButton": "Leave the suggestion undecided",
-			"explainApproveButton": "Approve the suggestion - press",
+			"explainApproveButton": "Accept the suggestion - press",
 			"explainRejectButton": "Reject the suggestion - press",
-			"paragraph4": "Press an activated button (\"Approve\" or \"Reject\") again to switch a suggestion to undecided.",
+			"paragraph4": "Press an activated button (\"Accept\" or \"Reject\") again to switch a suggestion to undecided.",
 			"paragraph5": "Another way to switch a suggestion to undecided is to click the \"minus\" button of a replaced ingredient in the recipe in the top half of the page.",
 			"paragraph6": "The application displays a rough cost estimation of each alternative in the form of one, two or three Euro symbols (€/€€/€€€), meaning \"relatively cheap\", \"medium/average cost\", and \"relatively high cost\" respectively."
 		}
