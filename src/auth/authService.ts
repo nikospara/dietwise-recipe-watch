@@ -3,8 +3,11 @@ import { AuthActions, AuthService } from 'ionic-appauth';
 import { CapacitorBrowser, CapacitorSecureStorage } from 'ionic-appauth/lib/capacitor';
 import { RequestorImpl } from '@/services/RequestorImpl';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
+import { MobilePreviewAwareBrowser } from '@/auth/mobilePreviewAuth';
 
-export const authService = new AuthService(new CapacitorBrowser(), new CapacitorSecureStorage(), new RequestorImpl());
+const browser = isPlatform('capacitor') ? new CapacitorBrowser() : new MobilePreviewAwareBrowser();
+
+export const authService = new AuthService(browser, new CapacitorSecureStorage(), new RequestorImpl());
 const LOG_SENSITIVE_DATA = import.meta.env.DEV;
 
 let hasTokenInMemory = false;

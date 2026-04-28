@@ -4,14 +4,24 @@ import { RouteComponentProps } from 'react-router';
 import { authService } from '@/auth/authService';
 import { filter, from, Subscription, switchMap, take, throwError } from 'rxjs';
 import { AuthActions } from 'ionic-appauth';
+import { consumeMobilePreviewReturnPath } from '@/auth/mobilePreviewAuth';
 
 const LOG_SENSITIVE_DATA = import.meta.env.DEV;
 
 const AuthCallbackPage: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
 	const unsubscribeRef: RefObject<Subscription | null> = useRef(null);
 
+	const leaveCallbackPage = () => {
+		const mobilePreviewReturnPath = consumeMobilePreviewReturnPath();
+		if (mobilePreviewReturnPath) {
+			window.location.replace(mobilePreviewReturnPath);
+			return;
+		}
+		props.history.replace('/Home');
+	};
+
 	useIonViewDidEnter(() => {
-		const callbackUrl = window.location.origin + props.location.pathname + props.location.search;
+		const callbackUrl = window.location.href;
 		authService.authorizationCallback(callbackUrl);
 		unsubscribeRef.current = authService.events$
 			.pipe(
@@ -30,13 +40,13 @@ const AuthCallbackPage: React.FC<RouteComponentProps> = (props: RouteComponentPr
 			)
 			.subscribe({
 				next() {
-					props.history.replace('/Home');
+					leaveCallbackPage();
 				},
 				error(err) {
 					if (LOG_SENSITIVE_DATA) {
 						console.error('Sign in failed', err);
 					}
-					props.history.replace('/Home');
+					leaveCallbackPage();
 				},
 			});
 	});

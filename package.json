@@ -2,7 +2,7 @@
   "name": "recipe-watch",
   "description": "A dietary recommendations application that makes suggestions on online recipes to fit user needs, health, and other nutritional constraints",
   "private": true,
-  "version": "0.7.0",
+  "version": "0.7.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
