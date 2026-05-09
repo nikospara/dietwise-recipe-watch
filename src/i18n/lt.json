@@ -1,0 +1,90 @@
+{
+	"general": {
+		"CANCEL": "CANCEL",
+		"OK": "OK",
+		"clear": "Clear"
+	},
+	"menu": {
+		"anonymous": "anonymous",
+		"home": "Home",
+		"recipe": "Recipe",
+		"settings": "Settings",
+		"login": "Login",
+		"logout": "Logout"
+	},
+	"home": {
+		"title": "MyRecipeWatch Home",
+		"heading": "DietWise: MyRecipeWatch",
+		"moto": "Empowerment through personalization and inclusion",
+		"paragraph1": "MyRecipeWatch is your ultimate companion for discovering, sharing, and enjoying delicious recipes. Our AI-powered app is designed to help you make informed food choices, reduce food waste, and explore new culinary horizons, all while aligning with national nutrition guidelines."
+	},
+	"recipe": {
+		"title": "MyRecipeWatch Recipe",
+		"helpTitle": "Help",
+		"welcomeHeading": "Welcome to the Recipe assessment page",
+		"welcomeFooter": "Don't worry if you forget these instructions; to see them again, press the Help button that will appear at the top of the screen while assessing a recipe!",
+		"enterUrl": "Tap to enter the address of the page containing the recipe you want to assess",
+		"enterUrlModalTitle": "Enter address",
+		"ASSESS": "ASSESS",
+		"urlPlaceholder": "Enter the address here",
+		"encounteredErrors": "Encountered errors:",
+		"titleOfIngredients": "Ingredients",
+		"titleOfSuggestions": "Suggestions - Advice",
+		"anonymousRecipeTemplateTitle": "Recipe #{{index, number}}",
+		"emptySuggestionsFromServer": "There are no suggestions for this recipe.",
+		"seasonalityWarning": "May be out of season!",
+		"cost": {
+			"LO": "Low cost",
+			"MED": "Medium/average cost",
+			"HI": "High cost"
+		},
+		"userStats": "User:",
+		"totalStats": "Totals:",
+		"language": "Recipe language",
+		"help": {
+			"paragraph1": "Click in the area at the top of the page and enter the web address of the page containing the recipe you are interested in assessing. Then click the \"Assess\" button. The system will begin assessing the recipe.",
+			"paragraph2": "The assessment takes place in two steps: (1) extract the recipe from the page and (2) suggest alternative, healthier and/or more sustainable ingredients. The application displays the list of ingredients in the top half of the page and the suggestions in the bottom half.",
+			"paragraph3": "When browsing suggestions, you have three options:",
+			"explainUndecidedButton": "Leave the suggestion undecided",
+			"explainApproveButton": "Accept the suggestion - press",
+			"explainRejectButton": "Reject the suggestion - press",
+			"paragraph4": "Press an activated button (\"Accept\" or \"Reject\") again to switch a suggestion to undecided.",
+			"paragraph5": "Another way to switch a suggestion to undecided is to click the \"minus\" button of a replaced ingredient in the recipe in the top half of the page.",
+			"paragraph6": "The application displays a rough cost estimation of each alternative in the form of one, two or three Euro symbols (€/€€/€€€), meaning \"relatively cheap\", \"medium/average cost\", and \"relatively high cost\" respectively."
+		}
+	},
+	"ingredient": {
+		"equivalence": "Equivalence:",
+		"techniqueNotes": "Notes:"
+	},
+	"settings": {
+		"title": "MyRecipeWatch Settings",
+		"language": "Language"
+	},
+	"personalization": {
+		"title": "Personal Information",
+		"gender": "Biological gender",
+		"FEMALE": "Female",
+		"MALE": "Male",
+		"country": "Country",
+		"yearOfBirth": "Year of birth",
+		"yearOfBirthIsNotANumber": "The Year of birth must be a number",
+		"yearOfBirthIsNotInThePast": "The Year of birth must be in the past"
+	},
+	"countries": {
+		"BE": "Belgium",
+		"GR": "Greece",
+		"LT": "Lithuania"
+	},
+	"languages": {
+		"en": "English",
+		"el": "Greek",
+		"lt": "Lithuanian",
+		"nl": "Dutch"
+	},
+	"error": {
+		"401": "You are not authenticated or the server has not accepted your authentication; maybe logging out and back will help.",
+		"networkOrSystem": "A network or system error occured; please try again later.",
+		"unknown": "Unknown error!"
+	}
+}

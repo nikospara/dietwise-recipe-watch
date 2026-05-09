@@ -62,7 +62,11 @@ const SettingsPage: React.FC = () => {
 							disabled={settingLanguage}
 						>
 							<IonSelectOption value="en">English</IonSelectOption>
+							{/*
 							<IonSelectOption value="el">Ελληνικά</IonSelectOption>
+							<IonSelectOption value="lt">Lietuvių</IonSelectOption>
+							<IonSelectOption value="nl">Nederlands</IonSelectOption>
+							*/}
 						</IonSelect>
 					</IonItem>
 				</IonList>

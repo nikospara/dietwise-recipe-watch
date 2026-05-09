@@ -32,6 +32,8 @@ Incompatible with ionic-router.
 At least `eslint-plugin-react`, `eslint-plugin-react-hooks` have a peer dependency on `eslint@"^... || ^9"`.
 
 
-### typescript: 5.x - 6.x
+### ~~typescript: 5.x - 6.x~~
 
 Because `typescript-eslint` does not support it.
+
+**Resolution (before 2026/05/09):** Supported and works fine.
