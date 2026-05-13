@@ -7,7 +7,7 @@ An application for users among the general public who are interested in making h
 `authServerHost` and `apiServerHost` are environment-specific and are resolved in this order:
 
 1. Runtime `config.json` (served from `${BASE_URL}config.json`)
-2. Build-time env vars `VITE_AUTH_SERVER_HOST` and `VITE_API_SERVER_HOST`
+2. Build-time env vars `VITE_AUTH_SERVER_HOST` and `VITE_API_SERVER_HOST` (for the API host, remember to append `/api/v1`)
 3. Local fallback defaults (`localhost`)
 
 This allows:
@@ -57,11 +57,33 @@ Health endpoint:
 Mobile preview URL:
 - `http://localhost:8080/mobile-preview`
 
-## Android app icon and splash generation
+
+## Android
+
+First time only:
+
+```bash
+npx cap add android
+```
+
+```bash
+rm -rf dist/
+export VITE_API_SERVER_HOST=https://dietwise.ispatial.survey.ntua.gr/api/v1
+export VITE_AUTH_SERVER_HOST=https://gaia.ispatial.survey.ntua.gr/prod/idm/realms/dietwise
+npm run build
+npx cap sync
+```
+
+Got to `chrome://inspect/#devices` to debug.
+
+To release: open `android/app/build.gradle` and adjust `versionCode` (increase), `versionName` (same as the `version` from package.json)
+
+
+### Android app icon and splash generation
 
 This repository is set up to generate Android launcher icons and splash screens from a single source image.
 
-### One-time setup
+#### One-time setup
 
 Install the official Capacitor asset tool:
 
@@ -69,7 +91,7 @@ Install the official Capacitor asset tool:
 npm install --save-dev @capacitor/assets
 ```
 
-### Source image
+#### Source image
 
 Put a square logo image at:
 
@@ -83,7 +105,7 @@ Recommended:
 - at least `1024x1024`
 - transparent background if you want the generated white background to show through cleanly
 
-### Generate Android assets
+#### Generate Android assets
 
 Run:
 
@@ -97,7 +119,7 @@ This will:
 - write them into `android/app/src/main/res/...`
 - run `npx cap sync android` so the native project stays in sync
 
-### Notes
+#### Notes
 
 - The current script uses white for both icon and splash backgrounds.
 - If Android Studio still shows an old launcher icon after regeneration, uninstall the app from the device or emulator and reinstall it.
