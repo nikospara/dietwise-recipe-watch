@@ -13,13 +13,13 @@
 		"logout": "Αποσύνδεση"
 	},
 	"home": {
-		"title": "MyRecipeWatch Αρχική",
-		"heading": "DietWise: MyRecipeWatch",
+		"title": "My Recipe Watch Αρχική",
+		"heading": "DietWise: My Recipe Watch",
 		"moto": "",
 		"paragraph1": ""
 	},
 	"recipe": {
-		"title": "MyRecipeWatch Συνταγή",
+		"title": "My Recipe Watch Συνταγή",
 		"helpTitle": "Βοήθεια",
 		"welcomeHeading": "Καλωσήλθατε στη σελίδα εκτίμησης συνταγών",
 		"welcomeFooter": "Μην ανησυχείτε αν δε θυμάστε αυτές τις οδηγίες, θα μπορείτε να τις δείτε πατώντας το κουμπί βοήθεια που θα εμφανιστεί το πάνω μέρος της οθόνης όταν εκτιμήσετε μια συνταγή!",
@@ -58,7 +58,7 @@
 		"techniqueNotes": "Σημειώσεις:"
 	},
 	"settings": {
-		"title": "MyRecipeWatch Ρυθμίσεις",
+		"title": "My Recipe Watch Ρυθμίσεις",
 		"language": "Γλώσσα"
 	},
 	"personalization": {
