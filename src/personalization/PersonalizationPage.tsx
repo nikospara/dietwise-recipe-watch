@@ -7,11 +7,13 @@ import {
 	IonMenuButton,
 	IonPage,
 	IonSpinner,
+	IonText,
 	IonTitle,
 	IonToolbar,
 } from '@ionic/react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { useAtom, useSetAtom } from 'jotai';
+import { Browser } from '@capacitor/browser';
 import {
 	loadablePersonalInfoAtom,
 	personalInfoAtom,
@@ -22,6 +24,7 @@ import type { PersonalInfo } from '@/personalization/model';
 import PersonalizationForm from '@/personalization/PersonalizationForm';
 
 const LOG_SENSITIVE_DATA = import.meta.env.DEV;
+const PRIVACY_POLICY_URL = 'https://dietwise.eu/about/recipewatch/myrecipewatch-privacy-policy/';
 
 const PersonalizationPage: React.FC = () => {
 	const { t } = useTranslation();
@@ -45,6 +48,10 @@ const PersonalizationPage: React.FC = () => {
 	const onRetryCallback = useCallback(() => {
 		refreshPersonalInfoAtom();
 	}, [refreshPersonalInfoAtom]);
+	const onPrivacyPolicyClick = useCallback(async (e: React.MouseEvent) => {
+		e.preventDefault();
+		await Browser.open({ url: PRIVACY_POLICY_URL });
+	}, []);
 
 	return (
 		<IonPage>
@@ -64,6 +71,17 @@ const PersonalizationPage: React.FC = () => {
 						<IonTitle size="large">{t('personalization.title')}</IonTitle>
 					</IonToolbar>
 				</IonHeader>
+
+				<IonText color="medium">
+					<p className="ion-padding-start ion-padding-end">
+						<Trans
+							i18nKey="personalization.intro"
+							components={{
+								policyLink: <a href={PRIVACY_POLICY_URL} onClick={onPrivacyPolicyClick} />,
+							}}
+						/>
+					</p>
+				</IonText>
 
 				{personalInfo.state === 'loading' && <IonSpinner></IonSpinner>}
 				{personalInfo.state === 'hasError' && (

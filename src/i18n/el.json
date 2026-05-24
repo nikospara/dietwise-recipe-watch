@@ -70,6 +70,7 @@
 	},
 	"personalization": {
 		"title": "Προσωπικές Πληροφορίες",
+		"intro": "All fields are optional. Filling them in lets the app tailor recommendations to nutritional guidelines that fit your profile. See how we handle your data: <policyLink>Privacy Policy</policyLink>.",
 		"gender": "Βιολογικό Φύλλο",
 		"FEMALE": "Θήλυ",
 		"MALE": "Άρρεν",
