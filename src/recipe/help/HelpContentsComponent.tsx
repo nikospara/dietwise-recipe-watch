@@ -32,6 +32,7 @@ const HelpContentsComponent: React.FC = () => {
 			<p>{t('recipe.help.paragraph4')}</p>
 			<p>{t('recipe.help.paragraph5')}</p>
 			<p>{t('recipe.help.paragraph6')}</p>
+			<p>{t('recipe.help.rating')}</p>
 		</div>
 	);
 };

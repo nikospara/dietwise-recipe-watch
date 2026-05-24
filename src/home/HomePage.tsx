@@ -1,10 +1,11 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useTranslation } from 'react-i18next';
-// import { useAuth } from '@/auth/useAuth';
+import { useAtomValue } from 'jotai';
+import { userAtom } from '@/auth/atoms';
 
 const HomePage: React.FC = () => {
 	const { t } = useTranslation();
-	// const { user } = useAuth();
+	const user = useAtomValue(userAtom);
 
 	return (
 		<IonPage>
@@ -28,6 +29,16 @@ const HomePage: React.FC = () => {
 					<h1>{t('home.heading')}</h1>
 					<p className="moto">{t('home.moto')}</p>
 					<p>{t('home.paragraph1')}</p>
+					{user ? null : (
+						<>
+							<p>{t('home.registration.start')}</p>
+							<ul>
+								<li>{t('home.registration.step1')}</li>
+								<li>{t('home.registration.step2')}</li>
+								<li>{t('home.registration.step3')}</li>
+							</ul>
+						</>
+					)}
 				</div>
 			</IonContent>
 		</IonPage>

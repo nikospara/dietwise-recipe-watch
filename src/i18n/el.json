@@ -16,7 +16,13 @@
 		"title": "MyRecipeWatch Αρχική",
 		"heading": "DietWise: MyRecipeWatch",
 		"moto": "",
-		"paragraph1": ""
+		"paragraph1": "",
+		"registration": {
+			"start": "To register a new account:",
+			"step1": "Open the application menu, click \"Login\"",
+			"step2": "In the new login form that appears, click \"Register\" at the bottom",
+			"step3": "Enter your email and password (required), name (optional)"
+		}
 	},
 	"recipe": {
 		"title": "MyRecipeWatch Συνταγή",
@@ -50,7 +56,8 @@
 			"explainRejectButton": "",
 			"paragraph4": "",
 			"paragraph5": "",
-			"paragraph6": ""
+			"paragraph6": "",
+			"rating": "The star rating (1-10) reflects how well a recipe aligns with established dietary guidelines. A higher score means the overall balance of ingredients is more in line with recommended nutritional standards. Our AI's suggestions are designed to help you tweak your recipes to achieve a higher rating and improve the overall nutritional balance of your meal."
 		}
 	},
 	"ingredient": {
