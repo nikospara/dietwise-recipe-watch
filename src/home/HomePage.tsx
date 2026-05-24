@@ -1,11 +1,23 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { useState } from 'react';
+import {
+	IonButton,
+	IonButtons,
+	IonContent,
+	IonHeader,
+	IonMenuButton,
+	IonPage,
+	IonTitle,
+	IonToolbar,
+} from '@ionic/react';
 import { useTranslation } from 'react-i18next';
 import { useAtomValue } from 'jotai';
 import { userAtom } from '@/auth/atoms';
+import TermsModal from '@/home/TermsModal';
 
 const HomePage: React.FC = () => {
 	const { t } = useTranslation();
 	const user = useAtomValue(userAtom);
+	const [isTermsOpen, setIsTermsOpen] = useState(false);
 
 	return (
 		<IonPage>
@@ -39,7 +51,14 @@ const HomePage: React.FC = () => {
 							</ul>
 						</>
 					)}
+					<p className="ion-text-center">
+						<IonButton fill="clear" size="small" onClick={() => setIsTermsOpen(true)}>
+							{t('terms.openButton')}
+						</IonButton>
+					</p>
 				</div>
+
+				<TermsModal isOpen={isTermsOpen} setIsOpen={setIsTermsOpen} />
 			</IonContent>
 		</IonPage>
 	);
