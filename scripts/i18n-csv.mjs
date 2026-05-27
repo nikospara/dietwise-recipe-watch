@@ -71,6 +71,7 @@ function importCsv(options) {
 	}
 
 	const localizedEntries = new Map();
+	const unknownCodes = [];
 
 	for (let index = 1; index < csvRows.length; index += 1) {
 		const row = csvRows[index];
@@ -85,7 +86,8 @@ function importCsv(options) {
 		const [code, english, localized] = row;
 
 		if (!templateEntries.has(code)) {
-			fail(`CSV row ${index + 1} contains unknown code "${code}".`);
+			unknownCodes.push(code);
+			continue;
 		}
 
 		const expectedEnglish = templateEntries.get(code);
@@ -102,7 +104,26 @@ function importCsv(options) {
 		localizedEntries.set(code, localized ?? '');
 	}
 
-	assertSameKeys(templateEntries, localizedEntries, 'CSV input');
+	const missingCodes = [];
+	for (const key of templateEntries.keys()) {
+		if (!localizedEntries.has(key)) {
+			missingCodes.push(key);
+		}
+	}
+
+	if (unknownCodes.length > 0) {
+		console.warn(`Unknown keys in CSV (not present in template, skipped):`);
+		for (const code of unknownCodes) {
+			console.warn(code);
+		}
+	}
+
+	if (missingCodes.length > 0) {
+		console.warn(`Missing keys (in template but not in CSV, written as empty):`);
+		for (const code of missingCodes) {
+			console.warn(code);
+		}
+	}
 
 	const localizedJson = buildFromTemplate(template, [], localizedEntries);
 	writeText(outputPath, `${JSON.stringify(localizedJson, null, '\t')}\n`);

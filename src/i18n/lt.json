@@ -1,151 +1,151 @@
 {
 	"general": {
-		"CANCEL": "CANCEL",
-		"OK": "OK",
-		"clear": "Clear"
+		"CANCEL": "Atšaukti",
+		"OK": "Gerai",
+		"clear": "Išvalyti"
 	},
 	"menu": {
-		"anonymous": "anonymous",
-		"home": "Home",
-		"recipe": "Recipe",
-		"settings": "Settings",
-		"login": "Login",
-		"logout": "Logout"
+		"anonymous": "Anonimas",
+		"home": "Pagrindinis puslapis",
+		"recipe": "Receptas",
+		"settings": "Nustatymai",
+		"login": "Prisijungti",
+		"logout": "Atsijungti"
 	},
 	"home": {
-		"title": "MyRecipeWatch Home",
+		"title": "MyRecipeWatch pagrindinis puslapis",
 		"heading": "DietWise: MyRecipeWatch",
-		"moto": "Empowerment through personalization and inclusion",
-		"paragraph1": "MyRecipeWatch is your ultimate companion for discovering, sharing, and enjoying delicious recipes. Our AI-powered app is designed to help you make informed food choices, reduce food waste, and explore new culinary horizons, all while aligning with national nutrition guidelines.",
+		"moto": "Įgalinimas per suasmeninimą ir įtrauktį",
+		"paragraph1": "MyRecipeWatch - jūsų nepakeičiamas pagalbininkas atrandant, dalinantis ir mėgaujantis gardžiais receptais. Ši dirbtiniu intelektu paremta programėlė sukurta tam, kad padėtų jums priimti informuotus maisto pasirinkimus, mažinti maisto švaistymą ir atrasti naujus kulinarinius kelius, tuo pačiu laikantis nacionalinių mitybos gairių.",
 		"registration": {
-			"start": "To register a new account:",
-			"step1": "Open the application menu, click \"Login\"",
-			"step2": "In the new login form that appears, click \"Register\" at the bottom",
-			"step3": "Enter your email and password (required), name (optional)"
+			"start": "",
+			"step1": "",
+			"step2": "",
+			"step3": ""
 		}
 	},
 	"recipe": {
-		"title": "MyRecipeWatch Recipe",
-		"helpTitle": "Help",
-		"welcomeHeading": "Welcome to the Recipe assessment page",
-		"welcomeFooter": "Don't worry if you forget these instructions; to see them again, press the Help button that will appear at the top of the screen while assessing a recipe!",
-		"enterUrl": "Tap to enter the address of the page containing the recipe you want to assess",
-		"enterUrlModalTitle": "Enter address",
-		"ASSESS": "ASSESS",
-		"urlPlaceholder": "Enter the address here",
-		"encounteredErrors": "Encountered errors:",
-		"titleOfIngredients": "Ingredients",
-		"titleOfSuggestions": "Suggestions - Advice",
-		"anonymousRecipeTemplateTitle": "Recipe #{{index, number}}",
-		"emptySuggestionsFromServer": "There are no suggestions for this recipe.",
-		"seasonalityWarning": "May be out of season!",
+		"title": "MyRecipeWatch",
+		"helpTitle": "Pagalba",
+		"welcomeHeading": "Sveiki atvykę į receptų vertinimo puslapį",
+		"welcomeFooter": "Jei pamiršite instrukcijas, jas vėl pamatyti galite paspaudus mygtuką \"Pagalba\", kuris atsiras jūsų ekrano viršuje vertinant receptą",
+		"enterUrl": "Spauskite norėdami įvesti jūsų norimo recepto adresą internete",
+		"enterUrlModalTitle": "Įveskite adresą",
+		"ASSESS": "Vertinti",
+		"urlPlaceholder": "Įvesi adresą čia",
+		"encounteredErrors": "Nustatytos klaidos:",
+		"titleOfIngredients": "Ingridientai",
+		"titleOfSuggestions": "Pasiūlymai - Patarimai",
+		"anonymousRecipeTemplateTitle": "Receptas #{{index, number}}",
+		"emptySuggestionsFromServer": "Šiam receptui pasiūlymų nėra",
+		"seasonalityWarning": "Gali būti ne sezoninis produktas",
 		"cost": {
-			"LO": "Low cost",
-			"MED": "Medium/average cost",
-			"HI": "High cost"
+			"LO": "Maža kaina",
+			"MED": "Vidutinė kaina",
+			"HI": "Aukšta kaina"
 		},
-		"userStats": "User:",
-		"totalStats": "Totals:",
-		"language": "Recipe language",
+		"userStats": "Vartotojas",
+		"totalStats": "Viso",
+		"language": "Recepto kalba",
 		"help": {
-			"paragraph1": "Click in the area at the top of the page and enter the web address of the page containing the recipe you are interested in assessing. Then click the \"Assess\" button. The system will begin assessing the recipe.",
-			"paragraph2": "The assessment takes place in two steps: (1) extract the recipe from the page and (2) suggest alternative, healthier and/or more sustainable ingredients. The application displays the list of ingredients in the top half of the page and the suggestions in the bottom half.",
-			"paragraph3": "When browsing suggestions, you have three options:",
-			"explainUndecidedButton": "Leave the suggestion undecided",
-			"explainApproveButton": "Accept the suggestion - press",
-			"explainRejectButton": "Reject the suggestion - press",
-			"paragraph4": "Press an activated button (\"Accept\" or \"Reject\") again to switch a suggestion to undecided.",
-			"paragraph5": "Another way to switch a suggestion to undecided is to click the \"minus\" button of a replaced ingredient in the recipe in the top half of the page.",
-			"paragraph6": "The application displays a rough cost estimation of each alternative in the form of one, two or three Euro symbols (€/€€/€€€), meaning \"relatively cheap\", \"medium/average cost\", and \"relatively high cost\" respectively.",
-			"rating": "The star rating (1-10) reflects how well a recipe aligns with established dietary guidelines. A higher score means the overall balance of ingredients is more in line with recommended nutritional standards. Our AI's suggestions are designed to help you tweak your recipes to achieve a higher rating and improve the overall nutritional balance of your meal."
+			"paragraph1": "Paspauskite ekrano viršuje esantį lauką ir įveskite adresą recepto, kurio įvertinimą norėtumėte gauti. Tada spauskite mygtuką \"Vertinti\". Sistema automatiškai pradės vertinti receptą.",
+			"paragraph2": "Vertinimas vyksta dviejuose žingsniuose: (1) įkeliant receptą iš puslapio ir (2) pasiūlant sveikesnių ir/ar tvaresnių ingridientų alternatyvą. Programa ingridientų sąrašą atvaizduoja viršutinėje puslapio dalyje, o pasiūlymus - apatinėje dalyje. ",
+			"paragraph3": "Naršant pasiūlymus, turite tris pasirinkimus:",
+			"explainUndecidedButton": "Palikti pasiūlymą be sprendimo",
+			"explainApproveButton": "Priimti pasiūlymą - spausti",
+			"explainRejectButton": "Atmesti pasiūlymą - spausti",
+			"paragraph4": "Spauskite mygtuką (\"Priimti\" ar \"Atmesti\") dar kartą, jei norite palikti pasiūlymą be sprendimo",
+			"paragraph5": "Kitas būdas pakeisti pasiūlymo būseną į \"be sprendimo\" yra spaudžiant \"minuso\" ikonėlę prie pakeistų ingridientų recepte viršutinėje puslapio dalyje.",
+			"paragraph6": "Programėlė vertina apytikslę kiekvieno pasiūlyto alternatyvaus recepto kainą vienu, dviem arba trim Euro simboliais (€/€€/€€€). Jų reikšmė - \"įprastai pigus\", \"vidutinė kaina\" ir \"įprastai aukšta kaina\". ",
+			"rating": ""
 		}
 	},
 	"ingredient": {
-		"equivalence": "Equivalence:",
-		"techniqueNotes": "Notes:"
+		"equivalence": "Lygiavertiškumas:",
+		"techniqueNotes": "Pastebėjimai:"
 	},
 	"settings": {
-		"title": "MyRecipeWatch Settings",
-		"language": "Language"
+		"title": "MyRecipeWatch Nustatymai",
+		"language": "Kalba"
 	},
 	"personalization": {
-		"title": "Personal Information",
-		"intro": "All fields are optional. Filling them in lets the app tailor recommendations to nutritional guidelines that fit your profile. See how we handle your data: <policyLink>Privacy Policy</policyLink>.",
-		"gender": "Biological gender",
-		"FEMALE": "Female",
-		"MALE": "Male",
-		"country": "Country",
-		"yearOfBirth": "Year of birth",
-		"yearOfBirthIsNotANumber": "The Year of birth must be a number",
-		"yearOfBirthIsNotInThePast": "The Year of birth must be in the past"
+		"title": "Asmeninė informacija",
+		"intro": "",
+		"gender": "Biologinė lytis",
+		"FEMALE": "Moteris",
+		"MALE": "Vyras",
+		"country": "Valstybė",
+		"yearOfBirth": "Gimimo metai",
+		"yearOfBirthIsNotANumber": "Gimimo metai turi būti skaičius",
+		"yearOfBirthIsNotInThePast": "Gimimo metai turi būti praeityje"
 	},
 	"countries": {
-		"BE": "Belgium",
-		"GR": "Greece",
-		"LT": "Lithuania"
+		"BE": "Belgija",
+		"GR": "Graikija",
+		"LT": "Lietuva"
 	},
 	"languages": {
-		"en": "English",
-		"el": "Greek",
-		"lt": "Lithuanian",
-		"nl": "Dutch"
+		"en": "Anglų",
+		"el": "Graikų",
+		"lt": "Lietuvių",
+		"nl": "Olandų"
 	},
 	"error": {
-		"401": "You are not authenticated or the server has not accepted your authentication; maybe logging out and back will help.",
-		"networkOrSystem": "A network or system error occured; please try again later.",
-		"unknown": "Unknown error!"
+		"401": "Jūs neautentifikuotas arba autentifikuojant įvyko serverio klaida; bandykite prisijungti iš naujo.",
+		"networkOrSystem": "Ryšio arba sistemos klaida; bandykite vėliau.",
+		"unknown": "Nežinoma klaida!"
 	},
 	"terms": {
-		"openButton": "Terms & Conditions",
-		"title": "Terms & Conditions",
-		"draftNotice": "DRAFT — This document is a placeholder pending review by the project's legal team. Do not rely on it for legal purposes.",
+		"openButton": "",
+		"title": "",
+		"draftNotice": "",
 		"acceptance": {
-			"heading": "1. Acceptance of Terms",
-			"body": "These Terms and Conditions (\"Terms\") govern your use of the MyRecipeWatch mobile application (\"the App\"), developed by the Institute of Communication and Computer Systems (ICCS) as part of the EU-funded DietWise project. By installing, accessing, or using the App, you agree to be bound by these Terms. If you do not agree, please do not use the App."
+			"heading": "",
+			"body": ""
 		},
 		"service": {
-			"heading": "2. About the Service",
-			"body": "MyRecipeWatch is a research application that evaluates online recipes against national nutritional guidelines and proposes alternative ingredients. Suggestions are generated by automated systems and are informational only. The App is provided as part of an ongoing research project and its features may change, be paused, or be discontinued without notice."
+			"heading": "",
+			"body": ""
 		},
 		"eligibility": {
-			"heading": "3. Eligibility",
-			"body": "You must be at least 18 years old, or have the consent of a parent or legal guardian, to use the App."
+			"heading": "",
+			"body": ""
 		},
 		"account": {
-			"heading": "4. Account Registration",
-			"body": "Certain features require an account, authenticated via the DietWise identity service. You are responsible for keeping your credentials confidential and for all activity that occurs under your account. Notify the project team promptly of any suspected unauthorized use."
+			"heading": "",
+			"body": ""
 		},
 		"acceptableUse": {
-			"heading": "5. Acceptable Use",
-			"body": "You agree to use the App only for personal, non-commercial purposes and in compliance with applicable law. You must not: (a) attempt to disrupt or compromise the security of the App or its backend services; (b) use the App to harvest, mine, or otherwise extract data at scale; (c) misrepresent your identity; or (d) submit content that is unlawful, offensive, or infringes the rights of others."
+			"heading": "",
+			"body": ""
 		},
 		"userContent": {
-			"heading": "6. User-Provided Content and Feedback",
-			"body": "When you submit recipe URLs, personal information, or feedback (such as acceptance or rejection of suggestions), you grant the project a non-exclusive, royalty-free license to use this data — in anonymized or aggregated form where applicable — for the purposes of operating, evaluating, and improving the service and for research outputs related to the DietWise project. You retain ownership of any content you submit."
+			"heading": "",
+			"body": ""
 		},
 		"recommendationsDisclaimer": {
-			"heading": "7. Nutritional Recommendations Disclaimer",
-			"body": "The App's suggestions are generated by automated systems and are intended for general informational purposes only. They are not medical, dietary, or nutritional advice and are not a substitute for professional consultation. Consult a qualified healthcare provider before making significant changes to your diet, especially if you have a medical condition, allergies, or dietary restrictions."
+			"heading": "",
+			"body": ""
 		},
 		"intellectualProperty": {
-			"heading": "8. Intellectual Property",
-			"body": "The App, including its software, design, text, and graphics, is the property of ICCS and the DietWise consortium or its licensors and is protected by applicable intellectual property laws. These Terms do not grant you any right to reproduce, distribute, or create derivative works of the App, except as permitted by the App's open-source license where applicable."
+			"heading": "",
+			"body": ""
 		},
 		"privacy": {
-			"heading": "9. Privacy",
-			"body": "Your use of the App is also governed by our <policyLink>Privacy Policy</policyLink>, which describes what personal data we collect and how we process it."
+			"heading": "",
+			"body": ""
 		},
 		"liability": {
-			"heading": "10. Disclaimers and Limitation of Liability",
-			"body": "The App is provided on an \"as is\" and \"as available\" basis, without warranties of any kind, express or implied. To the maximum extent permitted by law, the developers and the DietWise consortium disclaim all liability for any direct, indirect, incidental, or consequential damages arising from your use of, or inability to use, the App."
+			"heading": "",
+			"body": ""
 		},
 		"changes": {
-			"heading": "11. Changes to These Terms",
-			"body": "We may update these Terms from time to time. The updated Terms will be made available within the App and on the project website. Your continued use of the App after such changes constitutes acceptance of the updated Terms."
+			"heading": "",
+			"body": ""
 		},
 		"governingLaw": {
-			"heading": "12. Governing Law and Contact",
-			"body": "These Terms are governed by the laws of the country in which the project lead institution is established, without prejudice to any mandatory consumer-protection rights you may have under your local law. For questions about these Terms, contact the project team via https://dietwise.eu."
+			"heading": "",
+			"body": ""
 		}
 	}
 }
