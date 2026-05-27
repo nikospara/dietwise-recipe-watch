@@ -63,6 +63,7 @@ Mobile preview URL:
 First time only:
 
 ```bash
+npm install @capacitor/android
 npx cap add android
 ```
 
