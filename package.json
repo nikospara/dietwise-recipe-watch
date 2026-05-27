@@ -13,6 +13,7 @@
     "i18n:csv:import": "node scripts/i18n-csv.mjs import",
     "assets:android": "npx @capacitor/assets generate --android --assetPath resources --iconBackgroundColor '#ffffff' --splashBackgroundColor '#ffffff' && npx cap sync android",
     "assets:android:help": "npx @capacitor/assets generate --help",
+    "assets:ios": "npx @capacitor/assets generate --ios --assetPath resources --iconBackgroundColor '#ffffff' --splashBackgroundColor '#ffffff' && npx cap sync ios",
     "test:e2e": "cypress run",
     "test:unit": "vitest",
     "lint": "eslint"
