@@ -1,151 +1,151 @@
 {
 	"general": {
-		"CANCEL": "CANCEL",
+		"CANCEL": "Annuleren",
 		"OK": "OK",
-		"clear": "Clear"
+		"clear": "Wissen"
 	},
 	"menu": {
-		"anonymous": "anonymous",
-		"home": "Home",
-		"recipe": "Recipe",
-		"settings": "Settings",
-		"login": "Login",
-		"logout": "Logout"
+		"anonymous": "anoniem",
+		"home": "Start",
+		"recipe": "Recept",
+		"settings": "Instellingen",
+		"login": "Inloggen",
+		"logout": "Uitloggen"
 	},
 	"home": {
-		"title": "MyRecipeWatch Home",
+		"title": "MyRecipeWatch Start",
 		"heading": "DietWise: MyRecipeWatch",
-		"moto": "Empowerment through personalization and inclusion",
-		"paragraph1": "MyRecipeWatch is your ultimate companion for discovering, sharing, and enjoying delicious recipes. Our AI-powered app is designed to help you make informed food choices, reduce food waste, and explore new culinary horizons, all while aligning with national nutrition guidelines.",
+		"moto": "Autonomie via personalisatie en inclusie",
+		"paragraph1": "MyRecipeWatchWatch is uw ultieme buddy voor het ontdekken, delen en genieten van heerlijke recepten. Onze AI-gestuurde tool is ontworpen om u te helpen weloverwogen voedselkeuzes te maken, voedselverspilling te verminderen en nieuwe culinaire horizonten te verkennen, en dit alles in lijn met de nationale voedingsrichtlijnen.",
 		"registration": {
-			"start": "To register a new account:",
-			"step1": "Open the application menu, click \"Login\"",
-			"step2": "In the new login form that appears, click \"Register\" at the bottom",
-			"step3": "Enter your email and password (required), name (optional)"
+			"start": "",
+			"step1": "",
+			"step2": "",
+			"step3": ""
 		}
 	},
 	"recipe": {
-		"title": "MyRecipeWatch Recipe",
+		"title": "MyRecipeWatch Recept",
 		"helpTitle": "Help",
-		"welcomeHeading": "Welcome to the Recipe assessment page",
-		"welcomeFooter": "Don't worry if you forget these instructions; to see them again, press the Help button that will appear at the top of the screen while assessing a recipe!",
-		"enterUrl": "Tap to enter the address of the page containing the recipe you want to assess",
-		"enterUrlModalTitle": "Enter address",
-		"ASSESS": "ASSESS",
-		"urlPlaceholder": "Enter the address here",
-		"encounteredErrors": "Encountered errors:",
-		"titleOfIngredients": "Ingredients",
-		"titleOfSuggestions": "Suggestions - Advice",
-		"anonymousRecipeTemplateTitle": "Recipe #{{index, number}}",
-		"emptySuggestionsFromServer": "There are no suggestions for this recipe.",
-		"seasonalityWarning": "May be out of season!",
+		"welcomeHeading": "Welkom op de receptbeoordelingspagina",
+		"welcomeFooter": "Maak u geen zorgen als u deze instructies vergeet; druk op de Help-knop die bovenaan het scherm verschijnt tijdens het beoordelen van een recept om ze opnieuw te zien!",
+		"enterUrl": "Tik om het webadres in te voeren van de pagina met het recept dat u wilt beoordelen",
+		"enterUrlModalTitle": "Voer adres in",
+		"ASSESS": "BEOORDELEN",
+		"urlPlaceholder": "Voer hier het adres in",
+		"encounteredErrors": "Gevonden fouten:",
+		"titleOfIngredients": "Ingrediënten",
+		"titleOfSuggestions": "Suggesties - Advies",
+		"anonymousRecipeTemplateTitle": "Recept #{{index, number}}",
+		"emptySuggestionsFromServer": "Er zijn geen suggesties voor dit recept.",
+		"seasonalityWarning": "Mogelijks niet uit het seizoen!",
 		"cost": {
-			"LO": "Low cost",
-			"MED": "Medium/average cost",
-			"HI": "High cost"
+			"LO": "Lage kostprijs",
+			"MED": "Gemiddeld kostprijs",
+			"HI": "Hoge kostprijs"
 		},
-		"userStats": "User:",
-		"totalStats": "Totals:",
-		"language": "Recipe language",
+		"userStats": "Gebruiker:",
+		"totalStats": "Totalen:",
+		"language": "Taal van het recept",
 		"help": {
-			"paragraph1": "Click in the area at the top of the page and enter the web address of the page containing the recipe you are interested in assessing. Then click the \"Assess\" button. The system will begin assessing the recipe.",
-			"paragraph2": "The assessment takes place in two steps: (1) extract the recipe from the page and (2) suggest alternative, healthier and/or more sustainable ingredients. The application displays the list of ingredients in the top half of the page and the suggestions in the bottom half.",
-			"paragraph3": "When browsing suggestions, you have three options:",
-			"explainUndecidedButton": "Leave the suggestion undecided",
-			"explainApproveButton": "Accept the suggestion - press",
-			"explainRejectButton": "Reject the suggestion - press",
-			"paragraph4": "Press an activated button (\"Accept\" or \"Reject\") again to switch a suggestion to undecided.",
-			"paragraph5": "Another way to switch a suggestion to undecided is to click the \"minus\" button of a replaced ingredient in the recipe in the top half of the page.",
-			"paragraph6": "The application displays a rough cost estimation of each alternative in the form of one, two or three Euro symbols (€/€€/€€€), meaning \"relatively cheap\", \"medium/average cost\", and \"relatively high cost\" respectively.",
-			"rating": "The star rating (1-10) reflects how well a recipe aligns with established dietary guidelines. A higher score means the overall balance of ingredients is more in line with recommended nutritional standards. Our AI's suggestions are designed to help you tweak your recipes to achieve a higher rating and improve the overall nutritional balance of your meal."
+			"paragraph1": "Klik in het gebied bovenaan de pagina en voer het webadres in van de pagina met het recept dat u wilt beoordelen. Klik vervolgens op de knop \"Beoordelen\". Het systeem begint dan met het beoordelen van het recept.",
+			"paragraph2": "De beoordeling vindt plaats in twee stappen: (1) het recept van de webpagina extraheren en (2) alternatieve, gezondere en/of duurzamere ingrediënten voorstellen. De applicatie toont de lijst met ingrediënten in de bovenste helft van de pagina en de suggesties in de onderste helft.",
+			"paragraph3": "Bij het bekijken van suggesties heeft u drie opties:",
+			"explainUndecidedButton": "De suggestie open laten",
+			"explainApproveButton": "De suggestie accepteren - druk op",
+			"explainRejectButton": "De suggestie afwijzen - druk op",
+			"paragraph4": "Druk nogmaals op een geactiveerde knop (\"Accepteren\" of \"Afwijzen\") om een suggestie open te laten.",
+			"paragraph5": "Een andere manier om een suggestie open te laten is door op de \"min\"-knop te klikken van een vervangen ingrediënt in het recept in de bovenste helft van de pagina.",
+			"paragraph6": "De applicatie toont een ruwe kostinschatting van elk alternatief in de vorm van een, twee of drie eurotekens (€/€€/€€€), wat respectievelijk \"relatief goedkoop\", \"gemiddelde kostprijs\" en \"relatief hoge kostprijs\" betekent.",
+			"rating": ""
 		}
 	},
 	"ingredient": {
-		"equivalence": "Equivalence:",
-		"techniqueNotes": "Notes:"
+		"equivalence": "Equivalent:",
+		"techniqueNotes": "Opmerkingen:"
 	},
 	"settings": {
-		"title": "MyRecipeWatch Settings",
-		"language": "Language"
+		"title": "MyRecipeWatch Instellingen",
+		"language": "Taal"
 	},
 	"personalization": {
-		"title": "Personal Information",
-		"intro": "All fields are optional. Filling them in lets the app tailor recommendations to nutritional guidelines that fit your profile. See how we handle your data: <policyLink>Privacy Policy</policyLink>.",
-		"gender": "Biological gender",
-		"FEMALE": "Female",
-		"MALE": "Male",
-		"country": "Country",
-		"yearOfBirth": "Year of birth",
-		"yearOfBirthIsNotANumber": "The Year of birth must be a number",
-		"yearOfBirthIsNotInThePast": "The Year of birth must be in the past"
+		"title": "Persoonlijke gegevens",
+		"intro": "",
+		"gender": "Biologisch geslacht",
+		"FEMALE": "Vrouw",
+		"MALE": "Man",
+		"country": "Land",
+		"yearOfBirth": "Geboortejaar",
+		"yearOfBirthIsNotANumber": "Het geboortejaar moet een getal zijn",
+		"yearOfBirthIsNotInThePast": "Het geboortejaar moet in het verleden liggen"
 	},
 	"countries": {
-		"BE": "Belgium",
-		"GR": "Greece",
-		"LT": "Lithuania"
+		"BE": "België",
+		"GR": "Griekenland",
+		"LT": "Litouwen"
 	},
 	"languages": {
-		"en": "English",
-		"el": "Greek",
-		"lt": "Lithuanian",
-		"nl": "Dutch"
+		"en": "Engels",
+		"el": "Grieks",
+		"lt": "Litouws",
+		"nl": "Nederlands"
 	},
 	"error": {
-		"401": "You are not authenticated or the server has not accepted your authentication; maybe logging out and back will help.",
-		"networkOrSystem": "A network or system error occured; please try again later.",
-		"unknown": "Unknown error!"
+		"401": "U bent niet geauthenticeerd of de server heeft uw authenticatie niet geaccepteerd; misschien helpt het om uit te loggen en opnieuw in te loggen.",
+		"networkOrSystem": "Er is een netwerk- of systeemfout opgetreden; probeer het later opnieuw.",
+		"unknown": "Onbekende fout!"
 	},
 	"terms": {
-		"openButton": "Terms & Conditions",
-		"title": "Terms & Conditions",
-		"draftNotice": "DRAFT — This document is a placeholder pending review by the project's legal team. Do not rely on it for legal purposes.",
+		"openButton": "",
+		"title": "",
+		"draftNotice": "",
 		"acceptance": {
-			"heading": "1. Acceptance of Terms",
-			"body": "These Terms and Conditions (\"Terms\") govern your use of the MyRecipeWatch mobile application (\"the App\"), developed by the Institute of Communication and Computer Systems (ICCS) as part of the EU-funded DietWise project. By installing, accessing, or using the App, you agree to be bound by these Terms. If you do not agree, please do not use the App."
+			"heading": "",
+			"body": ""
 		},
 		"service": {
-			"heading": "2. About the Service",
-			"body": "MyRecipeWatch is a research application that evaluates online recipes against national nutritional guidelines and proposes alternative ingredients. Suggestions are generated by automated systems and are informational only. The App is provided as part of an ongoing research project and its features may change, be paused, or be discontinued without notice."
+			"heading": "",
+			"body": ""
 		},
 		"eligibility": {
-			"heading": "3. Eligibility",
-			"body": "You must be at least 18 years old, or have the consent of a parent or legal guardian, to use the App."
+			"heading": "",
+			"body": ""
 		},
 		"account": {
-			"heading": "4. Account Registration",
-			"body": "Certain features require an account, authenticated via the DietWise identity service. You are responsible for keeping your credentials confidential and for all activity that occurs under your account. Notify the project team promptly of any suspected unauthorized use."
+			"heading": "",
+			"body": ""
 		},
 		"acceptableUse": {
-			"heading": "5. Acceptable Use",
-			"body": "You agree to use the App only for personal, non-commercial purposes and in compliance with applicable law. You must not: (a) attempt to disrupt or compromise the security of the App or its backend services; (b) use the App to harvest, mine, or otherwise extract data at scale; (c) misrepresent your identity; or (d) submit content that is unlawful, offensive, or infringes the rights of others."
+			"heading": "",
+			"body": ""
 		},
 		"userContent": {
-			"heading": "6. User-Provided Content and Feedback",
-			"body": "When you submit recipe URLs, personal information, or feedback (such as acceptance or rejection of suggestions), you grant the project a non-exclusive, royalty-free license to use this data — in anonymized or aggregated form where applicable — for the purposes of operating, evaluating, and improving the service and for research outputs related to the DietWise project. You retain ownership of any content you submit."
+			"heading": "",
+			"body": ""
 		},
 		"recommendationsDisclaimer": {
-			"heading": "7. Nutritional Recommendations Disclaimer",
-			"body": "The App's suggestions are generated by automated systems and are intended for general informational purposes only. They are not medical, dietary, or nutritional advice and are not a substitute for professional consultation. Consult a qualified healthcare provider before making significant changes to your diet, especially if you have a medical condition, allergies, or dietary restrictions."
+			"heading": "",
+			"body": ""
 		},
 		"intellectualProperty": {
-			"heading": "8. Intellectual Property",
-			"body": "The App, including its software, design, text, and graphics, is the property of ICCS and the DietWise consortium or its licensors and is protected by applicable intellectual property laws. These Terms do not grant you any right to reproduce, distribute, or create derivative works of the App, except as permitted by the App's open-source license where applicable."
+			"heading": "",
+			"body": ""
 		},
 		"privacy": {
-			"heading": "9. Privacy",
-			"body": "Your use of the App is also governed by our <policyLink>Privacy Policy</policyLink>, which describes what personal data we collect and how we process it."
+			"heading": "",
+			"body": ""
 		},
 		"liability": {
-			"heading": "10. Disclaimers and Limitation of Liability",
-			"body": "The App is provided on an \"as is\" and \"as available\" basis, without warranties of any kind, express or implied. To the maximum extent permitted by law, the developers and the DietWise consortium disclaim all liability for any direct, indirect, incidental, or consequential damages arising from your use of, or inability to use, the App."
+			"heading": "",
+			"body": ""
 		},
 		"changes": {
-			"heading": "11. Changes to These Terms",
-			"body": "We may update these Terms from time to time. The updated Terms will be made available within the App and on the project website. Your continued use of the App after such changes constitutes acceptance of the updated Terms."
+			"heading": "",
+			"body": ""
 		},
 		"governingLaw": {
-			"heading": "12. Governing Law and Contact",
-			"body": "These Terms are governed by the laws of the country in which the project lead institution is established, without prejudice to any mandatory consumer-protection rights you may have under your local law. For questions about these Terms, contact the project team via https://dietwise.eu."
+			"heading": "",
+			"body": ""
 		}
 	}
 }
