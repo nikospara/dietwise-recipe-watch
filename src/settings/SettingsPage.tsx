@@ -65,8 +65,8 @@ const SettingsPage: React.FC = () => {
 							{/*
 							<IonSelectOption value="el">Ελληνικά</IonSelectOption>
 							<IonSelectOption value="lt">Lietuvių</IonSelectOption>
-							<IonSelectOption value="nl">Nederlands</IonSelectOption>
 							*/}
+							<IonSelectOption value="nl">Nederlands</IonSelectOption>
 						</IonSelect>
 					</IonItem>
 				</IonList>

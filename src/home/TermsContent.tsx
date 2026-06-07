@@ -1,4 +1,3 @@
-import { IonText } from '@ionic/react';
 import { Trans, useTranslation } from 'react-i18next';
 import { Browser } from '@capacitor/browser';
 import { useCallback } from 'react';
@@ -14,12 +13,6 @@ const TermsContent: React.FC = () => {
 
 	return (
 		<div className="help ion-padding-horizontal">
-			<IonText color="warning">
-				<p>
-					<strong>{t('terms.draftNotice')}</strong>
-				</p>
-			</IonText>
-
 			<h2>{t('terms.acceptance.heading')}</h2>
 			<p>{t('terms.acceptance.body')}</p>
 

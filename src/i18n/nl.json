@@ -18,10 +18,10 @@
 		"moto": "Autonomie via personalisatie en inclusie",
 		"paragraph1": "MyRecipeWatchWatch is uw ultieme buddy voor het ontdekken, delen en genieten van heerlijke recepten. Onze AI-gestuurde tool is ontworpen om u te helpen weloverwogen voedselkeuzes te maken, voedselverspilling te verminderen en nieuwe culinaire horizonten te verkennen, en dit alles in lijn met de nationale voedingsrichtlijnen.",
 		"registration": {
-			"start": "",
-			"step1": "",
-			"step2": "",
-			"step3": ""
+			"start": "Om een nieuw account te registreren:",
+			"step1": "Open het applicatiemenu en klik op \"Inloggen\"",
+			"step2": "Klik op \"Registreren\" onderaan in het inlogformulier dat verschijnt",
+			"step3": "Voer je e-mailadres en wachtwoord in (verplicht), naam (optioneel)"
 		}
 	},
 	"recipe": {
@@ -57,7 +57,7 @@
 			"paragraph4": "Druk nogmaals op een geactiveerde knop (\"Accepteren\" of \"Afwijzen\") om een suggestie open te laten.",
 			"paragraph5": "Een andere manier om een suggestie open te laten is door op de \"min\"-knop te klikken van een vervangen ingrediënt in het recept in de bovenste helft van de pagina.",
 			"paragraph6": "De applicatie toont een ruwe kostinschatting van elk alternatief in de vorm van een, twee of drie eurotekens (€/€€/€€€), wat respectievelijk \"relatief goedkoop\", \"gemiddelde kostprijs\" en \"relatief hoge kostprijs\" betekent.",
-			"rating": ""
+			"rating": "De sterrenbeoordeling (1-10) geeft aan hoe goed een recept aansluit bij de voedingsrichtlijnen. Een hogere score betekent dat de algemene balans van ingrediënten beter overeenkomt met de aanbevolen voedingsnormen. De suggesties van onze AI zijn bedoeld om je te helpen je recepten aan te passen voor een hogere score en een betere voedingsbalans van je maaltijd."
 		}
 	},
 	"ingredient": {
@@ -70,7 +70,7 @@
 	},
 	"personalization": {
 		"title": "Persoonlijke gegevens",
-		"intro": "",
+		"intro": "Alle velden zijn optioneel. Door ze in te vullen kan de app aanbevelingen afstemmen op voedingsrichtlijnen die passen bij jouw profiel. Bekijk hoe wij met je gegevens omgaan: <policyLink>Privacybeleid</policyLink>.",
 		"gender": "Biologisch geslacht",
 		"FEMALE": "Vrouw",
 		"MALE": "Man",
@@ -96,56 +96,55 @@
 		"unknown": "Onbekende fout!"
 	},
 	"terms": {
-		"openButton": "",
-		"title": "",
-		"draftNotice": "",
+		"openButton": "Algemene Voorwaarden",
+		"title": "Algemene Voorwaarden",
 		"acceptance": {
-			"heading": "",
-			"body": ""
+			"heading": "1. Acceptatie van de voorwaarden",
+			"body": "Deze Algemene Voorwaarden (\"Voorwaarden\") zijn van toepassing op het gebruik van de mobiele applicatie MyRecipeWatch (\"de App\"), ontwikkeld door het Institute of Communication and Computer Systems (ICCS) als onderdeel van het EU-gefinancierde project DietWise. Door de App te installeren, te openen of te gebruiken, ga je akkoord met deze Voorwaarden. Als je niet akkoord gaat, gebruik de App dan niet."
 		},
 		"service": {
-			"heading": "",
-			"body": ""
+			"heading": "2. Over de service",
+			"body": "MyRecipeWatch is een onderzoeksapplicatie die online recepten beoordeelt aan de hand van nationale voedingsrichtlijnen en alternatieve ingrediënten voorstelt. Suggesties worden gegenereerd door geautomatiseerde systemen en zijn uitsluitend informatief. De App wordt aangeboden als onderdeel van een lopend onderzoeksproject en de functies kunnen zonder voorafgaande kennisgeving worden gewijzigd, opgeschort of stopgezet."
 		},
 		"eligibility": {
-			"heading": "",
-			"body": ""
+			"heading": "3. Toegankelijkheid",
+			"body": "Je moet minimaal 18 jaar oud zijn, of toestemming hebben van een ouder of wettelijke voogd, om de App te gebruiken."
 		},
 		"account": {
-			"heading": "",
-			"body": ""
+			"heading": "4. Accountregistratie",
+			"body": "Bepaalde functies vereisen een account, geverifieerd via de DietWise-identiteitsservice. Je bent verantwoordelijk voor het vertrouwelijk houden van je inloggegevens en voor alle activiteiten die plaatsvinden onder je account. Meld vermoedelijk ongeoorloofd gebruik onmiddellijk aan het projectteam."
 		},
 		"acceptableUse": {
-			"heading": "",
-			"body": ""
+			"heading": "5. Aanvaardbaar gebruik",
+			"body": "Je stemt ermee in de App uitsluitend te gebruiken voor persoonlijke, niet-commerciële doeleinden en in overeenstemming met de toepasselijke wetgeving. Het is niet toegestaan: (a) de beveiliging van de App of de bijbehorende diensten te verstoren of in gevaar te brengen; (b) de App te gebruiken voor het grootschalig verzamelen of extraheren van gegevens; (c) je identiteit te vervalsen; of (d) inhoud in te dienen die onwettig, aanstootgevend is of inbreuk maakt op de rechten van anderen."
 		},
 		"userContent": {
-			"heading": "",
-			"body": ""
+			"heading": "6. Door gebruikers aangeleverde inhoud en feedback",
+			"body": "Wanneer je recept-URL's, persoonlijke informatie of feedback ingeeft (zoals het accepteren of afwijzen van suggesties), verleen je het project een niet-exclusieve, royaltyvrije licentie om deze gegevens te gebruiken — waar van toepassing in geanonimiseerde of geaggregeerde vorm — voor het uitvoeren, evalueren en verbeteren van de dienst en voor onderzoeksresultaten gerelateerd aan het DietWise-project. Je behoudt het eigendom van alle inhoud die je indient."
 		},
 		"recommendationsDisclaimer": {
-			"heading": "",
-			"body": ""
+			"heading": "7. Disclaimer voedingsaanbevelingen",
+			"body": "De suggesties van de App worden gegenereerd door geautomatiseerde systemen en zijn uitsluitend bedoeld voor algemene informatieve doeleinden. Ze vormen geen medisch, diëtetisch of voedingskundig advies en zijn geen vervanging voor professionele begeleiding. Raadpleeg een gekwalificeerde zorgverlener voordat je ingrijpende wijzigingen aanbrengt in je voeding, met name als je een medische aandoening, allergieën of dieetbeperkingen hebt."
 		},
 		"intellectualProperty": {
-			"heading": "",
-			"body": ""
+			"heading": "8. Intellectueel eigendom",
+			"body": "De App, inclusief de software, het ontwerp, de tekst en de afbeeldingen, is eigendom van ICCS en het DietWise-consortium of hun licentiegevers, en wordt beschermd door de toepasselijke intellectuele eigendomswetgeving. Deze Voorwaarden verlenen je geen recht om de App te reproduceren, te verspreiden of afgeleide werken te maken, tenzij dit is toegestaan op grond van de open-sourcelicentie van de App."
 		},
 		"privacy": {
-			"heading": "",
-			"body": ""
+			"heading": "9. Privacy",
+			"body": "Het gebruik van de App valt ook onder ons <policyLink>Privacybeleid</policyLink>, waarin wordt beschreven welke persoonsgegevens we verzamelen en hoe we deze verwerken."
 		},
 		"liability": {
-			"heading": "",
-			"body": ""
+			"heading": "10. Disclaimers en beperking van aansprakelijkheid",
+			"body": "De App wordt aangeboden op \"zoals is\"- en \"zoals beschikbaar\"-basis, zonder enige garantie, expliciet of impliciet. Voor zover maximaal toegestaan door de wet, wijzen de ontwikkelaars en het DietWise-consortium alle aansprakelijkheid af voor directe, indirecte, incidentele of gevolgschade die voortvloeit uit het gebruik van, of het niet kunnen gebruiken van, de App."
 		},
 		"changes": {
-			"heading": "",
-			"body": ""
+			"heading": "11. Wijzigingen in deze Voorwaarden",
+			"body": "We kunnen deze Voorwaarden van tijd tot tijd bijwerken. De bijgewerkte Voorwaarden worden beschikbaar gemaakt binnen de App en op de projectwebsite. Voortgezet gebruik van de App na dergelijke wijzigingen geldt als aanvaarding van de bijgewerkte Voorwaarden."
 		},
 		"governingLaw": {
-			"heading": "",
-			"body": ""
+			"heading": "12. Toepasselijk recht en contact",
+			"body": "Op deze Voorwaarden is het recht van toepassing van het land waar de hoofdinstelling van het project is gevestigd, onverminderd eventuele dwingende consumentenbeschermingsrechten die je hebt op grond van je lokale wetgeving. Voor vragen over deze Voorwaarden kun je contact opnemen met het projectteam via https://dietwise.eu."
 		}
 	}
 }
