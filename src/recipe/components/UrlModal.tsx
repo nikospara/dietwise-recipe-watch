@@ -88,15 +88,9 @@ const UrlModal: React.FC<UrlModalProps> = (props) => {
 							value={language}
 						>
 							<IonSelectOption value="en">{t('languages.en')}</IonSelectOption>
-							<IonSelectOption value="el" disabled={true}>
-								{t('languages.el')}
-							</IonSelectOption>
-							<IonSelectOption value="lt" disabled={true}>
-								{t('languages.lt')}
-							</IonSelectOption>
-							<IonSelectOption value="nl" disabled={true}>
-								{t('languages.nl')}
-							</IonSelectOption>
+							<IonSelectOption value="el">{t('languages.el')}</IonSelectOption>
+							<IonSelectOption value="lt">{t('languages.lt')}</IonSelectOption>
+							<IonSelectOption value="nl">{t('languages.nl')}</IonSelectOption>
 						</IonSelect>
 					</IonItem>
 				</IonList>
