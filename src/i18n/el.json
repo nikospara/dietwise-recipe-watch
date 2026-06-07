@@ -15,29 +15,29 @@
 	"home": {
 		"title": "MyRecipeWatch Αρχική",
 		"heading": "DietWise: MyRecipeWatch",
-		"moto": "",
-		"paragraph1": "",
+		"moto": "Ενδυνάμωση μέσω προσωποποίησης και συμπερίληψης",
+		"paragraph1": "Το MyRecipeWatch είναι ο απόλυτος οδηγός για να ανακαλύπτεται, να μοιράζεστε, και να απολαμβάνετε νόστιμες συνταγές. Η εφαρμογή είναι σχεδιασμένη ώστε να σας υποστηρίζει στην επιλογής ενημερωμένες διατροφικών επιλογών, στη μείωση της σπατάλης τροφίμων, και να ανακαλύπτεται νέες επιλογές σε εναρμόνιση με τις εθνικές διατροφικές συστάσεις",
 		"registration": {
-			"start": "To register a new account:",
-			"step1": "Open the application menu, click \"Login\"",
-			"step2": "In the new login form that appears, click \"Register\" at the bottom",
-			"step3": "Enter your email and password (required), name (optional)"
+			"start": "Για να εγγραφείτε:",
+			"step1": "Ανοίξτε το μενού της εφαρμογής, κάντε κλικ στο \"Σύνδεση\"",
+			"step2": "Στη νέα φόρμα σύνδεσης που εμφανίζεται, κάντε κλικ στο \"Εγγραφή\" που βρίσκεται στο κάτω μέρος",
+			"step3": "Εισαγάγετε το email και τον κωδικό πρόσβασής σας (απαιτείται), όνομα (προαιρετικό)"
 		}
 	},
 	"recipe": {
 		"title": "MyRecipeWatch Συνταγή",
 		"helpTitle": "Βοήθεια",
-		"welcomeHeading": "Καλωσήλθατε στη σελίδα εκτίμησης συνταγών",
+		"welcomeHeading": "Καλωσήλθατε στη σελίδα αξιολόγησης συνταγών",
 		"welcomeFooter": "Μην ανησυχείτε αν δε θυμάστε αυτές τις οδηγίες, θα μπορείτε να τις δείτε πατώντας το κουμπί βοήθεια που θα εμφανιστεί το πάνω μέρος της οθόνης όταν εκτιμήσετε μια συνταγή!",
-		"enterUrl": "Πατήστε εδώ για να εισαγάγετε τη διεύθυνση της συνταγής που θέλετε να εκτιμήσετε",
-		"enterUrlModalTitle": "Εισαγάγετε τη διεύθυνση",
-		"ASSESS": "ΕΚΤΙΜΗΣΕ",
-		"urlPlaceholder": "Εισαγάγετε τη διεύθυνση εδώ",
+		"enterUrl": "Πατήστε εδώ για να εισάγετε τη διεύθυνση της συνταγής που θέλετε να αξιολογήσετε",
+		"enterUrlModalTitle": "Εισάγετε τη διεύθυνση",
+		"ASSESS": "ΑΞΙΟΛΟΓΗΣΗ",
+		"urlPlaceholder": "Εισάγετε τη διεύθυνση εδώ",
 		"encounteredErrors": "Παρουσιάστηκαν λάθη:",
 		"titleOfIngredients": "Υλικά",
 		"titleOfSuggestions": "Προτάσεις - Συμβουλές",
 		"anonymousRecipeTemplateTitle": "Συνταγή #{{index, number}}",
-		"emptySuggestionsFromServer": "Δεν υπάρχουν προτάσεις για τη συνταγή αυτή.",
+		"emptySuggestionsFromServer": "Δεν υπάρχουν προτάσεις για αυτή τη συνταγή.",
 		"seasonalityWarning": "Μπορεί να είναι εκτός εποχής!",
 		"cost": {
 			"LO": "Χαμηλού κόστους",
@@ -45,19 +45,19 @@
 			"HI": "Υψηλού κόστους"
 		},
 		"userStats": "Χρήστης:",
-		"totalStats": "Σύνολο:",
+		"totalStats": "Σύνολα:",
 		"language": "Γλώσσα συνταγής",
 		"help": {
-			"paragraph1": "",
-			"paragraph2": "",
-			"paragraph3": "",
-			"explainUndecidedButton": "",
-			"explainApproveButton": "",
-			"explainRejectButton": "",
-			"paragraph4": "",
-			"paragraph5": "",
-			"paragraph6": "",
-			"rating": "The star rating (1-10) reflects how well a recipe aligns with established dietary guidelines. A higher score means the overall balance of ingredients is more in line with recommended nutritional standards. Our AI's suggestions are designed to help you tweak your recipes to achieve a higher rating and improve the overall nutritional balance of your meal."
+			"paragraph1": "Κάντε κλικ στην περιοχή στο επάνω μέρος της σελίδας και εισάγετε τη διεύθυνση ιστού (URL) της σελίδας που περιέχει τη συνταγή που σας ενδιαφέρει να αξιολογήσετε. Στη συνέχεια, κάντε κλικ στο κουμπί \"Αξιολόγηση\". Το σύστημα θα ξεκινήσει την αξιολόγηση της συνταγής.",
+			"paragraph2": "Η αξιολόγηση πραγματοποιείται σε δύο βήματα: (1) εξαγωγή της συνταγής από τη σελίδα και (2) πρόταση εναλλακτικών, πιο υγιεινών ή/και πιο βιώσιμων συστατικών. Η εφαρμογή εμφανίζει τη λίστα των συστατικών στο επάνω μέρος της σελίδας και τις προτάσεις στο κάτω μέρος.",
+			"paragraph3": "Κατά την περιήγηση στις προτάσεις, έχετε τρεις επιλογές:",
+			"explainUndecidedButton": "Αφήστε την πρόταση σε εκκρεμότητα",
+			"explainApproveButton": "Αποδοχή της πρότασης - πατήστε",
+			"explainRejectButton": "Απόρριψη της πρότασης - πατήστε",
+			"paragraph4": "Πατήστε ξανά ένα ενεργοποιημένο κουμπί (\"Αποδοχή\" ή \"Απόρριψη\") για να επαναφέρετε μια πρόταση σε κατάσταση εκκρεμότητας.",
+			"paragraph5": "Ένας άλλος τρόπος για να επαναφέρετε μια πρόταση σε κατάσταση εκκρεμότητας είναι να κάνετε κλικ στο κουμπί \"-\" ενός αντικατεστημένου συστατικού στη συνταγή, στο επάνω μέρος της σελίδας.",
+			"paragraph6": "Η εφαρμογή εμφανίζει μια κατά προσέγγιση εκτίμηση του κόστους για κάθε εναλλακτική λύση με τη μορφή ενός, δύο ή τριών συμβόλων ευρώ (€/€€/€€€), που σημαίνουν αντίστοιχα \"σχετικά φθηνό\", \"μέσο/μέτριο κόστος\" και \"σχετικά υψηλό κόστος\".",
+			"rating": "Η βαθμολογία με αστέρια (1-10) αντικατοπτρίζει το πόσο καλά μια συνταγή ευθυγραμμίζεται με τις καθιερωμένες διατροφικές οδηγίες. Υψηλότερη βαθμολογία σημαίνει ότι η συνολική ισορροπία των συστατικών είναι πιο σύμφωνη με τα συνιστώμενα διατροφικά πρότυπα. Οι προτάσεις της Τεχνητής Νοημοσύνης μας έχουν σχεδιαστεί για να σας βοηθήσουν να τροποποιήσετε τις συνταγές σας ώστε να επιτύχετε υψηλότερη βαθμολογία και να βελτιώσετε τη συνολική διατροφική ισορροπία του γεύματός σας."
 		}
 	},
 	"ingredient": {
@@ -70,7 +70,7 @@
 	},
 	"personalization": {
 		"title": "Προσωπικές Πληροφορίες",
-		"intro": "All fields are optional. Filling them in lets the app tailor recommendations to nutritional guidelines that fit your profile. See how we handle your data: <policyLink>Privacy Policy</policyLink>.",
+		"intro": "Όλα τα πεδία είναι προαιρετικά. Συμπληρώνοντάς τα επιτρέπετε στην εφαρμογή να προσαρμόζει προτάσεις στις διατροφικές συστάσεις που ταιριάζουν στο προφίλ σας. \nΔείτε πώς διαχειριζόμαστε τα δεδομένα σας: <policyLink>Πολιτική Απορρήτου</policyLink>.",
 		"gender": "Βιολογικό Φύλλο",
 		"FEMALE": "Θήλυ",
 		"MALE": "Άρρεν",
@@ -96,55 +96,55 @@
 		"unknown": "Άγνωστο σφάλμα!"
 	},
 	"terms": {
-		"openButton": "Terms & Conditions",
-		"title": "Terms & Conditions",
+		"openButton": "Όροι & Προϋποθέσεις",
+		"title": "Όροι & Προϋποθέσεις",
 		"acceptance": {
-			"heading": "1. Acceptance of Terms",
-			"body": "These Terms and Conditions (\"Terms\") govern your use of the MyRecipeWatch mobile application (\"the App\"), developed by the Institute of Communication and Computer Systems (ICCS) as part of the EU-funded DietWise project. By installing, accessing, or using the App, you agree to be bound by these Terms. If you do not agree, please do not use the App."
+			"heading": "1. Αποδοχή των Όρων",
+			"body": "Αυτοί οι Όροι και οι Προϋποθέσεις («Όροι») διέπουν τη χρήση της εφαρμογής για κινητά MyRecipeWatch («η Εφαρμογή»), η οποία αναπτύχθηκε από το Ερευνητικό Πανεπιστημιακό Ινστιτούτο Συστημάτων Επικοινωνιών και Υπολογιστών (ΕΠΙΣΕΥ / ICCS) στο πλαίσιο του χρηματοδοτούμενου από την ΕΕ έργου DietWise. Με την εγκατάσταση, την πρόσβαση ή τη χρήση της Εφαρμογής, συμφωνείτε να δεσμεύεστε από αυτούς τους Όρους. Εάν δεν συμφωνείτε, παρακαλούμε να μην χρησιμοποιήσετε την Εφαρμογή."
 		},
 		"service": {
-			"heading": "2. About the Service",
-			"body": "MyRecipeWatch is a research application that evaluates online recipes against national nutritional guidelines and proposes alternative ingredients. Suggestions are generated by automated systems and are informational only. The App is provided as part of an ongoing research project and its features may change, be paused, or be discontinued without notice."
+			"heading": "2. Σχετικά με την Υπηρεσία",
+			"body": "Το My Recipe Watch είναι μια ερευνητική εφαρμογή που αξιολογεί διαδικτυακές συνταγές με βάση τις εθνικές διατροφικές οδηγίες και προτείνει εναλλακτικά συστατικά. Οι προτάσεις δημιουργούνται από αυτοματοποιημένα συστήματα και έχουν αποκλειστικά ενημερωτικό χαρακτήρα. Η Εφαρμογή παρέχεται ως μέρος ενός εν εξελίξει ερευνητικού έργου και οι λειτουργίες της ενδέχεται να αλλάξουν, να ανασταλούν ή να διακοπούν χωρίς προειδοποίηση."
 		},
 		"eligibility": {
-			"heading": "3. Eligibility",
-			"body": "You must be at least 18 years old, or have the consent of a parent or legal guardian, to use the App."
+			"heading": "3. Επιλεξιμότητα",
+			"body": "Πρέπει να είστε τουλάχιστον 18 ετών, ή να έχετε τη συγκατάθεση γονέα ή νόμιμου κηδεμόνα, για να χρησιμοποιήσετε την Εφαρμογή."
 		},
 		"account": {
-			"heading": "4. Account Registration",
-			"body": "Certain features require an account, authenticated via the DietWise identity service. You are responsible for keeping your credentials confidential and for all activity that occurs under your account. Notify the project team promptly of any suspected unauthorized use."
+			"heading": "4. Εγγραφή Λοογαριασμού",
+			"body": "Ορισμένες λειτουργίες απαιτούν λογαριασμό, η ταυτοποίηση του οποίου γίνεται μέσω της υπηρεσίας ταυτοποίησης του DietWise. Είστε υπεύθυνοι για τη διατήρηση της εμπιστευτικότητας των διαπιστευτηρίων σας και για κάθε δραστηριότητα που πραγματοποιείται υπό τον λογαριασμό σας. Ειδοποιήστε αμέσως την ομάδα του έργου για οποιαδήποτε υποψία μη εξουσιοδοτημένης χρήσης."
 		},
 		"acceptableUse": {
-			"heading": "5. Acceptable Use",
-			"body": "You agree to use the App only for personal, non-commercial purposes and in compliance with applicable law. You must not: (a) attempt to disrupt or compromise the security of the App or its backend services; (b) use the App to harvest, mine, or otherwise extract data at scale; (c) misrepresent your identity; or (d) submit content that is unlawful, offensive, or infringes the rights of others."
+			"heading": "5. Αποδεκτή Χρήση",
+			"body": "Συμφωνείτε να χρησιμοποιείτε την Εφαρμογή μόνο για προσωπικούς, μη εμπορικούς σκοπούς και σε συμμόρφωση με την ισχύουσα νομοθεσία. Δεν πρέπει: (α) να επιχειρήσετε να διαταράξετε ή να θέσετε σε κίνδυνο την ασφάλεια της Εφαρμογής ή των υποστηρικτικών υπηρεσιών της· (β) να χρησιμοποιήσετε την Εφαρμογή για τη συλλογή, εξόρυξη ή με άλλον τρόπο εξαγωγή δεδομένων σε μεγάλη κλίμακα· (γ) να παραποιήσετε την ταυτότητά σας· ή (δ) να υποβάλετε περιεχόμενο που είναι παράνομο, προσβλητικό ή παραβιάζει τα δικαιώματα τρίτων."
 		},
 		"userContent": {
-			"heading": "6. User-Provided Content and Feedback",
-			"body": "When you submit recipe URLs, personal information, or feedback (such as acceptance or rejection of suggestions), you grant the project a non-exclusive, royalty-free license to use this data — in anonymized or aggregated form where applicable — for the purposes of operating, evaluating, and improving the service and for research outputs related to the DietWise project. You retain ownership of any content you submit."
+			"heading": "6. Περιεχόμενο και Σχόλια Παρεχόμενα από τον Χρήστη",
+			"body": "Όταν υποβάλλετε συνδέσμους συνταγών, προσωπικές πληροφορίες ή ανατροφοδότηση (όπως η αποδοχή ή η απόρριψη προτάσεων), παραχωρείτε στο έργο μια μη αποκλειστική, ελεύθερη δικαιωμάτων εκμετάλλευσης άδεια χρήσης αυτών των δεδομένων -σε ανωνυμοποιημένη ή συγκεντρωτική μορφή όπου ισχύει- για σκοπούς λειτουργίας, αξιολόγησης και βελτίωσης της υπηρεσίας, καθώς και για ερευνητικά αποτελέσματα που σχετίζονται με το έργο DietWise. Διατηρείτε την κυριότητα οποιουδήποτε περιεχομένου υποβάλλετε."
 		},
 		"recommendationsDisclaimer": {
-			"heading": "7. Nutritional Recommendations Disclaimer",
-			"body": "The App's suggestions are generated by automated systems and are intended for general informational purposes only. They are not medical, dietary, or nutritional advice and are not a substitute for professional consultation. Consult a qualified healthcare provider before making significant changes to your diet, especially if you have a medical condition, allergies, or dietary restrictions."
+			"heading": "7. Αποποίηση Ευθύνης Διατροφικών Συστάσεων",
+			"body": "Οι προτάσεις της Εφαρμογής δημιουργούνται από αυτοματοποιημένα συστήματα και προορίζονται αποκλειστικά για γενικούς ενημερωτικούς σκοπούς. Δεν αποτελούν ιατρικές, διαιτολογικές ή διατροφικές συμβουλές και δεν υποκαθιστούν την επαγγελματική συμβουλή. Συμβουλευτείτε έναν εξειδικευμένο πάροχο υγειονομικής περίθαλψης πριν κάνετε σημαντικές αλλαγές στη διατροφή σας, ειδικά εάν έχετε κάποια ιατρική πάθηση, αλλεργίες ή διατροφικούς περιορισμούς."
 		},
 		"intellectualProperty": {
-			"heading": "8. Intellectual Property",
-			"body": "The App, including its software, design, text, and graphics, is the property of ICCS and the DietWise consortium or its licensors and is protected by applicable intellectual property laws. These Terms do not grant you any right to reproduce, distribute, or create derivative works of the App, except as permitted by the App's open-source license where applicable."
+			"heading": "8. Πνευματική Ιδιοκτησία",
+			"body": "Η Εφαρμογή, συμπεριλαμβανομένου του λογισμικού, του σχεδιασμού, του κειμένου και των γραφικών της, αποτελεί ιδιοκτησία του ΕΠΙΣΕΥ / ICCS και της κοινοπραξίας DietWise ή των αδειοδοτών της και προστατεύεται από τους ισχύοντες νόμους περί πνευματικής ιδιοκτησίας. Αυτοί οι Όροι δεν σας παρέχουν κανένα δικαίωμα αναπαραγωγής, διανομής ή δημιουργίας παράγωγων έργων της Εφαρμογής, εκτός εάν επιτρέπεται από την άδεια ανοιχτού κώδικα της Εφαρμογής, όπου αυτή εφαρμόζεται."
 		},
 		"privacy": {
-			"heading": "9. Privacy",
-			"body": "Your use of the App is also governed by our <policyLink>Privacy Policy</policyLink>, which describes what personal data we collect and how we process it."
+			"heading": "9. Απόρρητο",
+			"body": "Η χρήση της Εφαρμογής διέπεται επίσης από την <policyLink>Πολιτική Απορρήτου</policyLink> μας, η οποία περιγράφει τα προσωπικά δεδομένα που συλλέγουμε και τον τρόπο επεξεργασίας τους."
 		},
 		"liability": {
-			"heading": "10. Disclaimers and Limitation of Liability",
-			"body": "The App is provided on an \"as is\" and \"as available\" basis, without warranties of any kind, express or implied. To the maximum extent permitted by law, the developers and the DietWise consortium disclaim all liability for any direct, indirect, incidental, or consequential damages arising from your use of, or inability to use, the App."
+			"heading": "10. Αποποίηση Ευθυνών και Περιορισμός Ευθύνης",
+			"body": "Η Εφαρμογή παρέχεται σε βάση \"ως έχει\" \"και \"όπως είναι διαθέσιμη\", χωρίς κανενός είδους εγγυήσεις, ρητές ή σιωπηρές. Στον μέγιστο βαθμό που επιτρέπεται από το νόμο, οι δημιουργοί και η κοινοπραξία DietWise αποποιούνται κάθε ευθύνη για τυχόν άμεσες, έμμεσες, τυχαίες ή παρεπόμενες ζημίες που προκύπτουν από τη χρήση ή την αδυναμία χρήσης της Εφαρμογής."
 		},
 		"changes": {
-			"heading": "11. Changes to These Terms",
-			"body": "We may update these Terms from time to time. The updated Terms will be made available within the App and on the project website. Your continued use of the App after such changes constitutes acceptance of the updated Terms."
+			"heading": "11. Αλλαγές σε αυτούς τους Όρους",
+			"body": "Ενδέχεται να ενημερώνουμε αυτούς τους Όρους από καιρό σε καιρό. Οι ενημερωμένοι Όροι θα είναι διαθέσιμοι εντός της Εφαρμογής και στον ιστότοπο του έργου. Η συνεχιζόμενη χρήση της Εφαρμογής μετά από τέτοιες αλλαγές συνιστά αποδοχή των ενημερωμένων Όρων."
 		},
 		"governingLaw": {
-			"heading": "12. Governing Law and Contact",
-			"body": "These Terms are governed by the laws of the country in which the project lead institution is established, without prejudice to any mandatory consumer-protection rights you may have under your local law. For questions about these Terms, contact the project team via https://dietwise.eu."
+			"heading": "12. Εφαρμοστέο Δίκαιο και Επικοινωνία",
+			"body": "Αυτοί οι Όροι διέπονται από τους νόμους της χώρας στην οποία εδρεύει το επικεφαλής ίδρυμα του έργου, με την επιφύλαξη τυχόν υποχρεωτικών δικαιωμάτων προστασίας του καταναλωτή που ενδέχεται να έχετε βάσει της τοπικής σας νομοθεσίας. Για ερωτήσεις σχετικά με αυτούς τους Όρους, επικοινωνήστε με την ομάδα του έργου μέσω του https://dietwise.eu."
 		}
 	}
 }
