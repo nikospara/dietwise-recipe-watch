@@ -18,10 +18,10 @@
 		"moto": "Įgalinimas per suasmeninimą ir įtrauktį",
 		"paragraph1": "MyRecipeWatch - jūsų nepakeičiamas pagalbininkas atrandant, dalinantis ir mėgaujantis gardžiais receptais. Ši dirbtiniu intelektu paremta programėlė sukurta tam, kad padėtų jums priimti informuotus maisto pasirinkimus, mažinti maisto švaistymą ir atrasti naujus kulinarinius kelius, tuo pačiu laikantis nacionalinių mitybos gairių.",
 		"registration": {
-			"start": "",
-			"step1": "",
-			"step2": "",
-			"step3": ""
+			"start": "Norėdami užregistruoti naują paskyrą:",
+			"step1": "Atidarykite meniu ir spustelėkite „Prisijungti“.",
+			"step2": "Atsidariusiame prisijungimo lange apačioje spustelėkite „Registruotis“.",
+			"step3": "Įveskite savo el. pašto adresą ir slaptažodį (privaloma), vardą (neprivaloma)"
 		}
 	},
 	"recipe": {
@@ -57,7 +57,7 @@
 			"paragraph4": "Spauskite mygtuką (\"Priimti\" ar \"Atmesti\") dar kartą, jei norite palikti pasiūlymą be sprendimo",
 			"paragraph5": "Kitas būdas pakeisti pasiūlymo būseną į \"be sprendimo\" yra spaudžiant \"minuso\" ikonėlę prie pakeistų ingridientų recepte viršutinėje puslapio dalyje.",
 			"paragraph6": "Programėlė vertina apytikslę kiekvieno pasiūlyto alternatyvaus recepto kainą vienu, dviem arba trim Euro simboliais (€/€€/€€€). Jų reikšmė - \"įprastai pigus\", \"vidutinė kaina\" ir \"įprastai aukšta kaina\". ",
-			"rating": ""
+			"rating": "Žvaigždučių įvertinimas (1–10) parodo, kiek receptas atitinka nustatytas mitybos gaires. Kuo aukštesnis balas, tuo geriau bendras ingredientų balansas atitinka rekomenduojamus mitybos standartus. Mūsų dirbtinio intelekto pasiūlymai yra skirti padėti jums pakoreguoti receptus, kad jie gautų aukštesnį įvertinimą ir pagerintų bendrą patiekalo maistinę vertę."
 		}
 	},
 	"ingredient": {
@@ -70,7 +70,7 @@
 	},
 	"personalization": {
 		"title": "Asmeninė informacija",
-		"intro": "",
+		"intro": "Visi laukeliai yra neprivalomi. Juos užpildžius, programėlė galės pritaikyti rekomendacijas pagal jūsų profilį atitinkančias mitybos gaires. Sužinokite, kaip tvarkome jūsų duomenis: <policyLink>Privatumo politika</policyLink>",
 		"gender": "Biologinė lytis",
 		"FEMALE": "Moteris",
 		"MALE": "Vyras",
@@ -96,55 +96,55 @@
 		"unknown": "Nežinoma klaida!"
 	},
 	"terms": {
-		"openButton": "",
-		"title": "",
+		"openButton": "Naudojimo salygos",
+		"title": "Naudojimo salygos",
 		"acceptance": {
-			"heading": "",
-			"body": ""
+			"heading": "Sąlygų priėmimas",
+			"body": "Šios Naudojimo sąlygos (toliau – „Sąlygos“) reglamentuoja naudojimąsi mobiliąja programėle MyRecipeWatch (toliau – „Programėlė“), kurią sukūrė Ryšių ir kompiuterių sistemų institutas (ICCS) vykdydamas Europos Sąjungos finansuojamą projektą DietWise. Įdiegdami, pasiekdami ar naudodamiesi Programėle, jūs sutinkate laikytis šių Sąlygų. Jei nesutinkate su šiomis Sąlygomis, nesinaudokite Programėle."
 		},
 		"service": {
-			"heading": "",
-			"body": ""
+			"heading": "Apie paslaugą",
+			"body": "MyRecipeWatch yra moksliniams tyrimams skirta programėlė, kuri vertina internete skelbiamus receptus pagal nacionalines mitybos gaires ir siūlo alternatyvius ingredientus. Pasiūlymai generuojami automatizuotų sistemų ir yra skirti tik informaciniams tikslams. Programėlė teikiama kaip vykdomo mokslinių tyrimų projekto dalis, todėl jos funkcijos gali būti keičiamos, laikinai sustabdomos arba nutraukiamos be išankstinio įspėjimo."
 		},
 		"eligibility": {
-			"heading": "",
-			"body": ""
+			"heading": "Tinkamumas naudotis paslauga",
+			"body": "Norėdami naudotis Programėle, turite būti ne jaunesni kaip 18 metų arba turėti vieno iš tėvų ar teisėto globėjo sutikimą."
 		},
 		"account": {
-			"heading": "",
-			"body": ""
+			"heading": "Paskyros registracija",
+			"body": "Tam tikroms funkcijoms naudoti yra reikalinga paskyra, kuri autentifikuojama per DietWise tapatybės nustatymo paslaugą. Jūs esate atsakingi už savo prisijungimo duomenų konfidencialumo užtikrinimą ir už visą veiklą, vykdomą naudojantis jūsų paskyra. Jei įtariate neteisėtą naudojimąsi jūsų paskyra, nedelsdami informuokite projekto komandą."
 		},
 		"acceptableUse": {
-			"heading": "",
-			"body": ""
+			"heading": "Leistinas naudojimas",
+			"body": "Jūs sutinkate naudoti Programėlę tik asmeniniais, nekomerciniais tikslais ir laikydamiesi galiojančių teisės aktų. Jums draudžiama: a) bandyti sutrikdyti Programėlės ar jos pagalbinių paslaugų veikimą arba pažeisti jų saugumą; b) naudoti Programėlę duomenų masiškam rinkimui, gavybai ar kitokiam didelio masto duomenų ištraukimui; c) klaidingai nurodyti savo tapatybę; d) teikti neteisėtą, įžeidžiantį turinį arba turinį, pažeidžiantį kitų asmenų teises."
 		},
 		"userContent": {
-			"heading": "",
-			"body": ""
+			"heading": "Naudotojo pateiktas turinys ir atsiliepimai",
+			"body": "Kai pateikiate receptų nuorodas (URL), asmeninę informaciją ar atsiliepimus (pvz., pasiūlymų priėmimą arba atmetimą), suteikiate projektui neišimtinę, neatlygintiną licenciją naudoti šiuos duomenis – kai taikoma, anonimizuota arba apibendrinta forma – paslaugos veikimui užtikrinti, vertinti ir tobulinti, taip pat mokslinių tyrimų rezultatams, susijusiems su DietWise projektu, rengti. Jūs išsaugote nuosavybės teises į bet kokį savo pateiktą turinį."
 		},
 		"recommendationsDisclaimer": {
-			"heading": "",
-			"body": ""
+			"heading": "Atsakomybės ribojimas dėl mitybos rekomendacijų",
+			"body": "Programėlės pateikiami pasiūlymai yra generuojami automatizuotų sistemų ir skirti tik bendro pobūdžio informaciniams tikslams. Jie nėra medicininės, dietologinės ar mitybos konsultacijos ir negali pakeisti profesionalaus specialisto patarimo. Prieš atlikdami reikšmingus savo mitybos pokyčius, ypač jei turite sveikatos sutrikimų, alergijų ar mitybos apribojimų, pasitarkite su kvalifikuotu sveikatos priežiūros specialistu."
 		},
 		"intellectualProperty": {
-			"heading": "",
-			"body": ""
+			"heading": "Intelektinė nuosavybė",
+			"body": "Programėlė, įskaitant jos programinę įrangą, dizainą, tekstus ir grafinius elementus, yra Ryšių ir kompiuterių sistemų instituto (ICCS), DietWise konsorciumo arba jų licencijų turėtojų nuosavybė ir yra saugoma pagal taikomus intelektinės nuosavybės teisės aktus. Šios Sąlygos nesuteikia jums teisės atgaminti, platinti ar kurti išvestinių Programėlės kūrinių, išskyrus atvejus, kai tai leidžiama pagal Programėlei taikomą atvirojo kodo licenciją."
 		},
 		"privacy": {
-			"heading": "",
-			"body": ""
+			"heading": "Privatumas",
+			"body": "Jūsų naudojimąsi Programėle taip pat reglamentuoja mūsų <policyLink>Privatumo politika</policyLink>, kurioje aprašoma, kokius asmens duomenis renkame ir kaip juos tvarkome."
 		},
 		"liability": {
-			"heading": "",
-			"body": ""
+			"heading": "Atsakomybės ribojimas ir garantijų atsisakymas",
+			"body": "Programėlė teikiama pagal principą „tokia, kokia yra“ ir „tokia, kokia prieinama“, nesuteikiant jokių aiškiai išreikštų ar numanomų garantijų. Kiek tai leidžia taikytini teisės aktai, kūrėjai ir DietWise konsorciumas neprisiima jokios atsakomybės už tiesioginę, netiesioginę, atsitiktinę ar pasekminę žalą, atsiradusią dėl naudojimosi Programėle arba negalėjimo ja naudotis."
 		},
 		"changes": {
-			"heading": "",
-			"body": ""
+			"heading": "Šių Sąlygų pakeitimai",
+			"body": "Mes galime periodiškai atnaujinti šias Sąlygas. Atnaujinta Sąlygų versija bus paskelbta Programėlėje ir projekto interneto svetainėje. Toliau naudodamiesi Programėle po tokių pakeitimų, jūs patvirtinate, kad sutinkate su atnaujintomis Sąlygomis."
 		},
 		"governingLaw": {
-			"heading": "",
-			"body": ""
+			"heading": "Taikytina teisė ir kontaktinė informacija",
+			"body": "Šioms Sąlygoms taikomi tos šalies teisės aktai, kurioje yra įsteigta projektui vadovaujanti institucija, nepažeidžiant jokių privalomų vartotojų apsaugos teisių, kurias galite turėti pagal savo vietos teisės aktus. Jei turite klausimų dėl šių Sąlygų, susisiekite su projekto komanda per https://dietwise.eu/"
 		}
 	}
 }
