@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { IonList, useIonAlert } from '@ionic/react';
 import { useAtom, useAtomValue } from 'jotai';
 import { apiServerHostAtom } from '@/config/atoms';
@@ -6,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { createSuggestionStatusAction } from '@/recipe/actions';
 import SuggestionComponent from './SuggestionComponent';
 import type { SuggestionStatus } from '@/recipe/model';
+import { randomInterventionKey } from './interventions';
 import { waitForSuggestionStatisticsWithTimeout } from './suggestionsStatisticsUtils';
 import { useSuggestionInFlight } from './useSuggestionInFlight';
 import './SuggestionsComponent.css';
@@ -16,11 +18,25 @@ const SuggestionsComponent: React.FC = () => {
 	const apiServerHost = useAtomValue(apiServerHostAtom);
 	const { isSuggestionInFlight, setSuggestionInFlight } = useSuggestionInFlight();
 	const [presentAlert] = useIonAlert();
+	// Re-pick a random banner each time a new assessment completes. suggestionKeys is a fresh
+	// array per assessment and is left untouched by accept/reject, so the banner stays stable
+	// while the user browses suggestions.
+	const [bannerForKeys, setBannerForKeys] = useState(mainState.suggestionKeys);
+	const [interventionKey, setInterventionKey] = useState(randomInterventionKey);
+	if (bannerForKeys !== mainState.suggestionKeys) {
+		setBannerForKeys(mainState.suggestionKeys);
+		setInterventionKey(randomInterventionKey());
+	}
 
 	if (mainState.suggestionKeys?.length) {
 		return (
 			<div className="sugestions-pane">
-				<h2 className="sticky-suggestions-title">{t('recipe.titleOfSuggestions')}</h2>
+				<div className="sticky-suggestions-header">
+					<h2 className="suggestions-title">{t('recipe.titleOfSuggestions')}</h2>
+					<div className="intervention-banner" role="status">
+						{t(interventionKey)}
+					</div>
+				</div>
 				<IonList>
 					{mainState.suggestionKeys.map((suggestionKey) => {
 						const suggestionState = mainState.suggestions?.[suggestionKey];

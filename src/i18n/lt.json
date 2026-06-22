@@ -62,6 +62,13 @@
 			"rating": "Žvaigždučių įvertinimas (1–10) parodo, kiek receptas atitinka nustatytas mitybos gaires. Kuo aukštesnis balas, tuo geriau bendras ingredientų balansas atitinka rekomenduojamus mitybos standartus. Mūsų dirbtinio intelekto pasiūlymai yra skirti padėti jums pakoreguoti receptus, kad jie gautų aukštesnį įvertinimą ir pagerintų bendrą patiekalo maistinę vertę."
 		}
 	},
+	"interventions": {
+		"1": "Ateities tu padėkos tau už šį paprastą pakeitimą – kodėl nepradėti dabar?",
+		"2": "Garantuotai sveikiau.",
+		"3": "Tai šiek tiek kitaip, bet pabandyk!",
+		"4": "Esame čia tam, kad įkvėptume – pabandyk šį paprastą pakeitimą ir pats pamatyk rezultatą!",
+		"5": "Galbūt dvejoji keisti įprastus ingredientus. Tačiau gali būti, kad tau patiks."
+	},
 	"ingredient": {
 		"equivalence": "Lygiavertiškumas:",
 		"techniqueNotes": "Pastebėjimai:"
