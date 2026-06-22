@@ -3,8 +3,6 @@ import {
 	IonButton,
 	IonButtons,
 	IonContent,
-	IonFab,
-	IonFabButton,
 	IonHeader,
 	IonIcon,
 	IonMenuButton,
@@ -12,7 +10,7 @@ import {
 	IonTitle,
 	IonToolbar,
 } from '@ionic/react';
-import { arrowUndo, helpCircleOutline } from 'ionicons/icons';
+import { helpCircleOutline } from 'ionicons/icons';
 import { useTranslation } from 'react-i18next';
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { mainStateAtom, suggestionInFlightAtom } from '@/recipe/atoms';
@@ -114,6 +112,7 @@ const RecipePage: React.FC = () => {
 				<div className="recipe-page__content">
 					<UrlContainer
 						onClick={() => setUrlModalIsOpen(true)}
+						onReset={resetCallback}
 						url={mainState.url}
 						status={mainState.status}
 					/>
@@ -138,14 +137,6 @@ const RecipePage: React.FC = () => {
 				/>
 
 				<HelpModal isOpen={isHelpModalOpen} setIsOpen={setHelpModalIsOpen} />
-
-				{assessing || hasOutcome ? (
-					<IonFab slot="fixed" vertical="bottom" horizontal="end">
-						<IonFabButton onClick={resetCallback} disabled={assessing}>
-							<IonIcon icon={arrowUndo}></IonIcon>
-						</IonFabButton>
-					</IonFab>
-				) : null}
 			</IonContent>
 		</IonPage>
 	);
