@@ -17,9 +17,10 @@
 		"heading": "DietWise: MyRecipeWatch",
 		"moto": "Autonomie via personalisatie en inclusie",
 		"paragraph1": "MyRecipeWatchWatch is uw ultieme buddy voor het ontdekken, delen en genieten van heerlijke recepten. Onze AI-gestuurde tool is ontworpen om u te helpen weloverwogen voedselkeuzes te maken, voedselverspilling te verminderen en nieuwe culinaire horizonten te verkennen, en dit alles in lijn met de nationale voedingsrichtlijnen.",
+		"loginRegister": "Inloggen / Registreren",
 		"registration": {
 			"start": "Om een nieuw account te registreren:",
-			"step1": "Open het applicatiemenu en klik op \"Inloggen\"",
+			"step1": "Open het applicatiemenu en klik op \"Inloggen\" of druk op de knop \"Inloggen / Registreren\" hieronder",
 			"step2": "Klik op \"Registreren\" onderaan in het inlogformulier dat verschijnt",
 			"step3": "Voer je e-mailadres en wachtwoord in (verplicht), naam (optioneel)"
 		}

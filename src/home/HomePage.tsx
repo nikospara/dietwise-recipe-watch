@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import {
 	IonButton,
 	IonButtons,
@@ -12,11 +12,13 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useAtomValue } from 'jotai';
 import { userAtom } from '@/auth/atoms';
+import { authService } from '@/auth/authService';
 import TermsModal from '@/home/TermsModal';
 
 const HomePage: React.FC = () => {
 	const { t } = useTranslation();
 	const user = useAtomValue(userAtom);
+	const signIn = useCallback(() => authService.signIn(), []);
 	const [isTermsOpen, setIsTermsOpen] = useState(false);
 
 	return (
@@ -49,6 +51,9 @@ const HomePage: React.FC = () => {
 								<li>{t('home.registration.step2')}</li>
 								<li>{t('home.registration.step3')}</li>
 							</ul>
+							<p className="ion-text-center">
+								<IonButton onClick={signIn}>{t('home.loginRegister')}</IonButton>
+							</p>
 						</>
 					)}
 					<p className="ion-text-center">

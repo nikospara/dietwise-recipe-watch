@@ -17,9 +17,10 @@
 		"heading": "DietWise: MyRecipeWatch",
 		"moto": "Įgalinimas per suasmeninimą ir įtrauktį",
 		"paragraph1": "MyRecipeWatch - jūsų nepakeičiamas pagalbininkas atrandant, dalinantis ir mėgaujantis gardžiais receptais. Ši dirbtiniu intelektu paremta programėlė sukurta tam, kad padėtų jums priimti informuotus maisto pasirinkimus, mažinti maisto švaistymą ir atrasti naujus kulinarinius kelius, tuo pačiu laikantis nacionalinių mitybos gairių.",
+		"loginRegister": "Prisijungti / Registruotis",
 		"registration": {
 			"start": "Norėdami užregistruoti naują paskyrą:",
-			"step1": "Atidarykite meniu ir spustelėkite „Prisijungti“.",
+			"step1": "Atidarykite meniu ir spustelėkite „Prisijungti“ arba paspauskite žemiau esantį mygtuką „Prisijungti / Registruotis“.",
 			"step2": "Atsidariusiame prisijungimo lange apačioje spustelėkite „Registruotis“.",
 			"step3": "Įveskite savo el. pašto adresą ir slaptažodį (privaloma), vardą (neprivaloma)"
 		}
