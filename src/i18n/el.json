@@ -38,6 +38,7 @@
 		"encounteredErrors": "Παρουσιάστηκαν λάθη:",
 		"titleOfIngredients": "Υλικά",
 		"titleOfSuggestions": "Προτάσεις - Συμβουλές",
+		"keepScreenOn": "Να μένει αναμμένη η οθόνη",
 		"anonymousRecipeTemplateTitle": "Συνταγή #{{index, number}}",
 		"emptySuggestionsFromServer": "Δεν υπάρχουν προτάσεις για αυτή τη συνταγή.",
 		"seasonalityWarning": "Μπορεί να είναι εκτός εποχής!",

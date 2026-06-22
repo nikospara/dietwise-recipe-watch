@@ -38,6 +38,7 @@
 		"encounteredErrors": "Nustatytos klaidos:",
 		"titleOfIngredients": "Ingridientai",
 		"titleOfSuggestions": "Pasiūlymai - Patarimai",
+		"keepScreenOn": "Ekranas lieka įjungtas",
 		"anonymousRecipeTemplateTitle": "Receptas #{{index, number}}",
 		"emptySuggestionsFromServer": "Šiam receptui pasiūlymų nėra",
 		"seasonalityWarning": "Gali būti ne sezoninis produktas",

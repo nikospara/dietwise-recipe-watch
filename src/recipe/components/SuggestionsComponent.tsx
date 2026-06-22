@@ -6,10 +6,12 @@ import { mainStateAtom } from '@/recipe/atoms';
 import { useTranslation } from 'react-i18next';
 import { createSuggestionStatusAction } from '@/recipe/actions';
 import SuggestionComponent from './SuggestionComponent';
+import CookingModeToggle from './CookingModeToggle';
 import type { SuggestionStatus } from '@/recipe/model';
 import { randomInterventionKey } from './interventions';
 import { waitForSuggestionStatisticsWithTimeout } from './suggestionsStatisticsUtils';
 import { useSuggestionInFlight } from './useSuggestionInFlight';
+import { useKeepScreenAwake } from '@/recipe/useKeepScreenAwake';
 import './SuggestionsComponent.css';
 
 const SuggestionsComponent: React.FC = () => {
@@ -23,16 +25,22 @@ const SuggestionsComponent: React.FC = () => {
 	// while the user browses suggestions.
 	const [bannerForKeys, setBannerForKeys] = useState(mainState.suggestionKeys);
 	const [interventionKey, setInterventionKey] = useState(randomInterventionKey);
+	const [cookingMode, setCookingMode] = useState(false);
 	if (bannerForKeys !== mainState.suggestionKeys) {
 		setBannerForKeys(mainState.suggestionKeys);
 		setInterventionKey(randomInterventionKey());
+		setCookingMode(false);
 	}
+	useKeepScreenAwake(cookingMode);
 
 	if (mainState.suggestionKeys?.length) {
 		return (
 			<div className="sugestions-pane">
 				<div className="sticky-suggestions-header">
-					<h2 className="suggestions-title">{t('recipe.titleOfSuggestions')}</h2>
+					<div className="suggestions-title-row">
+						<h2 className="suggestions-title">{t('recipe.titleOfSuggestions')}</h2>
+						<CookingModeToggle active={cookingMode} onToggle={() => setCookingMode((on) => !on)} />
+					</div>
 					<div className="intervention-banner" role="status">
 						{t(interventionKey)}
 					</div>
