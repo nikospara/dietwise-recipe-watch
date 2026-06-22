@@ -43,7 +43,11 @@ const HomePage: React.FC = () => {
 					<h1>{t('home.heading')}</h1>
 					<p className="moto">{t('home.moto')}</p>
 					<p>{t('home.paragraph1')}</p>
-					{user ? null : (
+					{user ? (
+						<p className="ion-text-center">
+							<IonButton routerLink="/Recipe">{t('home.assessRecipe')}</IonButton>
+						</p>
+					) : (
 						<>
 							<p>{t('home.registration.start')}</p>
 							<ul>
