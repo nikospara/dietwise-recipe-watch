@@ -81,7 +81,7 @@ npm run dev                  # Vite dev server (web)
 npm run build                # tsc + vite build → dist/
 npm run build:mobile-preview # build that also emits mobile-preview.html
 npm run lint                 # ESLint
-npm run test:unit            # Vitest
+npm run test                 # Vitest
 npm run i18n:csv:export      # Export translation strings to CSV
 npm run i18n:csv:import      # Import translated CSV back
 npm run assets:android       # Regenerate Android icons/splash from resources/logo.png + cap sync

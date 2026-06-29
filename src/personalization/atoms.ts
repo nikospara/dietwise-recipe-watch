@@ -16,10 +16,7 @@ export const personalInfoAtom = atomWithRefresh(async (get, { signal }) => {
 });
 
 export type PersonalInfoSaveState =
-	| { status: 'idle' }
-	| { status: 'saving' }
-	| { status: 'success' }
-	| { status: 'error'; errorMessage: string };
+	{ status: 'idle' } | { status: 'saving' } | { status: 'success' } | { status: 'error'; errorMessage: string };
 
 export const personalInfoSaveStateAtom = atom<PersonalInfoSaveState>({ status: 'idle' });
 
@@ -46,9 +43,7 @@ const LOADING = Symbol('personal-info-loading');
 const unwrappedPersonalInfoAtom = unwrap(personalInfoAtom, () => LOADING);
 
 type LoadablePersonalInfo =
-	| { state: 'loading' }
-	| { state: 'hasError'; error: unknown }
-	| { state: 'hasData'; data: PersonalInfo };
+	{ state: 'loading' } | { state: 'hasError'; error: unknown } | { state: 'hasData'; data: PersonalInfo };
 
 export const loadablePersonalInfoAtom = atom<LoadablePersonalInfo>((get) => {
 	try {
