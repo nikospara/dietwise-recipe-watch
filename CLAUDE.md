@@ -85,6 +85,7 @@ npm run test                 # Vitest
 npm run i18n:csv:export      # Export translation strings to CSV
 npm run i18n:csv:import      # Import translated CSV back
 npm run assets:android       # Regenerate Android icons/splash from resources/logo.png + cap sync
+npm run set-app-version -- 5 # Stamp native version: versionName/MARKETING_VERSION ← package.json, versionCode/CURRENT_PROJECT_VERSION ← arg
 ```
 
 Android release flow and Docker build are documented in `README.md` — don't duplicate them here.
@@ -99,6 +100,7 @@ Android release flow and Docker build are documented in `README.md` — don't du
 - **JSON Lines hack**: `src/recipe/reducer.ts` does `text.replaceAll('\\n', '\n').trimStart()` on incoming recipe text. The comments mark this as a hack — if you find yourself touching it, also check the backend producing the field rather than piling on more string surgery.
 - **Settings storage** uses `capacitor-secure-storage-plugin` under the key `recipewatch.settings`. If you bump the schema, write a migration in `mergeLoadedSettings` rather than reading raw.
 - **JSDom 28 + Stencil**: `src/setupTests.ts` installs an `adoptedStyleSheets` shim. Don't remove it; without it Ionic components fail to initialize under Vitest.
+- **App version**: `package.json` `version` is **not** read by the native builds. `scripts/set-app-version.mjs` is the single source of truth — it stamps `android/app/build.gradle` and the iOS `project.pbxproj` from `package.json` plus a required build-number arg. The store-facing build number (`versionCode` / `CURRENT_PROJECT_VERSION`) must strictly increase per upload; the user-visible version need not. Release flow is in README "App versioning".
 
 ## Things this app does *not* do (yet)
 

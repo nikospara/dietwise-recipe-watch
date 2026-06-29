@@ -58,6 +58,24 @@ Mobile preview URL:
 - `http://localhost:8080/mobile-preview`
 
 
+## App versioning
+
+Native release builds carry their own version numbers; bumping `version` in `package.json` does **not** propagate to them. Stamp both platforms with one command:
+
+```bash
+npm run set-app-version -- <buildNumber>
+# equivalently: node scripts/set-app-version.mjs <buildNumber>
+```
+
+In both `android/app/build.gradle` and `ios/App/App.xcodeproj/project.pbxproj` (Debug + Release configs) this sets:
+
+- the **user-visible version** (`versionName` / `MARKETING_VERSION`) to the `version` from `package.json`, and
+- the **build number** (`versionCode` / `CURRENT_PROJECT_VERSION`) to `<buildNumber>`.
+
+`<buildNumber>` is a required integer and must be **higher than the largest build already uploaded** to Google Play / App Store Connect — both stores reject an upload whose build number isn't greater than the previous one. The user-visible version itself does not have to increase.
+
+Release flow: bump `version` in `package.json`, run the command above with the next build number, then build and sync the native project.
+
 ## Android
 
 First time only:
@@ -77,7 +95,7 @@ npx cap sync
 
 Got to `chrome://inspect/#devices` to debug.
 
-To release: open `android/app/build.gradle` and adjust `versionCode` (increase), `versionName` (same as the `version` from package.json)
+To release: set the version with `npm run set-app-version -- <buildNumber>` (see [App versioning](#app-versioning)), then build the release artifact.
 
 
 ### Android app icon and splash generation
