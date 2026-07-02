@@ -1,9 +1,9 @@
-import { MainData } from '@/recipe/model';
+import { MainData, Rating } from '@/recipe/model';
 // import { keyOfIngredientSuggestion } from '@/recipe/model';
 
 type PresenceMap = { [key: string]: boolean };
 
-export function calculateRating(state: MainData): number | undefined {
+export function calculateRating(state: MainData): Rating | undefined {
 	if (!state.scoringData) return undefined;
 	const presenceMap: PresenceMap = Object.keys(state.scoringData.recommendationWeights).reduce(
 		(aggr, cur) => ({ ...aggr, [cur]: false }),
@@ -24,12 +24,31 @@ export function calculateRating(state: MainData): number | undefined {
 			presenceMap[recommendations[i]] = true;
 		}
 	}
-	let score = 0;
+	let encouragedPresent = 0;
+	let encouragedTotal = 0;
+	let limitedPresent = 0;
+	let limitedTotal = 0;
 	for (const recommendationComponentName in state.scoringData.recommendationWeights) {
 		const weight = state.scoringData.recommendationWeights[recommendationComponentName];
 		const present = presenceMap[recommendationComponentName];
-		if (weight === 'LIMITED' && !present) score += 1;
-		else if (weight === 'ENCOURAGED' && present) score += 1;
+		if (weight === 'LIMITED') {
+			limitedTotal += 1;
+			if (present) limitedPresent += 1;
+		} else if (weight === 'ENCOURAGED') {
+			encouragedTotal += 1;
+			if (present) encouragedPresent += 1;
+		}
 	}
-	return score / state.scoringData.totalNumberOfRecomendations;
+	return { encouragedPresent, encouragedTotal, limitedPresent, limitedTotal };
+}
+
+/**
+ * Collapses a {@link Rating} back to the single 0..1 value the star display uses: a recipe scores
+ * for each ENCOURAGED component it contains and each LIMITED component it avoids.
+ */
+export function ratingFraction(rating: Rating): number {
+	const total = rating.encouragedTotal + rating.limitedTotal;
+	if (total === 0) return 0;
+	const score = rating.encouragedPresent + (rating.limitedTotal - rating.limitedPresent);
+	return score / total;
 }

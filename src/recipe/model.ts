@@ -105,6 +105,15 @@ export interface RecipeAndDetectionType {
 
 export type RecommendationWeight = 'LIMITED' | 'ENCOURAGED';
 
+export interface Rating {
+	/** ENCOURAGED components present in the (possibly amended) recipe, out of all encouraged. */
+	encouragedPresent: number;
+	encouragedTotal: number;
+	/** LIMITED components present in the (possibly amended) recipe, out of all limited. */
+	limitedPresent: number;
+	limitedTotal: number;
+}
+
 export interface ScoringData {
 	totalNumberOfRecomendations: number;
 	recommendationWeights: { [key: string]: RecommendationWeight };
@@ -151,7 +160,7 @@ export type IngredientStateType = { [key: string]: string | undefined };
 export interface MainData {
 	status: MainDataStatus;
 	errors?: string[];
-	rating?: number;
+	rating?: Rating;
 	recipes?: Recipe[];
 	detectionTypes?: RecipeDetectionType[];
 	suggestionKeys?: string[];

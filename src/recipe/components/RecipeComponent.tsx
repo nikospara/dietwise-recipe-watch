@@ -2,7 +2,7 @@ import { IonIcon, IonList } from '@ionic/react';
 import { addIcons } from 'ionicons';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { IngredientStateType, Recipe, RecipeDetectionType, SuggestionState } from '@/recipe/model';
+import type { IngredientStateType, Rating, Recipe, RecipeDetectionType, SuggestionState } from '@/recipe/model';
 import IngredientComponent from './IngredientComponent';
 import RatingComponent from './RatingComponent';
 import brainIcon from '@/assets/images/brain.svg';
@@ -17,7 +17,7 @@ addIcons({
 export interface RecipeComponentProps {
 	index: number;
 	recipe: Recipe;
-	rating?: number;
+	rating?: Rating;
 	detectionType: RecipeDetectionType | undefined;
 	suggestions: { [key: string]: SuggestionState } | undefined;
 	ingredientState: IngredientStateType | undefined;
@@ -69,7 +69,7 @@ const RecipeComponent: React.FC<RecipeComponentProps> = (props: RecipeComponentP
 						/>
 					) : null}
 				</div>
-				{typeof props.rating === 'number' ? <RatingComponent rating={10 * props.rating} max={10} /> : null}
+				{props.rating ? <RatingComponent rating={props.rating} max={10} /> : null}
 			</h2>
 			{props.recipe.recipeIngredients?.length > 0 ? (
 				<>
