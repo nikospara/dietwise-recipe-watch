@@ -1,0 +1,41 @@
+.rating-bipolar {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	width: 100%;
+	max-width: 260px;
+}
+
+.rating-bipolar__track {
+	position: relative;
+	flex: 1;
+	height: 12px;
+	border-radius: 6px;
+	background: var(--ion-color-light, #eef0f2);
+	overflow: hidden;
+}
+
+.rating-bipolar__fill {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	transition: width 0.25s ease;
+}
+
+/* Grows toward the center icon, i.e. to the left, as more LIMITED components are present. */
+.rating-bipolar__fill--limited {
+	right: 0;
+	background: var(--ion-color-warning, #ffa500);
+}
+
+/* Grows away from the center icon, i.e. to the right, as more ENCOURAGED components are present. */
+.rating-bipolar__fill--encouraged {
+	left: 0;
+	background: var(--ion-color-success, #2dd36f);
+}
+
+.rating-bipolar__center {
+	flex: 0 0 auto;
+	font-size: 20px;
+	color: var(--ion-color-medium, #92949c);
+}

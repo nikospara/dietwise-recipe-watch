@@ -1,6 +1,7 @@
-import { TbStar, TbStarFilled, TbStarHalfFilled } from 'react-icons/tb';
+import { TbInfoSquareRounded } from 'react-icons/tb';
 import type { Rating } from '@/recipe/model';
-import { ratingFraction } from '@/recipe/reducers/calculateRating';
+import { encouragedRatio, limitedRatio } from '@/recipe/reducers/calculateRating';
+import './RatingComponent.css';
 
 export interface RatingComponentProps {
 	rating: Rating | undefined;
@@ -8,20 +9,26 @@ export interface RatingComponentProps {
 }
 
 const RatingComponent: React.FC<RatingComponentProps> = (props: RatingComponentProps) => {
-	const stars = new Array(props.max);
-	const rating = props.rating ? props.max * ratingFraction(props.rating) : 0;
+	const limited = props.rating ? limitedRatio(props.rating) : 0;
+	const encouraged = props.rating ? encouragedRatio(props.rating) : 0;
 
-	for (let i = 0; i < props.max; i++) {
-		if (rating > i + 0.5) {
-			stars.push(<TbStarFilled className="inline-block" key={i} />);
-		} else if (rating > i) {
-			stars.push(<TbStarHalfFilled className="inline-block" key={i} />);
-		} else {
-			stars.push(<TbStar className="inline-block" key={i} />);
-		}
-	}
-
-	return <div className="color-gold">{stars}</div>;
+	return (
+		<div className="rating-bipolar">
+			<div className="rating-bipolar__track rating-bipolar__track--limited">
+				<div
+					className="rating-bipolar__fill rating-bipolar__fill--limited"
+					style={{ width: `${limited * 100}%` }}
+				/>
+			</div>
+			<TbInfoSquareRounded className="rating-bipolar__center" aria-hidden="true" />
+			<div className="rating-bipolar__track rating-bipolar__track--encouraged">
+				<div
+					className="rating-bipolar__fill rating-bipolar__fill--encouraged"
+					style={{ width: `${encouraged * 100}%` }}
+				/>
+			</div>
+		</div>
+	);
 };
 
 export default RatingComponent;

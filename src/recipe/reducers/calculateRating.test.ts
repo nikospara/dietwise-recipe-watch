@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { calculateRating, ratingFraction } from './calculateRating';
+import { calculateRating, encouragedRatio, limitedRatio, ratingFraction } from './calculateRating';
 import type { MainData, ScoringData } from '@/recipe/model';
 
 function stateWithScoring(scoringData: ScoringData): MainData {
@@ -58,6 +58,32 @@ describe('ratingFraction', () => {
 
 	it('is 0 when there are no weighted recommendations', () => {
 		expect(ratingFraction({ encouragedPresent: 0, encouragedTotal: 0, limitedPresent: 0, limitedTotal: 0 })).toBe(
+			0,
+		);
+	});
+});
+
+describe('limitedRatio', () => {
+	it('is the share of limited components that are present', () => {
+		expect(limitedRatio({ encouragedPresent: 0, encouragedTotal: 0, limitedPresent: 1, limitedTotal: 4 })).toBe(
+			0.25,
+		);
+	});
+
+	it('is 0 when there are no limited components', () => {
+		expect(limitedRatio({ encouragedPresent: 0, encouragedTotal: 0, limitedPresent: 0, limitedTotal: 0 })).toBe(0);
+	});
+});
+
+describe('encouragedRatio', () => {
+	it('is the share of encouraged components that are present', () => {
+		expect(encouragedRatio({ encouragedPresent: 3, encouragedTotal: 4, limitedPresent: 0, limitedTotal: 0 })).toBe(
+			0.75,
+		);
+	});
+
+	it('is 0 when there are no encouraged components', () => {
+		expect(encouragedRatio({ encouragedPresent: 0, encouragedTotal: 0, limitedPresent: 0, limitedTotal: 0 })).toBe(
 			0,
 		);
 	});

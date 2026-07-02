@@ -52,3 +52,13 @@ export function ratingFraction(rating: Rating): number {
 	const score = rating.encouragedPresent + (rating.limitedTotal - rating.limitedPresent);
 	return score / total;
 }
+
+/** Share of LIMITED components present in the recipe (0..1); higher is worse. */
+export function limitedRatio(rating: Rating): number {
+	return rating.limitedTotal === 0 ? 0 : rating.limitedPresent / rating.limitedTotal;
+}
+
+/** Share of ENCOURAGED components present in the recipe (0..1); higher is better. */
+export function encouragedRatio(rating: Rating): number {
+	return rating.encouragedTotal === 0 ? 0 : rating.encouragedPresent / rating.encouragedTotal;
+}
