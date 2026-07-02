@@ -7,7 +7,7 @@ import tseslint from 'typescript-eslint';
 import prettierRecommendedConfig from 'eslint-plugin-prettier/recommended';
 
 export default defineConfig(
-	{ ignores: ['dist', 'cypress.config.ts'] },
+	{ ignores: ['dist', 'ios', 'android', 'cypress.config.ts'] },
 	{
 		extends: [js.configs.recommended, ...tseslint.configs.recommended],
 		files: ['**/*.{ts,tsx}'],
