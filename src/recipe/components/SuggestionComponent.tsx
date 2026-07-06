@@ -3,7 +3,7 @@ import { IonButton, IonIcon, IonItem, IonLabel } from '@ionic/react';
 import { useTranslation } from 'react-i18next';
 import { alertCircleOutline, checkmark, close, information } from 'ionicons/icons';
 import type { Suggestion, SuggestionStatus } from '@/recipe/model';
-import { isOutsideSeasonalityRange, makeCostString } from './suggestionsComponentUtils';
+import { isOutsideSeasonalityRange, makeCostString, recommendationForDisplay } from './suggestionsComponentUtils';
 
 export interface SuggestionComponentProps {
 	suggestion: Suggestion;
@@ -29,7 +29,7 @@ const SuggestionComponent: React.FC<SuggestionComponentProps> = ({
 		const outOfSeasonMessage = isOutsideSeasonalityRange(suggestion)
 			? `<br/><br/>${t('recipe.seasonalityWarning')}`
 			: '';
-		const message = `${suggestion.recommendation}<br/><br/>${costMessage}${outOfSeasonMessage}`;
+		const message = `${recommendationForDisplay(suggestion)}<br/><br/>${costMessage}${outOfSeasonMessage}`;
 		onInfoClicked(header, message);
 	}, [suggestion, onInfoClicked, t]);
 

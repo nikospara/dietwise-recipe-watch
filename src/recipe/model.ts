@@ -57,6 +57,7 @@ export interface Suggestion extends SuggestionTemplate {
 	target: AppliesToIngredient | AppliesToRecipe;
 	ruleId: string;
 	recommendation: string;
+	humanFriendlyRecommendationDisplay?: string;
 	seasonality?: Seasonality;
 	cost?: Cost;
 	rationale?: string;

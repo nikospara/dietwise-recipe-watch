@@ -5,6 +5,7 @@ import {
 	hasSuggestionsContent,
 	isMonthWithinRange,
 	isOutsideSeasonalityRange,
+	recommendationForDisplay,
 } from './suggestionsComponentUtils';
 
 const baseSuggestion: Suggestion = {
@@ -80,6 +81,16 @@ describe('suggestionsComponentUtils', () => {
 		expect(isOutsideSeasonalityRange(suggestion, 4)).toBe(false);
 		expect(isOutsideSeasonalityRange(suggestion, 8)).toBe(false);
 		expect(isOutsideSeasonalityRange(suggestion, 9)).toBe(true);
+	});
+
+	it('prefers the human-friendly display for the recommendation', () => {
+		expect(
+			recommendationForDisplay({ ...baseSuggestion, humanFriendlyRecommendationDisplay: 'Eat less red meat' }),
+		).toBe('Eat less red meat');
+	});
+
+	it('falls back to the recommendation when no human-friendly display is present', () => {
+		expect(recommendationForDisplay(baseSuggestion)).toBe('Use seasonal vegetables');
 	});
 
 	it('handles wrap around seasonality ranges', () => {

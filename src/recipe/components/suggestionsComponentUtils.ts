@@ -39,6 +39,10 @@ export function formatStats(stats: SuggestionStats, status: SuggestionStatus | u
 	return `${timesAccepted}/${timesRejected}/${stats.timesSuggested}`;
 }
 
+export function recommendationForDisplay(suggestion: Suggestion): string {
+	return suggestion.humanFriendlyRecommendationDisplay ?? suggestion.recommendation;
+}
+
 export function makeCostString(cost?: Cost) {
 	switch (cost) {
 		case 'HI':
