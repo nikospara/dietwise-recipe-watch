@@ -41,6 +41,12 @@
 		"keepScreenOn": "Keep screen on",
 		"anonymousRecipeTemplateTitle": "Recipe #{{index, number}}",
 		"emptySuggestionsFromServer": "There are no suggestions for this recipe.",
+		"rating": {
+			"detailsTitle": "Components present in this recipe",
+			"encouragedPresent": "Encouraged",
+			"limitedPresent": "To limit",
+			"none": "None"
+		},
 		"seasonalityWarning": "May be out of season!",
 		"cost": {
 			"LO": "Low cost",

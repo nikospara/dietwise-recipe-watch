@@ -24,19 +24,19 @@ export function calculateRating(state: MainData): Rating | undefined {
 			presenceMap[recommendations[i]] = true;
 		}
 	}
-	let encouragedPresent = 0;
+	const encouragedPresent: string[] = [];
+	const limitedPresent: string[] = [];
 	let encouragedTotal = 0;
-	let limitedPresent = 0;
 	let limitedTotal = 0;
 	for (const recommendationComponentName in state.scoringData.recommendationWeights) {
 		const weight = state.scoringData.recommendationWeights[recommendationComponentName];
 		const present = presenceMap[recommendationComponentName];
 		if (weight === 'LIMITED') {
 			limitedTotal += 1;
-			if (present) limitedPresent += 1;
+			if (present) limitedPresent.push(recommendationComponentName);
 		} else if (weight === 'ENCOURAGED') {
 			encouragedTotal += 1;
-			if (present) encouragedPresent += 1;
+			if (present) encouragedPresent.push(recommendationComponentName);
 		}
 	}
 	return { encouragedPresent, encouragedTotal, limitedPresent, limitedTotal };
@@ -49,16 +49,16 @@ export function calculateRating(state: MainData): Rating | undefined {
 export function ratingFraction(rating: Rating): number {
 	const total = rating.encouragedTotal + rating.limitedTotal;
 	if (total === 0) return 0;
-	const score = rating.encouragedPresent + (rating.limitedTotal - rating.limitedPresent);
+	const score = rating.encouragedPresent.length + (rating.limitedTotal - rating.limitedPresent.length);
 	return score / total;
 }
 
 /** Share of LIMITED components present in the recipe (0..1); higher is worse. */
 export function limitedRatio(rating: Rating): number {
-	return rating.limitedTotal === 0 ? 0 : rating.limitedPresent / rating.limitedTotal;
+	return rating.limitedTotal === 0 ? 0 : rating.limitedPresent.length / rating.limitedTotal;
 }
 
 /** Share of ENCOURAGED components present in the recipe (0..1); higher is better. */
 export function encouragedRatio(rating: Rating): number {
-	return rating.encouragedTotal === 0 ? 0 : rating.encouragedPresent / rating.encouragedTotal;
+	return rating.encouragedTotal === 0 ? 0 : rating.encouragedPresent.length / rating.encouragedTotal;
 }

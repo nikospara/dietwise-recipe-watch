@@ -106,11 +106,11 @@ export interface RecipeAndDetectionType {
 export type RecommendationWeight = 'LIMITED' | 'ENCOURAGED';
 
 export interface Rating {
-	/** ENCOURAGED components present in the (possibly amended) recipe, out of all encouraged. */
-	encouragedPresent: number;
+	/** Names of the ENCOURAGED components present in the (possibly amended) recipe. */
+	encouragedPresent: string[];
 	encouragedTotal: number;
-	/** LIMITED components present in the (possibly amended) recipe, out of all limited. */
-	limitedPresent: number;
+	/** Names of the LIMITED components present in the (possibly amended) recipe. */
+	limitedPresent: string[];
 	limitedTotal: number;
 }
 

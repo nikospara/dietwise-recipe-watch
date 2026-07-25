@@ -4,6 +4,22 @@
 	gap: 6px;
 	width: 100%;
 	max-width: 260px;
+	cursor: pointer;
+}
+
+.rating-bipolar:focus-visible {
+	outline: 2px solid var(--ion-color-primary, #3880ff);
+	outline-offset: 3px;
+	border-radius: 6px;
+}
+
+.rating-bipolar__component {
+	text-transform: capitalize;
+}
+
+/* Separates the "To limit" section from the "Encouraged" one above it, only when both are shown. */
+.rating-bipolar__section-gap {
+	margin-top: 32px;
 }
 
 .rating-bipolar__track {

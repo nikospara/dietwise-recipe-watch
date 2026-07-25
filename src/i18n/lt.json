@@ -41,6 +41,12 @@
 		"keepScreenOn": "Ekranas lieka įjungtas",
 		"anonymousRecipeTemplateTitle": "Receptas #{{index, number}}",
 		"emptySuggestionsFromServer": "Šiam receptui pasiūlymų nėra",
+		"rating": {
+			"detailsTitle": "Šiame recepte esantys komponentai",
+			"encouragedPresent": "Skatinamas",
+			"limitedPresent": "Apriboti",
+			"none": "Nėra"
+		},
 		"seasonalityWarning": "Gali būti ne sezoninis produktas",
 		"cost": {
 			"LO": "Maža kaina",

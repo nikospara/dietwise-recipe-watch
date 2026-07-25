@@ -41,6 +41,12 @@
 		"keepScreenOn": "Να μένει αναμμένη η οθόνη",
 		"anonymousRecipeTemplateTitle": "Συνταγή #{{index, number}}",
 		"emptySuggestionsFromServer": "Δεν υπάρχουν προτάσεις για αυτή τη συνταγή.",
+		"rating": {
+			"detailsTitle": "Στοιχεία της συνταγής",
+			"encouragedPresent": "Θετικά",
+			"limitedPresent": "Προς περιορισμό",
+			"none": "Κανένα"
+		},
 		"seasonalityWarning": "Μπορεί να είναι εκτός εποχής!",
 		"cost": {
 			"LO": "Χαμηλού κόστους",
