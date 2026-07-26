@@ -118,7 +118,6 @@ const RecipePage: React.FC = () => {
 					/>
 					{!assessing && !hasOutcome ? (
 						<>
-							<h1 className="ion-padding-horizontal">{t('recipe.welcomeHeading')}</h1>
 							<HelpContentsComponent />
 							<p className="ion-margin-horizontal ion-padding-vertical border-top-1px-lightmedium">
 								{t('recipe.welcomeFooter')}

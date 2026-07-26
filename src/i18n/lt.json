@@ -58,16 +58,25 @@
 		"totalStats": "Viso",
 		"language": "Recepto kalba",
 		"help": {
+			"title": "Kaip veikia „MyRecipeWatch“",
+			"intro": "Čia rasite viską, ką reikia žinoti apie receptų vertinimą ir sveikesnių ingredientų pasirinkimą.",
+			"enterLinkTitle": "Įveskite recepto nuorodą",
 			"paragraph1": "Paspauskite ekrano viršuje esantį lauką ir įveskite adresą recepto, kurio įvertinimą norėtumėte gauti. Tada spauskite mygtuką \"Vertinti\". Sistema automatiškai pradės vertinti receptą.",
+			"twoStepsTitle": "Du paprasti žingsniai",
 			"paragraph2": "Vertinimas vyksta dviejuose žingsniuose: (1) įkeliant receptą iš puslapio ir (2) pasiūlant sveikesnių ir/ar tvaresnių ingridientų alternatyvą. Programa ingridientų sąrašą atvaizduoja viršutinėje puslapio dalyje, o pasiūlymus - apatinėje dalyje. ",
+			"reviewSuggestionsTitle": "Peržiūrėkite pasiūlymus",
 			"paragraph3": "Naršant pasiūlymus, turite tris pasirinkimus:",
 			"explainUndecidedButton": "Palikti pasiūlymą be sprendimo",
 			"explainApproveButton": "Priimti pasiūlymą - spausti",
 			"explainRejectButton": "Atmesti pasiūlymą - spausti",
 			"paragraph4": "Spauskite mygtuką (\"Priimti\" ar \"Atmesti\") dar kartą, jei norite palikti pasiūlymą be sprendimo",
 			"paragraph5": "Kitas būdas pakeisti pasiūlymo būseną į \"be sprendimo\" yra spaudžiant \"minuso\" ikonėlę prie pakeistų ingridientų recepte viršutinėje puslapio dalyje.",
+			"costTitle": "Sąnaudų įvertinimas",
 			"paragraph6": "Programėlė vertina apytikslę kiekvieno pasiūlyto alternatyvaus recepto kainą vienu, dviem arba trim Euro simboliais (€/€€/€€€). Jų reikšmė - \"įprastai pigus\", \"vidutinė kaina\" ir \"įprastai aukšta kaina\". ",
-			"rating": "Žvaigždučių įvertinimas (1–10) parodo, kiek receptas atitinka nustatytas mitybos gaires. Kuo aukštesnis balas, tuo geriau bendras ingredientų balansas atitinka rekomenduojamus mitybos standartus. Mūsų dirbtinio intelekto pasiūlymai yra skirti padėti jums pakoreguoti receptus, kad jie gautų aukštesnį įvertinimą ir pagerintų bendrą patiekalo maistinę vertę."
+			"understandScoreTitle": "Supraskite rezultatą",
+			"rating": "Žvaigždučių įvertinimas (1–10) parodo, kiek receptas atitinka nustatytas mitybos gaires. Kuo aukštesnis balas, tuo geriau bendras ingredientų balansas atitinka rekomenduojamus mitybos standartus. Mūsų dirbtinio intelekto pasiūlymai yra skirti padėti jums pakoreguoti receptus, kad jie gautų aukštesnį įvertinimą ir pagerintų bendrą patiekalo maistinę vertę.",
+			"inControlTitle": "Jūs kontroliuojate situaciją",
+			"inControl": "Jūs sprendžiate, kuriuos pakeitimus priimti. Maži pakeitimai gali turėti didelės įtakos jūsų sveikatai ir planetai."
 		}
 	},
 	"interventions": {
