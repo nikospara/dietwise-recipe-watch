@@ -1,4 +1,4 @@
-import { IonIcon, IonList } from '@ionic/react';
+import { IonIcon, IonItem, IonLabel, IonList } from '@ionic/react';
 import { addIcons } from 'ionicons';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -75,6 +75,9 @@ const RecipeComponent: React.FC<RecipeComponentProps> = (props: RecipeComponentP
 				<>
 					<h3 className="sticky-ingredients-title">{t('recipe.titleOfIngredients')}</h3>
 					<IonList>
+						<IonItem color="warning">
+							<IonLabel>{t('recipe.disclaimer')}</IonLabel>
+						</IonItem>
 						{props.recipe.recipeIngredients.map((ingredient) => {
 							const acceptedSuggestionId = props.ingredientState?.[ingredient.id];
 							const acceptedSuggestion = acceptedSuggestionId

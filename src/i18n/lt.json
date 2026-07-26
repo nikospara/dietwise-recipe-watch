@@ -37,6 +37,7 @@
 		"urlPlaceholder": "Įvesi adresą čia",
 		"encounteredErrors": "Nustatytos klaidos:",
 		"titleOfIngredients": "Ingridientai",
+		"disclaimer": "Toliau pateiktas turinys yra iš jūsų įvestu adresu esančios svetainės, o jo intelektinė nuosavybė yra ta, kurią nurodo tas pats puslapis.",
 		"titleOfSuggestions": "Pasiūlymai - Patarimai",
 		"keepScreenOn": "Ekranas lieka įjungtas",
 		"anonymousRecipeTemplateTitle": "Receptas #{{index, number}}",
@@ -86,7 +87,13 @@
 	},
 	"personalization": {
 		"title": "Asmeninė informacija",
-		"intro": "Visi laukeliai yra neprivalomi. Juos užpildžius, programėlė galės pritaikyti rekomendacijas pagal jūsų profilį atitinkančias mitybos gaires. Sužinokite, kaip tvarkome jūsų duomenis: <policyLink>Privatumo politika</policyLink>",
+		"intro_": "Visi laukeliai yra neprivalomi. Juos užpildžius, programėlė galės pritaikyti rekomendacijas pagal jūsų profilį atitinkančias mitybos gaires. Sužinokite, kaip tvarkome jūsų duomenis: <policyLink>Privatumo politika</policyLink>",
+		"intro": {
+			"paragraph1": "Mes naudojame jūsų amžių, lytį ir šalį, kad suasmenintume jūsų receptų rekomendacijas. Tai padeda mums pasiūlyti receptus, kurie geriau atitinka jūsų mitybos poreikius, nes jie gali skirtis priklausomai nuo tokių veiksnių kaip amžius ir lytis.",
+			"paragraph2": "Jūsų rekomendacijos yra pagrįstos dideliais tarptautiniais sveikatos duomenų rinkiniais ir sutelktos į mitybos pokyčius, kurie gali turėti didžiausią naudą sveikatai žmonėms, turintiems panašų profilį kaip jūs.",
+			"paragraph3": "Mes taip pat naudojame jūsų šalį, kad atsižvelgtume į vietinio maisto sezoniškumą, taip pat į tipines ingredientų kainas, kad receptai būtų praktiškesni ir aktualesni jūsų gyvenamajai vietai.",
+			"paragraph4": "Visi laukeliai yra neprivalomi. "
+		},
 		"gender": "Biologinė lytis",
 		"FEMALE": "Moteris",
 		"MALE": "Vyras",

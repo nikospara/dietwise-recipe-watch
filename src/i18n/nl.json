@@ -37,6 +37,7 @@
 		"urlPlaceholder": "Voer hier het adres in",
 		"encounteredErrors": "Gevonden fouten:",
 		"titleOfIngredients": "Ingrediënten",
+		"disclaimer": "De volgende inhoud is afkomstig van de website op het door u ingevoerde adres en het intellectuele eigendom ervan is zoals gespecificeerd op diezelfde pagina.",
 		"titleOfSuggestions": "Suggesties - Advies",
 		"keepScreenOn": "Scherm aan houden",
 		"anonymousRecipeTemplateTitle": "Recept #{{index, number}}",
@@ -86,7 +87,13 @@
 	},
 	"personalization": {
 		"title": "Persoonlijke gegevens",
-		"intro": "Alle velden zijn optioneel. Door ze in te vullen kan de app aanbevelingen afstemmen op voedingsrichtlijnen die passen bij jouw profiel. Bekijk hoe wij met je gegevens omgaan: <policyLink>Privacybeleid</policyLink>.",
+		"intro_": "Alle velden zijn optioneel. Door ze in te vullen kan de app aanbevelingen afstemmen op voedingsrichtlijnen die passen bij jouw profiel. Bekijk hoe wij met je gegevens omgaan: <policyLink>Privacybeleid</policyLink>.",
+		"intro": {
+			"paragraph1": "We gebruiken uw leeftijd, geslacht en land om alternatieve suggesties te kiezen die bij u passen. Zo kunnen we recepten voorstellen die beter aansluiten bij wat uw lichaam nodig heeft. Dat kan verschillen per leeftijd en geslacht.",
+			"paragraph2": "De suggesties zijn gebaseerd op grote internationale onderzoeken naar gezondheid. We kiezen suggesties die mensen met een vergelijkbaar profiel als dat van u kunnen helpen om gezonder te eten en zo hun gezondheid te verbeteren.",
+			"paragraph3": "We gebruiken ook uw land. Zo houden we rekening met welke voedingsmiddelen in het seizoen zijn en wat ingrediënten meestal kosten. Daardoor zijn de recepten beter afgestemd op de plek waar u woont.",
+			"paragraph4": "Alle velden zijn optioneel."
+		},
 		"gender": "Biologisch geslacht",
 		"FEMALE": "Vrouw",
 		"MALE": "Man",

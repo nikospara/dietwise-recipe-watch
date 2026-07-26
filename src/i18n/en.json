@@ -37,6 +37,7 @@
 		"urlPlaceholder": "Enter the address here",
 		"encounteredErrors": "Encountered errors:",
 		"titleOfIngredients": "Ingredients",
+		"disclaimer": "The following content comes from the website at the address you have entered and its intellectual property is that specified by the same page.",
 		"titleOfSuggestions": "Suggestions - Advice",
 		"keepScreenOn": "Keep screen on",
 		"anonymousRecipeTemplateTitle": "Recipe #{{index, number}}",
@@ -86,7 +87,13 @@
 	},
 	"personalization": {
 		"title": "Personal Information",
-		"intro": "All fields are optional. Filling them in lets the app tailor recommendations to nutritional guidelines that fit your profile. See how we handle your data: <policyLink>Privacy Policy</policyLink>.",
+		"intro_": "All fields are optional. Filling them in lets the app tailor recommendations to nutritional guidelines that fit your profile. See how we handle your data: <policyLink>Privacy Policy</policyLink>.",
+		"intro": {
+			"paragraph1": "We use your age, sex, and country to personalize your recipe recommendations. This helps us suggest recipes that better match your nutritional needs, as these can vary depending on factors such as age and sex.",
+			"paragraph2": "Your recommendations are based on large international health datasets and focus on the dietary changes that may have the biggest health benefit for people with a similar profile to yours.",
+			"paragraph3": "We also use your country to take local food seasonality into account, as well as typical ingredient costs, so that the recipes are more practical and relevant for where you live.",
+			"paragraph4": "All fields are optional."
+		},
 		"gender": "Biological gender",
 		"FEMALE": "Female",
 		"MALE": "Male",
