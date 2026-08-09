@@ -145,5 +145,5 @@ This will:
 - For available generation flags, run:
 
 ```bash
-npm run assets:android:help
+npm run assets:help
 ```
